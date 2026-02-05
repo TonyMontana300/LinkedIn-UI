@@ -1,7 +1,7 @@
 import React from "react";
 import AuthTitle from "../components/login-signup/AuthTitle";
 import AuthDivider from "../components/login-signup/AuthDivider";
-import SocialAuth2 from "../components/login-signup/SocialAuth";
+import SocialAuth from "../components/login-signup/SocialAuth";
 import SignUpForm from "../components/login-signup/SignUpForm";
 
 const SignUp = () => {
@@ -14,7 +14,7 @@ const SignUp = () => {
         />
         <SignUpForm />
         <AuthDivider />
-        <SocialAuth2 
+        <SocialAuth 
           google="Continue with Google"
           user="Continue as User"
           text="Already on LinkedIn?"
