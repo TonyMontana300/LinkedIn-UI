@@ -1,8 +1,8 @@
 import React from "react";
 import AuthTitle from "../components/login-signup/AuthTitle";
-import AuthDivider from "../components/login-signup/AuthDivider";
 import SocialAuth from "../components/login-signup/SocialAuth";
 import SignUpForm from "../components/login-signup/SignUpForm";
+import Divider from "../components/login-signup/Divider";
 
 const SignUp = () => {
   return (
@@ -10,10 +10,9 @@ const SignUp = () => {
       <div>
         <AuthTitle
           title="Make the most of your professional life"
-          subtitle="Join LinkedIn today to connect with professionals and grow your career."
         />
         <SignUpForm />
-        <AuthDivider />
+        <Divider />
         <SocialAuth 
           google="Continue with Google"
           user="Continue as User"

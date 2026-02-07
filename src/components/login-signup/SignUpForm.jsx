@@ -1,25 +1,24 @@
 import React from "react";
+import Divider from "./Divider";
+import Input from "../ui/Input";
+import Button from "../ui/Button";
+import Policy from "../ui/Policy";
 
 const SignUpForm = () => {
   return (
-    <form action="submit">
-      <div>
-        <label htmlFor="first-name">First Name</label>
-        <input type="text" id="first-name" name="first-name" />
-      </div>
-      <div>
-        <label htmlFor="last-name">Last Name</label>
-        <input type="text" id="last-name" name="last-name" />
-      </div>
-      <div>
-        <label htmlFor="password">Password</label>
-        <input type="password" id="password" name="password" />
-      </div>
-      <p>
-        By clicking Continue, you agree to LinkedIn’s User Agreement, Privacy
-        Policy, and Cookie Policy.
-      </p>
-      <button type="submit">Agree & Join</button>
+    <form action="submit" className="mx-5 flex flex-col gap-2">
+      <Input 
+        label="Email" 
+        name="email" 
+        placeholder="Enter your email" />
+      <Input
+        label="Password"
+        name="password"
+        type="password"
+        placeholder="Password"
+      />
+      <Policy />
+      <Button>Agree & join</Button>
     </form>
   );
 };

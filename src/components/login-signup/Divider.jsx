@@ -1,8 +1,8 @@
 import React from 'react'
 
-const AuthDivider = ({text = "or"}) => {
+const Divider = ({text = "or"}) => {
   return (
-    <div className="flex items-center mt-1 mb-2 mx-1">
+    <div className="flex items-center my-2 mx-6">
       <div className="flex-1 border-t border-gray-300"></div>
       <span className="px-3 text-sm bg-white text-gray-400 font-medium">{text}</span>
       <div className="flex-1 border-t border-gray-300"></div>
@@ -10,4 +10,4 @@ const AuthDivider = ({text = "or"}) => {
   )
 }
 
-export default AuthDivider
+export default Divider
