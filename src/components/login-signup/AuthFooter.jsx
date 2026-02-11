@@ -6,7 +6,7 @@ const AuthFooter = () => {
     <footer className="auth-footer py-4 text-xs">
       <ul className="list-none flex justify-center items-center gap-5 flex-wrap">
         <li className="origin-bottom gap-1 transition-transform duration-200 ease-out hover:-translate-y-0.5 text-sm">
-          <Link to="/landing" className="font-bold">
+          <Link to="/" className="font-bold">
             Linked{" "}
             <span className="bg-black text-white rounded-xs px-1">In</span>
           </Link>

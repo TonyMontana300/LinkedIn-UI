@@ -1,75 +1,14 @@
 import React from "react";
+import { useRef } from "react";
+import { Link } from "react-router-dom";
+import Navbar from "../components/Landing/Navbar";
+import Hero from "../components/Landing/Hero";
 
 const Landing = () => {
   return (
     <>
-      <nav
-        style={{
-          display: "flex",
-          justifyContent: "space-between",
-          padding: "10px",
-          borderBottom: "1px solid #ccc",
-        }}
-      >
-        <span>LOGO</span>
-        <ul
-          style={{
-            display: "flex",
-            gap: "10px",
-            justifyContent: "space-between",
-            listStyle: "none",
-          }}
-        >
-          <li>Top Content</li>
-          <li>People</li>
-          <li>Learning</li>
-          <li>Jobs</li>
-          <li>Games</li>
-          <li>Get the app</li>
-        </ul>
-        <div>
-          <a href="#">Join Now</a>
-          <a href="#">Login</a>
-        </div>
-      </nav>
-
-      <main
-        className="Hero"
-        style={{
-          minHeight: "89vh",
-          border: "1px solid #ccc",
-        }}
-      >
-        <div
-          style={{
-            display: "flex",
-            justifyContent: "space-around",
-          }}
-        >
-          <div>
-            <h1>Welcome to your professional network</h1>
-            <a href="#" style={{ display: "block", padding: "10px" }}>
-              Continue with Google
-            </a>
-            <a href="#" style={{ display: "block", padding: "10px" }}>
-              Continue with others
-            </a>
-            <a href="#" style={{ display: "block", padding: "10px" }}>
-              Sign in with email
-            </a>
-            <p>
-              By clicking Continue to join or sign in, you agree to LinkedIn’s
-              User Agreement, Privacy Policy, and Cookie Policy.
-            </p>
-            <p>
-              New to LinkedIn? <a href="#">Join now</a>
-            </p>
-          </div>
-          <div>
-            <img src="#" alt="Hero Illustration" />
-          </div>
-        </div>
-      </main>
+      <Navbar />
+      <Hero />
 
       <section>
         <div style={{ display: "flex", justifyContent: "space-between" }}>
@@ -308,7 +247,13 @@ const Landing = () => {
         </div>
       </section>
 
-      <section style={{ display: "flex", justifyContent: "space-around", border: "1px solid #ccc"}}>
+      <section
+        style={{
+          display: "flex",
+          justifyContent: "space-around",
+          border: "1px solid #ccc",
+        }}
+      >
         <div>
           <video src="#"></video>
         </div>
@@ -318,13 +263,21 @@ const Landing = () => {
         </div>
       </section>
 
-      <section style={{ textAlign: "center", padding: "20px", border: "1px solid #ccc"}}>
+      <section
+        style={{
+          textAlign: "center",
+          padding: "20px",
+          border: "1px solid #ccc",
+        }}
+      >
         <h1>Join your colleagues, classmates, and friends on LinkedIn</h1>
-        <a href="#" style={{display: "block"}}>Get Started</a>
+        <a href="#" style={{ display: "block" }}>
+          Get Started
+        </a>
         <img src="#" alt="CTA Illustration" />
       </section>
 
-      <footer style={{display: "flex", justifyContent: "space-around"}}>
+      <footer style={{ display: "flex", justifyContent: "space-around" }}>
         <div>
           <span>LOGO</span>
           <span>LinkedIn</span>
@@ -332,34 +285,60 @@ const Landing = () => {
         <div>
           <h3>General</h3>
           <ul>
-            <li><a href="#">Sign Up</a></li>
-            <li><a href="#">Help Center</a></li>
-            <li><a href="#">About</a></li>
+            <li>
+              <a href="#">Sign Up</a>
+            </li>
+            <li>
+              <a href="#">Help Center</a>
+            </li>
+            <li>
+              <a href="#">About</a>
+            </li>
           </ul>
         </div>
         <div>
           <h3>Browse LinkedIn</h3>
           <ul>
-            <li><a href="#">Learning</a></li>
-            <li><a href="#">Jobs</a></li>
-            <li><a href="#">Services</a></li>
+            <li>
+              <a href="#">Learning</a>
+            </li>
+            <li>
+              <a href="#">Jobs</a>
+            </li>
+            <li>
+              <a href="#">Services</a>
+            </li>
           </ul>
         </div>
         <div>
           <h3>Business Solution</h3>
           <ul>
-            <li><a href="#">Talent</a></li>
-            <li><a href="#">Marketing</a></li>
-            <li><a href="#">Sales</a></li>
+            <li>
+              <a href="#">Talent</a>
+            </li>
+            <li>
+              <a href="#">Marketing</a>
+            </li>
+            <li>
+              <a href="#">Sales</a>
+            </li>
           </ul>
         </div>
         <div>
           <h3>Follow us</h3>
           <ul>
-            <li><a href="#">Facebook</a></li>
-            <li><a href="#">Twitter</a></li>
-            <li><a href="#">LinkedIn</a></li>
-            <li><a href="#">Instagram</a></li>
+            <li>
+              <a href="#">Facebook</a>
+            </li>
+            <li>
+              <a href="#">Twitter</a>
+            </li>
+            <li>
+              <a href="#">LinkedIn</a>
+            </li>
+            <li>
+              <a href="#">Instagram</a>
+            </li>
           </ul>
         </div>
       </footer>
