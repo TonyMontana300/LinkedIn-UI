@@ -6,7 +6,7 @@ import Policy from "../ui/Policy";
 
 const Hero = () => {
   return (
-    <main className="Hero min-h-[89vh] w-full animate-[fadeIn_0.8s_ease_forwards] opacity-0">
+    <main className="Hero min-h-[80vh] w-full animate-[fadeIn_0.8s_ease_forwards] opacity-0">
       <div className="Hero-right flex justify-between">
         <div className="px-3 py-7 max-w-xl ml-45">
           <h1 className="text-5xl leading-15">
@@ -88,7 +88,7 @@ const Hero = () => {
             </Link>
           </span>
         </div>
-        <div className="flex justify-end w-1/2 animate-[float_4s_ease-in-out_infinite]">
+        <div className="flex justify-end w-full animate-[float_4s_ease-in-out_infinite]">
           <div className="w-full relative">
             <Lottie
               animationData={landingAnim}

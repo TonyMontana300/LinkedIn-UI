@@ -3,187 +3,24 @@ import { useRef } from "react";
 import { Link } from "react-router-dom";
 import Navbar from "../components/Landing/Navbar";
 import Hero from "../components/Landing/Hero";
+import Section_1 from "../components/Landing/Section_1";
+import Section_1_flip from "../components/Landing/Section_1_flip";
+import Section_2 from "../components/Landing/Section_2";
+import Section_2_flip from "../components/Landing/Section_2_flip";
+import JobPost from "../components/Landing/JobPost";
 
 const Landing = () => {
   return (
     <>
       <Navbar />
       <Hero />
+      <Section_1 />
+      <Section_1_flip />
+      <JobPost />
+      <Section_2 />
+      <Section_2_flip />
 
-      <section>
-        <div style={{ display: "flex", justifyContent: "space-between" }}>
-          <div>
-            <h2>Explore top LinkedIn content</h2>
-            <p>
-              Discover relevant posts and expert insights — curated by topic and
-              in one place.
-            </p>
-          </div>
-          <div>
-            <span>
-              <a href="#">Career</a>
-            </span>
-            <span>
-              <a href="#">Productivity</a>
-            </span>
-            <span>
-              <a href="#">Finance</a>
-            </span>
-            <span>
-              <a href="#">Soft Skills and Emotional Intelligence</a>
-            </span>
-            <span>
-              <a href="#">Project Management</a>
-            </span>
-            <span>
-              <a href="#">Education</a>
-            </span>
-            <span>
-              <a href="#">Technology</a>
-            </span>
-            <span>
-              <a href="#">Leadership</a>
-            </span>
-            <span>
-              <a href="#">E-Commerce</a>
-            </span>
-            <span>
-              <a href="#">Show all</a>
-            </span>
-          </div>
-        </div>
-
-        <div style={{ display: "flex", justifyContent: "space-between" }}>
-          <div>
-            <span>
-              <a href="#">Engineering</a>
-            </span>
-            <span>
-              <a href="#">Business Development</a>
-            </span>
-            <span>
-              <a href="#">Finance</a>
-            </span>
-            <span>
-              <a href="#">Administrative Assistant</a>
-            </span>
-            <span>
-              <a href="#">Retail Associate</a>
-            </span>
-            <span>
-              <a href="#">Customer Service</a>
-            </span>
-            <span>
-              <a href="#">Operations</a>
-            </span>
-            <span>
-              <a href="#">Information Technology</a>
-            </span>
-            <span>
-              <a href="#">Marketing</a>
-            </span>
-            <span>
-              <a href="#">Human Resources</a>
-            </span>
-            <span>
-              <a href="#">Show all</a>
-            </span>
-          </div>
-          <div>
-            <h2>Find the right job or internship for you</h2>
-          </div>
-        </div>
-      </section>
-
-      <section
-        style={{
-          textAlign: "center",
-          padding: "20px",
-          border: "1px solid #ccc",
-        }}
-      >
-        <h2>Post your job for millions of people to see</h2>
-        <button>Post a job</button>
-      </section>
-
-      <section>
-        <div style={{ display: "flex", justifyContent: "space-between" }}>
-          <div>
-            <h2>Discover the best software tools</h2>
-            <p>
-              Connect with buyers who have first-hand experience to find the
-              best products for you.
-            </p>
-          </div>
-          <div>
-            <span>
-              <a href="#">E-Commerce Platforms</a>
-            </span>
-            <span>
-              <a href="#">CRM Software</a>
-            </span>
-            <span>
-              <a href="#">Human Resource Management System</a>
-            </span>
-            <span>
-              <a href="#">Recruiting Software</a>
-            </span>
-            <span>
-              <a href="#">Sales Intelligent Software</a>
-            </span>
-            <span>
-              <a href="#">Project Management Software</a>
-            </span>
-            <span>
-              <a href="#">Help Dest Software</a>
-            </span>
-            <span>
-              <a href="#">Social Networking Software</a>
-            </span>
-            <span>
-              <a href="#">Desktop Publishing Software</a>
-            </span>
-            <span>
-              <a href="#">Show all</a>
-            </span>
-          </div>
-        </div>
-
-        <div style={{ display: "flex", justifyContent: "space-between" }}>
-          <div>
-            <span>
-              <a href="#">Zip</a>
-            </span>
-            <span>
-              <a href="#">Mini Sudoku</a>
-            </span>
-            <span>
-              <a href="#">Queens</a>
-            </span>
-            <span>
-              <a href="#">Tango</a>
-            </span>
-            <span>
-              <a href="#">Pinpoint</a>
-            </span>
-            <span>
-              <a href="#">Cross Climb</a>
-            </span>
-            <span>
-              <a href="#">Operations</a>
-            </span>
-          </div>
-          <div>
-            <h2>Keep your mind sharp with games</h2>
-            <p>
-              Take a break and reconnect with your network through quick daily
-              games.
-            </p>
-          </div>
-        </div>
-      </section>
-
-      <section style={{ border: "1px solid #ccc" }}>
+      {/* <section style={{ border: "1px solid #ccc" }}>
         <div style={{ display: "flex" }}>
           <div>
             <h2>Let the right people know you’re open to work</h2>
@@ -197,14 +34,10 @@ const Landing = () => {
             <img src="#" alt="Section Illustration" />
           </div>
         </div>
-      </section>
+      </section> */}
 
-      <section
-        style={{
-          display: "flex",
-          justifyContent: "space-around",
-          border: "1px solid #ccc",
-        }}
+      <section 
+        className="flex justify-around border border-solid my-5 py-5"
       >
         <div>
           <img src="#" alt="image illustration" />
