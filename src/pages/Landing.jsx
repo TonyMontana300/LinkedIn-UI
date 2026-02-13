@@ -8,6 +8,7 @@ import Section_1_flip from "../components/Landing/Section_1_flip";
 import Section_2 from "../components/Landing/Section_2";
 import Section_2_flip from "../components/Landing/Section_2_flip";
 import JobPost from "../components/Landing/JobPost";
+import ImageContent from "../components/Landing/ImageContent";
 
 const Landing = () => {
   return (
@@ -36,24 +37,7 @@ const Landing = () => {
         </div>
       </section> */}
 
-      <section 
-        className="flex justify-around border border-solid my-5 py-5"
-      >
-        <div>
-          <img src="#" alt="image illustration" />
-          <h2>Connect with people who can help</h2>
-          <span>
-            <a href="#">Find people you know</a>
-          </span>
-        </div>
-        <div>
-          <img src="#" alt="image illustration" />
-          <h2>Learn the skills you need to succeed</h2>
-          <span>
-            <a href="#">Choose a topic to learn about</a>
-          </span>
-        </div>
-      </section>
+      <ImageContent />
 
       <section
         style={{
