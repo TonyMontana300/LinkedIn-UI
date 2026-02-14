@@ -9,6 +9,7 @@ import Section_2 from "../components/Landing/Section_2";
 import Section_2_flip from "../components/Landing/Section_2_flip";
 import JobPost from "../components/Landing/JobPost";
 import ImageContent from "../components/Landing/ImageContent";
+import Section_3 from "../components/Landing/Section_3";
 
 const Landing = () => {
   return (
@@ -38,33 +39,9 @@ const Landing = () => {
       </section> */}
 
       <ImageContent />
+      <Section_3 />
 
-      <section
-        style={{
-          border: "1px solid #ccc",
-          display: "flex",
-          justifyContent: "space-around",
-        }}
-      >
-        <div>
-          <h2>Who is linkedIn for?</h2>
-          <p>Anyone who navigate their professional life</p>
-          <a href="#" style={{ display: "block" }}>
-            Find a coworker or classmate
-          </a>
-          <a href="#" style={{ display: "block" }}>
-            Find a new job
-          </a>
-          <a href="#" style={{ display: "block" }}>
-            Find a course or training
-          </a>
-        </div>
-        <div>
-          <img src="#" alt="Image illustration" />
-        </div>
-      </section>
-
-      <section
+      {/* <section
         style={{
           display: "flex",
           justifyContent: "space-around",
@@ -78,7 +55,7 @@ const Landing = () => {
           <h2>In it to chase my dream</h2>
           <p>Check out Gayatri’s story of finding a new job on LinkedIn</p>
         </div>
-      </section>
+      </section> */}
 
       <section
         style={{

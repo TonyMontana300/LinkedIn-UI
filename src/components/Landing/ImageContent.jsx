@@ -6,7 +6,7 @@ import skillsAnim from "../../assets/images/developer skills.json";
 
 const ImageContent = () => {
   return (
-    <section className="flex justify-around my-5 py-5">
+    <section className="flex justify-around my-40 py-5">
       <div className="flex flex-col items-center gap-2">
         <div className="w-md">
           <Lottie
