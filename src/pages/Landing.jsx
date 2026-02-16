@@ -1,6 +1,5 @@
 import React from "react";
 import { useRef } from "react";
-import { Link } from "react-router-dom";
 import Navbar from "../components/Landing/Navbar";
 import Hero from "../components/Landing/Hero";
 import Section_1 from "../components/Landing/Section_1";
@@ -10,6 +9,10 @@ import Section_2_flip from "../components/Landing/Section_2_flip";
 import JobPost from "../components/Landing/JobPost";
 import ImageContent from "../components/Landing/ImageContent";
 import Section_3 from "../components/Landing/Section_3";
+import CTA from "../components/Landing/CTA";
+import Footer from "../components/Landing/Footer";
+import AuthFooter from "../components/login-signup/AuthFooter";
+
 
 const Landing = () => {
   return (
@@ -57,85 +60,10 @@ const Landing = () => {
         </div>
       </section> */}
 
-      <section
-        style={{
-          textAlign: "center",
-          padding: "20px",
-          border: "1px solid #ccc",
-        }}
-      >
-        <h1>Join your colleagues, classmates, and friends on LinkedIn</h1>
-        <a href="#" style={{ display: "block" }}>
-          Get Started
-        </a>
-        <img src="#" alt="CTA Illustration" />
-      </section>
+      <CTA />
+      <Footer />
+      <AuthFooter />
 
-      <footer style={{ display: "flex", justifyContent: "space-around" }}>
-        <div>
-          <span>LOGO</span>
-          <span>LinkedIn</span>
-        </div>
-        <div>
-          <h3>General</h3>
-          <ul>
-            <li>
-              <a href="#">Sign Up</a>
-            </li>
-            <li>
-              <a href="#">Help Center</a>
-            </li>
-            <li>
-              <a href="#">About</a>
-            </li>
-          </ul>
-        </div>
-        <div>
-          <h3>Browse LinkedIn</h3>
-          <ul>
-            <li>
-              <a href="#">Learning</a>
-            </li>
-            <li>
-              <a href="#">Jobs</a>
-            </li>
-            <li>
-              <a href="#">Services</a>
-            </li>
-          </ul>
-        </div>
-        <div>
-          <h3>Business Solution</h3>
-          <ul>
-            <li>
-              <a href="#">Talent</a>
-            </li>
-            <li>
-              <a href="#">Marketing</a>
-            </li>
-            <li>
-              <a href="#">Sales</a>
-            </li>
-          </ul>
-        </div>
-        <div>
-          <h3>Follow us</h3>
-          <ul>
-            <li>
-              <a href="#">Facebook</a>
-            </li>
-            <li>
-              <a href="#">Twitter</a>
-            </li>
-            <li>
-              <a href="#">LinkedIn</a>
-            </li>
-            <li>
-              <a href="#">Instagram</a>
-            </li>
-          </ul>
-        </div>
-      </footer>
     </>
   );
 };
