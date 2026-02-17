@@ -6,9 +6,9 @@ import skillsAnim from "../../assets/images/developer skills.json";
 
 const ImageContent = () => {
   return (
-    <section className="flex justify-around my-40 py-5">
+    <section className="flex flex-col md:flex-row justify-around my-10 md:my-40 py-5">
       <div className="flex flex-col items-center gap-2">
-        <div className="w-md">
+        <div className="md:w-md">
           <Lottie
             animationData={connectAnim}
             autoplay
@@ -16,7 +16,7 @@ const ImageContent = () => {
             className="inset-0 w-full h-full"
           />
         </div>
-        <h2 className="text-3xl py-2 leading-normal">
+        <h2 className="text-3xl text-center md:text-left py-2 leading-normal">
           Connect with people who can help
         </h2>
         <Link
@@ -27,7 +27,7 @@ const ImageContent = () => {
         </Link>
       </div>
       <div className="flex flex-col items-center gap-2">
-        <div className="w-md">
+        <div className="md:w-md">
           <Lottie
             animationData={skillsAnim}
             autoplay
@@ -35,7 +35,7 @@ const ImageContent = () => {
             className="inset-0 w-full h-full"
           />
         </div>
-        <h2 className="text-3xl py-2 leading-normal">
+        <h2 className="text-3xl py-2 text-center md:text-left leading-normal">
           Learn the skills you need to succeed
         </h2>
         <Link

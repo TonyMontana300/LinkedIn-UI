@@ -16,8 +16,8 @@ const jobs = [
 const Section_1_flip = () => {
   return (
     <section className="max-w-6xl mx-auto my-15">
-      <div className="flex justify-between items-center gap-30">
-        <div className="flex flex-wrap gap-y-3 gap-x-2 items-start content-start w-3xl">
+      <div className="flex flex-col-reverse md:flex-row md:justify-between items-center gap-10 md:gap-30">
+        <div className="flex flex-wrap gap-y-3 gap-x-2 md:px-0 px-1 md:justify-start justify-center md:w-3xl">
           {jobs.map((job) => (
             <Link
               key={job}
@@ -35,8 +35,8 @@ const Section_1_flip = () => {
           </Link>
         </div>
         <div className="flex flex-col items-center justify-center">
-          <div className="mb-40 w-sm ">
-            <h2 className="text-3xl py-2 leading-normal">
+          <div className="md:mb-40 w-sm">
+            <h2 className="text-3xl text-center md:text-left py-2 leading-normal">
               Find the right job or internship for you
             </h2>
           </div>

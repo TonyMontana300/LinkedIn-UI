@@ -20,10 +20,10 @@ const Navbar = () => {
 
   return (
     <nav className="nav hover:shadow-md transition-all duration-200 ease-in-out sticky top-0 bg-white shadow-sm z-50 opacity-0 animate-[slideDown_0.6s_ease_forwards]">
-      <div className="flex justify-between items-center px-3 pt-3 mb-10 pb-2 max-w-6xl mx-auto">
+      <div className="flex justify-between items-center px-4 py-3 mb-10 max-w-6xl mx-auto">
         <Logo />
-        <div className="flex gap-8 items-center">
-          <ul className="flex gap-8 items-center list-none opacity-0 animate-[fadeIn_0.5s_ease_0.2s_forwards]">
+        <div className="flex gap-4 md:gap-8 items-center">
+          <ul className="md:flex hidden gap-8 items-center list-none opacity-0 animate-[fadeIn_0.5s_ease_0.2s_forwards]">
             <li
               className="transition-transform duration-200 ease-out hover:-translate-y-0.5 flex flex-col items-center"
               onMouseEnter={() => rocketRef.current?.play()}
@@ -128,13 +128,13 @@ const Navbar = () => {
           <div className="flex items-center gap-2">
             <Link
               to="/login"
-              className="ring-1 ring-blue-600 px-6 py-3 text-blue-600 hover:text-blue-800 rounded-3xl font-medium hover:bg-blue-100 focus:outline-none active:ring-1 active:ring-blue-600 active:ring-offset-1 active:scale-[0.99] transition-all ease-out duration-200"
+              className="ring-1 ring-blue-600 px-4 py-2 md:px-6 md:py-3 text-blue-600 hover:text-blue-800 rounded-3xl font-medium hover:bg-blue-100 focus:outline-none active:ring-1 active:ring-blue-600 active:ring-offset-1 active:scale-[0.99] transition-all ease-out duration-200"
             >
               Sign in
             </Link>
             <Link
               to="/signup"
-              className="px-6 py-3 disabled:opacity-70 disabled:cursor-not-allowed disabled:hover:bg-blue-600 disabled:active:scale-100 disabled:active:ring-0 bg-blue-700 text-white rounded-3xl font-medium hover:bg-blue-800 focus:outline-none active:ring-1 active:ring-blue-600 active:ring-offset-1 active:scale-[0.99] transition-all ease-out duration-200"
+              className="px-4 py-2 md:px-6 md:py-3 disabled:opacity-70 disabled:cursor-not-allowed disabled:hover:bg-blue-600 disabled:active:scale-100 disabled:active:ring-0 bg-blue-700 text-white rounded-3xl font-medium hover:bg-blue-800 focus:outline-none active:ring-1 active:ring-blue-600 active:ring-offset-1 active:scale-[0.99] transition-all ease-out duration-200"
             >
               Join now
             </Link>

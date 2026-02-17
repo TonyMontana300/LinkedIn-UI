@@ -7,10 +7,10 @@ const Section_3 = () => {
   return (
     <section className="flex py-5 my-10">
       <div className="bg-[#F3F2F0] w-full">
-        <div className="flex justify-center items-center my-60">
-          <div className="flex flex-col w-md">
+        <div className="flex justify-center items-center my-20 md:my-60">
+          <div className="flex flex-col md:w-md">
             <h2 className="text-[#B24020] text-3xl">Who is linkedIn for?</h2>
-            <p className="text-gray-900 text-xl mb-4 mt-2">
+            <p className="text-gray-900 md:text-xl mb-4 mt-2 text-lg">
               Anyone who navigate their professional life
             </p>
             <div className="flex flex-col mt-4 gap-4">
@@ -87,7 +87,7 @@ const Section_3 = () => {
           </div>
         </div>
       </div>
-      <div className="w-full h-full">
+      <div className="w-full h-full md:block hidden">
         <Lottie
           animationData={imageAnim}
           autoplay

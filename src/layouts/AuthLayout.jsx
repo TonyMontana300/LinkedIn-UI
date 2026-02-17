@@ -11,7 +11,7 @@ const AuthLayout = () => {
   return (
     <div className="auth-wrapper bg-gray-100 min-h-screen">
       <AuthHeader />
-      <div className="auth-layout px-6 py-4 max-w-250 w-full mx-auto min-h-[calc(100vh-142px)]">
+      <div className="auth-layout px-6 py-4 max-w-250 w-full mx-auto md:min-h-[calc(100vh-142px)] min-h-[calc(100vh-220px)]">
         <AuthCard>
           <AuthVisual type={type}/>
           <Outlet />

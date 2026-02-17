@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 const Policy = ({className}) => {
   return (
-      <p className={`${className} text-xs text-gray-800 px-2`}>
+      <p className={`${className} text-xs text-gray-800 px-2 pt-3 md:py-0 text-center md:text-left`}>
         By clicking Continue, you agree to LinkedIn’s{" "}
         <Link to="#" className="text-blue-700 hover:underline font-semibold">
           User Agreement

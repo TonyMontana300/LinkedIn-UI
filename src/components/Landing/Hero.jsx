@@ -7,14 +7,14 @@ import Policy from "../ui/Policy";
 const Hero = () => {
   return (
     <main className="Hero min-h-[80vh] w-full animate-[fadeIn_0.8s_ease_forwards] opacity-0">
-      <div className="Hero-right flex">
-        <div className="px-3 py-7 max-w-xl ml-45">
-          <h1 className="text-5xl leading-15">
+      <div className="flex flex-col md:flex-row">
+        <div className="Hero-right px-3 py-7 max-w-xl md:ml-45 mx-auto">
+          <h1 className="md:text-5xl sm:text-4xl text-3xl md:leading-15 leading-tight md:text-left text-center">
             Welcome to your professional network
           </h1>
           <Link
             to="#"
-            className="mt-8 w-sm flex items-center justify-center py-2 gap-2 bg-blue-600 text-white border border-gray-300 rounded-3xl font-medium shadow-[inset_0_1px_2px_rgba(0,0,0,0.12)] hover:shadow-[inset_0_1px_2px_rgba(0,0,0,0.12)] hover:bg-blue-500 focus:outline-none active:ring-1 active:ring-blue-600 active:ring-offset-1 active:scale-[0.99] transition-all ease-out duration-200"
+            className="mt-8 w-full max-w-sm mx-auto md:mx-0 flex items-center justify-center py-2 gap-2 bg-blue-600 text-white border border-gray-300 rounded-3xl font-medium shadow-[inset_0_1px_2px_rgba(0,0,0,0.12)] hover:shadow-[inset_0_1px_2px_rgba(0,0,0,0.12)] hover:bg-blue-500 focus:outline-none active:ring-1 active:ring-blue-600 active:ring-offset-1 active:scale-[0.99] transition-all ease-out duration-200"
           >
             {" "}
             <svg
@@ -46,7 +46,7 @@ const Hero = () => {
           </Link>
           <Link
             to="#"
-            className="mt-4 w-sm flex items-center justify-center py-2 gap-2 bg-white text-gray-700 border border-gray-500 rounded-3xl font-medium shadow-[inset_0_1px_2px_rgba(0,0,0,0.12)] hover:shadow-[inset_0_1px_2px_rgba(0,0,0,0.12)] hover:bg-blue-200 focus:outline-none active:ring-1 active:ring-blue-600 active:ring-offset-1 active:scale-[0.99] transition-all ease-out duration-200"
+            className="mt-4 w-full max-w-sm mx-auto md:mx-0 flex items-center justify-center py-2 gap-2 bg-white text-gray-700 border border-gray-500 rounded-3xl font-medium shadow-[inset_0_1px_2px_rgba(0,0,0,0.12)] hover:shadow-[inset_0_1px_2px_rgba(0,0,0,0.12)] hover:bg-blue-200 focus:outline-none active:ring-1 active:ring-blue-600 active:ring-offset-1 active:scale-[0.99] transition-all ease-out duration-200"
           >
             <svg
               width="20"
@@ -73,7 +73,7 @@ const Hero = () => {
           </Link>
           <Link
             to="#"
-            className="mt-4 w-sm flex items-center justify-center py-2 bg-white text-gray-700 border border-gray-500 rounded-3xl font-medium shadow-[inset_0_1px_2px_rgba(0,0,0,0.12)] hover:shadow-[inset_0_1px_2px_rgba(0,0,0,0.12)] hover:bg-blue-200 focus:outline-none active:ring-1 active:ring-blue-600 active:ring-offset-1 active:scale-[0.99] transition-all ease-out duration-200"
+            className="mt-4 w-full max-w-sm mx-auto md:mx-0 flex items-center justify-center py-2 bg-white text-gray-700 border border-gray-500 rounded-3xl font-medium shadow-[inset_0_1px_2px_rgba(0,0,0,0.12)] hover:shadow-[inset_0_1px_2px_rgba(0,0,0,0.12)] hover:bg-blue-200 focus:outline-none active:ring-1 active:ring-blue-600 active:ring-offset-1 active:scale-[0.99] transition-all ease-out duration-200"
           >
             Sign in with email
           </Link>
@@ -88,14 +88,14 @@ const Hero = () => {
             </Link>
           </span>
         </div>
-          <div className="w-full h-full animate-[float_4s_ease-in-out_infinite]">
-            <Lottie
-              animationData={landingAnim}
-              autoplay
-              loop
-              className="inset-0 w-full h-full"
-            />
-          </div>
+        <div className="w-full h-full animate-[float_4s_ease-in-out_infinite]">
+          <Lottie
+            animationData={landingAnim}
+            autoplay
+            loop
+            className="inset-0 w-full h-full"
+          />
+        </div>
       </div>
     </main>
   );

@@ -4,256 +4,274 @@ import Logo from "../ui/Logo";
 
 const Footer = () => {
   return (
-    <footer className="flex justify-around bg-[#F3F2F0] py-7 px-20">
-      <Logo />
-      <div className="flex flex-col gap-3">
-        <h3 className="text-md text-gray-900 font-semibold">General</h3>
-        <ul>
-          <li className="transition-transform duration-200 ease-out hover:-translate-y-1">
-            <Link
-              to="#"
-              className="text-gray-500 hover:underline hover:text-blue-600 font-semibold"
-            >
-              Sign up
-            </Link>
-          </li>
-          <li className="transition-transform duration-200 ease-out hover:-translate-y-1">
-            <Link
-              to="#"
-              className="text-gray-500 hover:underline hover:text-blue-600 font-semibold"
-            >
-              Help Center
-            </Link>
-          </li>
-          <li className="transition-transform duration-200 ease-out hover:-translate-y-1">
-            <Link
-              to="#"
-              className="text-gray-500 hover:underline hover:text-blue-600 font-semibold"
-            >
-              About
-            </Link>
-          </li>
-          <li className="transition-transform duration-200 ease-out hover:-translate-y-1">
-            <Link
-              to="#"
-              className="text-gray-500 hover:underline hover:text-blue-600 font-semibold"
-            >
-              Blog
-            </Link>
-          </li>
-        </ul>
-      </div>
+    <footer className="bg-[#F3F2F0] py-7 md:px-20 px-10 my-2">
+      <div className="max-w-6xl mx-auto">
+        <div className="grid grid-cols-3 md:grid-cols-5 gap-10">
+          <div className="hidden md:block">
+            <Logo />
+          </div>
+          <div className="flex flex-col gap-3">
+            <h3 className="text-md text-gray-900 font-semibold">General</h3>
+            <ul>
+              <li className="footer-link-1">
+                <Link
+                  to="#"
+                  className="footer-link-2"
+                >
+                  Sign up
+                </Link>
+              </li>
+              <li className="footer-link-1">
+                <Link
+                  to="#"
+                  className="footer-link-2"
+                >
+                  Help Center
+                </Link>
+              </li>
+              <li className="footer-link-1">
+                <Link
+                  to="#"
+                  className="footer-link-2"
+                >
+                  About
+                </Link>
+              </li>
+              <li className="footer-link-1">
+                <Link
+                  to="#"
+                  className="footer-link-2"
+                >
+                  Blog
+                </Link>
+              </li>
+            </ul>
+          </div>
 
-      <div className="flex flex-col gap-3">
-        <h3 className="text-md text-gray-900 font-semibold">Browse LinkedIn</h3>
-        <ul>
-          <li className="transition-transform duration-200 ease-out hover:-translate-y-1">
-            <Link
-              to="#"
-              className="text-gray-500 hover:underline hover:text-blue-600 font-semibold"
-            >
-              Learning
-            </Link>
-          </li>
-          <li className="transition-transform duration-200 ease-out hover:-translate-y-1">
-            <Link
-              to="#"
-              className="text-gray-500 hover:underline hover:text-blue-600 font-semibold"
-            >
-              Jobs
-            </Link>
-          </li>
-          <li className="transition-transform duration-200 ease-out hover:-translate-y-1">
-            <Link
-              to="#"
-              className="text-gray-500 hover:underline hover:text-blue-600 font-semibold"
-            >
-              Services
-            </Link>
-          </li>
-          <li className="transition-transform duration-200 ease-out hover:-translate-y-1">
-            <Link
-              to="#"
-              className="text-gray-500 hover:underline hover:text-blue-600 font-semibold"
-            >
-              Products
-            </Link>
-          </li>
-        </ul>
-      </div>
-      <div className="flex flex-col gap-3">
-        <h3 className="text-md text-gray-900 font-semibold">
-          Business Solution
-        </h3>
-        <ul>
-          <li className="transition-transform duration-200 ease-out hover:-translate-y-1">
-            <Link
-              to="#"
-              className="text-gray-500 hover:underline hover:text-blue-600 font-semibold"
-            >
-              Talent
-            </Link>
-          </li>
-          <li className="transition-transform duration-200 ease-out hover:-translate-y-1">
-            <Link
-              to="#"
-              className="text-gray-500 hover:underline hover:text-blue-600 font-semibold"
-            >
-              Marketing
-            </Link>
-          </li>
-          <li className="transition-transform duration-200 ease-out hover:-translate-y-1">
-            <Link
-              to="#"
-              className="text-gray-500 hover:underline hover:text-blue-600 font-semibold"
-            >
-              Sales
-            </Link>
-          </li>
-          <li className="transition-transform duration-200 ease-out hover:-translate-y-1">
-            <Link
-              to="#"
-              className="text-gray-500 hover:underline hover:text-blue-600 font-semibold"
-            >
-              Companies
-            </Link>
-          </li>
-        </ul>
-      </div>
-      <div className="flex flex-col gap-3">
-        <h3 className="text-md text-gray-900 font-semibold">Follow us</h3>
-        <ul className="flex items-center justify-center gap-2">
-          <li className="transition-transform duration-200 ease-out hover:-translate-y-1">
-            <Link
-              to="#"
-              className="text-gray-500 hover:underline hover:text-blue-600 font-semibold"
-            >
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                viewBox="0 0 48 48"
-                className="w-10 h-10 block"
-              >
-                <path
-                  fill="#3F51B5"
-                  d="M42,37c0,2.762-2.238,5-5,5H11c-2.761,0-5-2.238-5-5V11c0-2.762,2.239-5,5-5h26c2.762,0,5,2.238,5,5V37z"
-                />
-                <path
-                  fill="#FFF"
-                  d="M34.368,25H31v13h-5V25h-3v-4h3v-2.41c0.002-3.508,1.459-5.59,5.592-5.59H35v4h-2.287C31.104,17,31,17.6,31,18.723V21h4L34.368,25z"
-                />
-              </svg>
-            </Link>
-          </li>
-          <li className="transition-transform duration-200 ease-out hover:-translate-y-1">
-            <Link
-              to="#"
-              className="text-gray-500 hover:underline hover:text-blue-600 font-semibold"
-            >
-              <svg
-                viewBox="0 0 32 32"
-                className="w-9 h-9 block"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <rect
-                  x="2"
-                  y="2"
-                  width="28"
-                  height="28"
-                  rx="6"
-                  fill="url(#paint0_radial_87_7153)"
-                />
-                <rect
-                  x="2"
-                  y="2"
-                  width="28"
-                  height="28"
-                  rx="6"
-                  fill="url(#paint1_radial_87_7153)"
-                />
-                <rect
-                  x="2"
-                  y="2"
-                  width="28"
-                  height="28"
-                  rx="6"
-                  fill="url(#paint2_radial_87_7153)"
-                />
-                <path
-                  d="M23 10.5C23 11.3284 22.3284 12 21.5 12C20.6716 12 20 11.3284 20 10.5C20 9.67157 20.6716 9 21.5 9C22.3284 9 23 9.67157 23 10.5Z"
-                  fill="white"
-                />
-                <path
-                  fill-rule="evenodd"
-                  clip-rule="evenodd"
-                  d="M16 21C18.7614 21 21 18.7614 21 16C21 13.2386 18.7614 11 16 11C13.2386 11 11 13.2386 11 16C11 18.7614 13.2386 21 16 21ZM16 19C17.6569 19 19 17.6569 19 16C19 14.3431 17.6569 13 16 13C14.3431 13 13 14.3431 13 16C13 17.6569 14.3431 19 16 19Z"
-                  fill="white"
-                />
-                <path
-                  fill-rule="evenodd"
-                  clip-rule="evenodd"
-                  d="M6 15.6C6 12.2397 6 10.5595 6.65396 9.27606C7.2292 8.14708 8.14708 7.2292 9.27606 6.65396C10.5595 6 12.2397 6 15.6 6H16.4C19.7603 6 21.4405 6 22.7239 6.65396C23.8529 7.2292 24.7708 8.14708 25.346 9.27606C26 10.5595 26 12.2397 26 15.6V16.4C26 19.7603 26 21.4405 25.346 22.7239C24.7708 23.8529 23.8529 24.7708 22.7239 25.346C21.4405 26 19.7603 26 16.4 26H15.6C12.2397 26 10.5595 26 9.27606 25.346C8.14708 24.7708 7.2292 23.8529 6.65396 22.7239C6 21.4405 6 19.7603 6 16.4V15.6ZM15.6 8H16.4C18.1132 8 19.2777 8.00156 20.1779 8.0751C21.0548 8.14674 21.5032 8.27659 21.816 8.43597C22.5686 8.81947 23.1805 9.43139 23.564 10.184C23.7234 10.4968 23.8533 10.9452 23.9249 11.8221C23.9984 12.7223 24 13.8868 24 15.6V16.4C24 18.1132 23.9984 19.2777 23.9249 20.1779C23.8533 21.0548 23.7234 21.5032 23.564 21.816C23.1805 22.5686 22.5686 23.1805 21.816 23.564C21.5032 23.7234 21.0548 23.8533 20.1779 23.9249C19.2777 23.9984 18.1132 24 16.4 24H15.6C13.8868 24 12.7223 23.9984 11.8221 23.9249C10.9452 23.8533 10.4968 23.7234 10.184 23.564C9.43139 23.1805 8.81947 22.5686 8.43597 21.816C8.27659 21.5032 8.14674 21.0548 8.0751 20.1779C8.00156 19.2777 8 18.1132 8 16.4V15.6C8 13.8868 8.00156 12.7223 8.0751 11.8221C8.14674 10.9452 8.27659 10.4968 8.43597 10.184C8.81947 9.43139 9.43139 8.81947 10.184 8.43597C10.4968 8.27659 10.9452 8.14674 11.8221 8.0751C12.7223 8.00156 13.8868 8 15.6 8Z"
-                  fill="white"
-                />
-                <defs>
-                  <radialGradient
-                    id="paint0_radial_87_7153"
-                    cx="0"
-                    cy="0"
-                    r="1"
-                    gradientUnits="userSpaceOnUse"
-                    gradientTransform="translate(12 23) rotate(-55.3758) scale(25.5196)"
+          <div className="flex flex-col gap-3">
+            <h3 className="text-md text-gray-900 font-semibold">
+              Browse LinkedIn
+            </h3>
+            <ul>
+              <li className="footer-link-1">
+                <Link
+                  to="#"
+                  className="footer-link-2"
+                >
+                  Learning
+                </Link>
+              </li>
+              <li className="footer-link-1">
+                <Link
+                  to="#"
+                  className="footer-link-2"
+                >
+                  Jobs
+                </Link>
+              </li>
+              <li className="footer-link-1">
+                <Link
+                  to="#"
+                  className="footer-link-2"
+                >
+                  Services
+                </Link>
+              </li>
+              <li className="footer-link-1">
+                <Link
+                  to="#"
+                  className="footer-link-2"
+                >
+                  Products
+                </Link>
+              </li>
+            </ul>
+          </div>
+          <div className="flex flex-col gap-3">
+            <h3 className="text-md text-gray-900 font-semibold">
+              Business Solution
+            </h3>
+            <ul>
+              <li className="footer-link-1">
+                <Link
+                  to="#"
+                  className="footer-link-2"
+                >
+                  Talent
+                </Link>
+              </li>
+              <li className="footer-link-1">
+                <Link
+                  to="#"
+                  className="footer-link-2"
+                >
+                  Marketing
+                </Link>
+              </li>
+              <li className="footer-link-1">
+                <Link
+                  to="#"
+                  className="footer-link-2"
+                >
+                  Sales
+                </Link>
+              </li>
+              <li className="footer-link-1">
+                <Link
+                  to="#"
+                  className="footer-link-2"
+                >
+                  Companies
+                </Link>
+              </li>
+            </ul>
+          </div>
+          <div className="flex flex-col gap-3 col-span-3 md:col-span-1 items-center">
+            <h3 className="text-md text-gray-900 font-semibold text-center">
+              Follow us
+            </h3>
+            <ul className="flex items-center justify-center gap-2">
+              <li className="footer-link-1">
+                <Link
+                  to="#"
+                  className="footer-link-2"
+                >
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 48 48"
+                    className="w-10 h-10 block"
                   >
-                    <stop stop-color="#B13589" />
-                    <stop offset="0.79309" stop-color="#C62F94" />
-                    <stop offset="1" stop-color="#8A3AC8" />
-                  </radialGradient>
-                  <radialGradient
-                    id="paint1_radial_87_7153"
-                    cx="0"
-                    cy="0"
-                    r="1"
-                    gradientUnits="userSpaceOnUse"
-                    gradientTransform="translate(11 31) rotate(-65.1363) scale(22.5942)"
+                    <path
+                      fill="#3F51B5"
+                      d="M42,37c0,2.762-2.238,5-5,5H11c-2.761,0-5-2.238-5-5V11c0-2.762,2.239-5,5-5h26c2.762,0,5,2.238,5,5V37z"
+                    />
+                    <path
+                      fill="#FFF"
+                      d="M34.368,25H31v13h-5V25h-3v-4h3v-2.41c0.002-3.508,1.459-5.59,5.592-5.59H35v4h-2.287C31.104,17,31,17.6,31,18.723V21h4L34.368,25z"
+                    />
+                  </svg>
+                </Link>
+              </li>
+              <li className="footer-link-1">
+                <Link
+                  to="#"
+                  className="footer-link-2"
+                >
+                  <svg
+                    viewBox="0 0 32 32"
+                    className="w-9 h-9 block"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
                   >
-                    <stop stop-color="#E0E8B7" />
-                    <stop offset="0.444662" stop-color="#FB8A2E" />
-                    <stop offset="0.71474" stop-color="#E2425C" />
-                    <stop offset="1" stop-color="#E2425C" stop-opacity="0" />
-                  </radialGradient>
-                  <radialGradient
-                    id="paint2_radial_87_7153"
-                    cx="0"
-                    cy="0"
-                    r="1"
-                    gradientUnits="userSpaceOnUse"
-                    gradientTransform="translate(0.500002 3) rotate(-8.1301) scale(38.8909 8.31836)"
+                    <rect
+                      x="2"
+                      y="2"
+                      width="28"
+                      height="28"
+                      rx="6"
+                      fill="url(#paint0_radial_87_7153)"
+                    />
+                    <rect
+                      x="2"
+                      y="2"
+                      width="28"
+                      height="28"
+                      rx="6"
+                      fill="url(#paint1_radial_87_7153)"
+                    />
+                    <rect
+                      x="2"
+                      y="2"
+                      width="28"
+                      height="28"
+                      rx="6"
+                      fill="url(#paint2_radial_87_7153)"
+                    />
+                    <path
+                      d="M23 10.5C23 11.3284 22.3284 12 21.5 12C20.6716 12 20 11.3284 20 10.5C20 9.67157 20.6716 9 21.5 9C22.3284 9 23 9.67157 23 10.5Z"
+                      fill="white"
+                    />
+                    <path
+                      fill-rule="evenodd"
+                      clip-rule="evenodd"
+                      d="M16 21C18.7614 21 21 18.7614 21 16C21 13.2386 18.7614 11 16 11C13.2386 11 11 13.2386 11 16C11 18.7614 13.2386 21 16 21ZM16 19C17.6569 19 19 17.6569 19 16C19 14.3431 17.6569 13 16 13C14.3431 13 13 14.3431 13 16C13 17.6569 14.3431 19 16 19Z"
+                      fill="white"
+                    />
+                    <path
+                      fill-rule="evenodd"
+                      clip-rule="evenodd"
+                      d="M6 15.6C6 12.2397 6 10.5595 6.65396 9.27606C7.2292 8.14708 8.14708 7.2292 9.27606 6.65396C10.5595 6 12.2397 6 15.6 6H16.4C19.7603 6 21.4405 6 22.7239 6.65396C23.8529 7.2292 24.7708 8.14708 25.346 9.27606C26 10.5595 26 12.2397 26 15.6V16.4C26 19.7603 26 21.4405 25.346 22.7239C24.7708 23.8529 23.8529 24.7708 22.7239 25.346C21.4405 26 19.7603 26 16.4 26H15.6C12.2397 26 10.5595 26 9.27606 25.346C8.14708 24.7708 7.2292 23.8529 6.65396 22.7239C6 21.4405 6 19.7603 6 16.4V15.6ZM15.6 8H16.4C18.1132 8 19.2777 8.00156 20.1779 8.0751C21.0548 8.14674 21.5032 8.27659 21.816 8.43597C22.5686 8.81947 23.1805 9.43139 23.564 10.184C23.7234 10.4968 23.8533 10.9452 23.9249 11.8221C23.9984 12.7223 24 13.8868 24 15.6V16.4C24 18.1132 23.9984 19.2777 23.9249 20.1779C23.8533 21.0548 23.7234 21.5032 23.564 21.816C23.1805 22.5686 22.5686 23.1805 21.816 23.564C21.5032 23.7234 21.0548 23.8533 20.1779 23.9249C19.2777 23.9984 18.1132 24 16.4 24H15.6C13.8868 24 12.7223 23.9984 11.8221 23.9249C10.9452 23.8533 10.4968 23.7234 10.184 23.564C9.43139 23.1805 8.81947 22.5686 8.43597 21.816C8.27659 21.5032 8.14674 21.0548 8.0751 20.1779C8.00156 19.2777 8 18.1132 8 16.4V15.6C8 13.8868 8.00156 12.7223 8.0751 11.8221C8.14674 10.9452 8.27659 10.4968 8.43597 10.184C8.81947 9.43139 9.43139 8.81947 10.184 8.43597C10.4968 8.27659 10.9452 8.14674 11.8221 8.0751C12.7223 8.00156 13.8868 8 15.6 8Z"
+                      fill="white"
+                    />
+                    <defs>
+                      <radialGradient
+                        id="paint0_radial_87_7153"
+                        cx="0"
+                        cy="0"
+                        r="1"
+                        gradientUnits="userSpaceOnUse"
+                        gradientTransform="translate(12 23) rotate(-55.3758) scale(25.5196)"
+                      >
+                        <stop stop-color="#B13589" />
+                        <stop offset="0.79309" stop-color="#C62F94" />
+                        <stop offset="1" stop-color="#8A3AC8" />
+                      </radialGradient>
+                      <radialGradient
+                        id="paint1_radial_87_7153"
+                        cx="0"
+                        cy="0"
+                        r="1"
+                        gradientUnits="userSpaceOnUse"
+                        gradientTransform="translate(11 31) rotate(-65.1363) scale(22.5942)"
+                      >
+                        <stop stop-color="#E0E8B7" />
+                        <stop offset="0.444662" stop-color="#FB8A2E" />
+                        <stop offset="0.71474" stop-color="#E2425C" />
+                        <stop
+                          offset="1"
+                          stop-color="#E2425C"
+                          stop-opacity="0"
+                        />
+                      </radialGradient>
+                      <radialGradient
+                        id="paint2_radial_87_7153"
+                        cx="0"
+                        cy="0"
+                        r="1"
+                        gradientUnits="userSpaceOnUse"
+                        gradientTransform="translate(0.500002 3) rotate(-8.1301) scale(38.8909 8.31836)"
+                      >
+                        <stop offset="0.156701" stop-color="#406ADC" />
+                        <stop offset="0.467799" stop-color="#6A45BE" />
+                        <stop
+                          offset="1"
+                          stop-color="#6A45BE"
+                          stop-opacity="0"
+                        />
+                      </radialGradient>
+                    </defs>
+                  </svg>
+                </Link>
+              </li>
+              <li className="footer-link-1">
+                <Link
+                  to="#"
+                  className="footer-link-2"
+                >
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    className="w-8 h-8 block"
+                    viewBox="0 0 24 24"
+                    version="1.1"
                   >
-                    <stop offset="0.156701" stop-color="#406ADC" />
-                    <stop offset="0.467799" stop-color="#6A45BE" />
-                    <stop offset="1" stop-color="#6A45BE" stop-opacity="0" />
-                  </radialGradient>
-                </defs>
-              </svg>
-            </Link>
-          </li>
-          <li className="transition-transform duration-200 ease-out hover:-translate-y-1">
-            <Link
-              to="#"
-              className="text-gray-500 hover:underline hover:text-blue-600 font-semibold"
-            >
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                className="w-8 h-8 block"
-                viewBox="0 0 24 24"
-                version="1.1"
-              >
-                {" "}
-                <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />{" "}
-              </svg>
-            </Link>
-          </li>
-        </ul>
+                    {" "}
+                    <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />{" "}
+                  </svg>
+                </Link>
+              </li>
+            </ul>
+          </div>
+        </div>
       </div>
     </footer>
   );
