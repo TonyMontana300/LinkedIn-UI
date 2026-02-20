@@ -12,7 +12,7 @@ import Interest from "../profile/Interest";
 
 const ProfileLeft = () => {
   return (
-    <div className="border flex flex-col gap-5">
+    <div className="border flex flex-col gap-3">
       <ProfileHeader />
       <ProfileAnalytics />
       <About />
