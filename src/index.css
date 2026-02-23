@@ -5,6 +5,13 @@ input::-ms-clear {
   display: none;
 }
 
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+}
+
 .footer-link-1 {
   @apply transition-transform duration-200 ease-out hover:-translate-y-1;
 }
