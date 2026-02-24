@@ -1,13 +1,122 @@
 import React from "react";
+import { Link } from "react-router-dom";
+import EditBtn from "../ui/EditBtn";
 
 const Certification = () => {
   return (
-    <div>
-      <h2>Licenses & certifications</h2>
-      <ul>
-        <li>Cards</li>
-        <li>Cards</li>
-      </ul>
+    <div className="pt-6 px-6 bg-white rounded-xl shadow-sm hover:shadow-lg hover:shadow-gray-300 shadow-gray-300 transition-shadow duration-200">
+      <div className="flex justify-between">
+        <h2 className="text-xl font-semibold text-gray-900">
+          Licenses & certifications
+        </h2>
+        <EditBtn />
+      </div>
+
+      <div className="flex gap-2 border-b border-b-gray-300 pb-5 mt-1">
+        <Link
+          to="#"
+          className="h-12 w-12 bg-[#E7E2DC] flex items-center justify-center"
+        >
+          <img
+            src="https://media.licdn.com/dms/image/v2/D560BAQEf_NHzN2yVQg/company-logo_100_100/company-logo_100_100/0/1723593046388/udemy_logo?e=1773273600&v=beta&t=SoZH1GaBhr1ZunvSpNTnfcywljH1wqmhrazye_DFK6M"
+            alt="Udemy"
+          />
+        </Link>
+        <div className="flex flex-col gap-5">
+          <Link to="#">
+            <h3 className="font-semibold text-gray-900 hover:text-blue-600 hover:underline cursor-pointer">
+              Prestige Institute of Engineering Management & Research (PIEMR)
+            </h3>
+            <span className="text-sm">Udemy</span>
+            <p className="text-gray-500 text-sm flex flex-col">
+              <span>Issued Jul 2023</span>
+              Credential ID UC-d7bc0908-2a9b-463f-aecd-32210ac9c9bb
+            </p>
+          </Link>
+          <span className="mb-2">
+            <Link
+              to="#"
+              className="px-4 py-2 md:px-4 md:py-1 rounded-full disabled:opacity-70 disabled:cursor-not-allowed ring-1 ring-gray-400 disabled:active:scale-100 disabled:active:ring-0 bg-white hover:ring-2 hover:ring-gray-500 text-gray-900 font-medium hover:bg-gray-200 focus:outline-none active:ring-1 active:ring-blue-600 active:ring-offset-1 active:scale-[0.99] transition-all ease-out duration-200"
+            >
+              Show Credential
+            </Link>
+          </span>
+          <Link
+            to="#"
+            className="font-semibold text-gray-900 text-sm flex items-center gap-1 hover:text-blue-600 hover:underline"
+          >
+            <svg
+              width="14px"
+              height="14px"
+              viewBox="0 0 24 24"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                fill-rule="evenodd"
+                clip-rule="evenodd"
+                d="M6.23607 1C5.09976 1 4.06097 1.64201 3.55279 2.65836L1.14806 7.46782C0.647975 8.46799 0.745665 9.66329 1.40152 10.569L9.57018 21.8495C10.7679 23.5035 13.2321 23.5035 14.4298 21.8495L22.5985 10.569C23.2543 9.66329 23.352 8.468 22.852 7.46782L20.4472 2.65836C19.939 1.64201 18.9003 1 17.7639 1H6.23607ZM5.34165 3.55279C5.51104 3.214 5.8573 3 6.23607 3H8.67428L7.24571 8H3.11804L5.34165 3.55279ZM9.32574 8L10.7543 3H13.2457L14.6743 8H9.32574ZM14.646 10H9.35397L12 18.5996L14.646 10ZM13.929 19.1312L16.7386 10H20.5412L13.929 19.1312ZM16.7543 8L15.3257 3H17.7639C18.1427 3 18.489 3.214 18.6584 3.55279L20.882 8H16.7543ZM3.4588 10H7.26143L10.071 19.1312L3.4588 10Z"
+                fill="#404040"
+              />
+            </svg>
+            GPT-4 and ChatGPT
+          </Link>
+        </div>
+
+      </div>
+
+      <div className="flex gap-2 pb-6 mt-3">
+        <Link
+          to="#"
+          className="h-12 w-12 bg-[#E7E2DC] flex items-center justify-center"
+        >
+          <img
+            src="https://media.licdn.com/dms/image/v2/D560BAQEf_NHzN2yVQg/company-logo_100_100/company-logo_100_100/0/1723593046388/udemy_logo?e=1773273600&v=beta&t=SoZH1GaBhr1ZunvSpNTnfcywljH1wqmhrazye_DFK6M"
+            alt="Udemy"
+          />
+        </Link>
+        <div className="flex flex-col gap-5">
+          <Link to="#">
+            <h3 className="font-semibold text-gray-900 hover:text-blue-600 hover:underline cursor-pointer">
+              The Content Writing Chourse
+            </h3>
+            <span className="text-sm">Udemy</span>
+            <p className="text-gray-500 text-sm flex flex-col">
+              <span>Issued May 2023</span>
+              Credential ID UC-72197da3-7319-44a1-a314-3e3dd387221b
+            </p>
+          </Link>
+          <span className="mb-2">
+            <Link
+              to="#"
+              className="px-4 py-2 md:px-4 md:py-1 rounded-full disabled:opacity-70 disabled:cursor-not-allowed ring-1 ring-gray-400 disabled:active:scale-100 disabled:active:ring-0 bg-white hover:ring-2 hover:ring-gray-500 text-gray-900 font-medium hover:bg-gray-200 focus:outline-none active:ring-1 active:ring-blue-600 active:ring-offset-1 active:scale-[0.99] transition-all ease-out duration-200"
+            >
+              Show Credential
+            </Link>
+          </span>
+          <Link
+            to="#"
+            className="font-semibold text-gray-900 text-sm flex items-center gap-1 hover:text-blue-600 hover:underline"
+          >
+            <svg
+              width="14px"
+              height="14px"
+              viewBox="0 0 24 24"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                fill-rule="evenodd"
+                clip-rule="evenodd"
+                d="M6.23607 1C5.09976 1 4.06097 1.64201 3.55279 2.65836L1.14806 7.46782C0.647975 8.46799 0.745665 9.66329 1.40152 10.569L9.57018 21.8495C10.7679 23.5035 13.2321 23.5035 14.4298 21.8495L22.5985 10.569C23.2543 9.66329 23.352 8.468 22.852 7.46782L20.4472 2.65836C19.939 1.64201 18.9003 1 17.7639 1H6.23607ZM5.34165 3.55279C5.51104 3.214 5.8573 3 6.23607 3H8.67428L7.24571 8H3.11804L5.34165 3.55279ZM9.32574 8L10.7543 3H13.2457L14.6743 8H9.32574ZM14.646 10H9.35397L12 18.5996L14.646 10ZM13.929 19.1312L16.7386 10H20.5412L13.929 19.1312ZM16.7543 8L15.3257 3H17.7639C18.1427 3 18.489 3.214 18.6584 3.55279L20.882 8H16.7543ZM3.4588 10H7.26143L10.071 19.1312L3.4588 10Z"
+                fill="#404040"
+              />
+            </svg>
+            Search Engine Optimization (SEO), Spelling and +3 skills
+          </Link>
+        </div>
+
+      </div>
     </div>
   );
 };
