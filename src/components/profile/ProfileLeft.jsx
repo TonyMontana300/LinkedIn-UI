@@ -8,11 +8,11 @@ import Education from "../profile/Education";
 import Certification from "../profile/Certification";
 import Projects from "../profile/Projects";
 import Skills from "../profile/Skills";
-import Interest from "../profile/Interest";
+import AuthFooter from "../login-signup/AuthFooter"
 
 const ProfileLeft = () => {
   return (
-    <div className="border flex flex-col gap-3">
+    <div className="flex flex-col gap-3">
       <ProfileHeader />
       <ProfileAnalytics />
       <About />
@@ -22,7 +22,7 @@ const ProfileLeft = () => {
       <Certification />
       <Projects />
       <Skills />
-      <Interest />
+      <AuthFooter />
     </div>
   );
 };

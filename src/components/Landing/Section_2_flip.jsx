@@ -7,7 +7,7 @@ const Section_2_flip = () => {
     <section className="bg-[#F3F2F0]">
       <div className="max-w-6xl mx-auto">
         <div className="flex flex-col-reverse md:flex-row md:justify-between items-center gap-10 md:gap-30">
-          <div className="flex flex-wrap gap-y-3 gap-x-2 justify-center md:w-3xl mb-15 md:mb-0">
+          <div className="flex flex-wrap gap-y-3 gap-x-2 md:w-3xl mb-15 md:mb-0">
             {games.map((game) => (
               <Link
                 key={game}

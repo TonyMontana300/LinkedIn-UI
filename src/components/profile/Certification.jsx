@@ -33,12 +33,23 @@ const Certification = () => {
               Credential ID UC-d7bc0908-2a9b-463f-aecd-32210ac9c9bb
             </p>
           </Link>
-          <span className="mb-2">
+          <span className="mb-2 flex">
             <Link
               to="#"
-              className="px-4 py-2 md:px-4 md:py-1 rounded-full disabled:opacity-70 disabled:cursor-not-allowed ring-1 ring-gray-400 disabled:active:scale-100 disabled:active:ring-0 bg-white hover:ring-2 hover:ring-gray-500 text-gray-900 font-medium hover:bg-gray-200 focus:outline-none active:ring-1 active:ring-blue-600 active:ring-offset-1 active:scale-[0.99] transition-all ease-out duration-200"
+              className="px-4 py-2 flex items-center gap-2 md:px-4 md:py-1 rounded-full disabled:opacity-70 disabled:cursor-not-allowed ring-1 ring-gray-400 disabled:active:scale-100 disabled:active:ring-0 bg-white hover:ring-2 hover:ring-gray-500 text-gray-900 font-medium hover:bg-gray-200 focus:outline-none active:ring-1 active:ring-blue-600 active:ring-offset-1 active:scale-[0.99] transition-all ease-out duration-200"
             >
               Show Credential
+              <svg
+                fill="#101828"
+                width="15px"
+                height="15px"
+                viewBox="0 0 32 32"
+                version="1.1"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <title>share</title>
+                <path d="M0 25.472q0 2.368 1.664 4.032t4.032 1.664h18.944q2.336 0 4-1.664t1.664-4.032v-8.192l-3.776 3.168v5.024q0 0.8-0.544 1.344t-1.344 0.576h-18.944q-0.8 0-1.344-0.576t-0.544-1.344v-18.944q0-0.768 0.544-1.344t1.344-0.544h9.472v-3.776h-9.472q-2.368 0-4.032 1.664t-1.664 4v18.944zM5.696 19.808q0 2.752 1.088 5.28 0.512-2.944 2.24-5.344t4.288-3.872 5.632-1.664v5.6l11.36-9.472-11.36-9.472v5.664q-2.688 0-5.152 1.056t-4.224 2.848-2.848 4.224-1.024 5.152zM32 22.080v0 0 0z"></path>
+              </svg>
             </Link>
           </span>
           <Link
@@ -62,10 +73,9 @@ const Certification = () => {
             GPT-4 and ChatGPT
           </Link>
         </div>
-
       </div>
 
-      <div className="flex gap-2 pb-6 mt-3">
+      <div className="flex gap-2 pb-7 mt-3">
         <Link
           to="#"
           className="h-12 w-12 bg-[#E7E2DC] flex items-center justify-center"
@@ -86,12 +96,23 @@ const Certification = () => {
               Credential ID UC-72197da3-7319-44a1-a314-3e3dd387221b
             </p>
           </Link>
-          <span className="mb-2">
+          <span className="mb-2 flex">
             <Link
               to="#"
-              className="px-4 py-2 md:px-4 md:py-1 rounded-full disabled:opacity-70 disabled:cursor-not-allowed ring-1 ring-gray-400 disabled:active:scale-100 disabled:active:ring-0 bg-white hover:ring-2 hover:ring-gray-500 text-gray-900 font-medium hover:bg-gray-200 focus:outline-none active:ring-1 active:ring-blue-600 active:ring-offset-1 active:scale-[0.99] transition-all ease-out duration-200"
+              className="px-4 flex items-center gap-2 py-2 md:px-4 md:py-1 rounded-full disabled:opacity-70 disabled:cursor-not-allowed ring-1 ring-gray-400 disabled:active:scale-100 disabled:active:ring-0 bg-white hover:ring-2 hover:ring-gray-500 text-gray-900 font-medium hover:bg-gray-200 focus:outline-none active:ring-1 active:ring-blue-600 active:ring-offset-1 active:scale-[0.99] transition-all ease-out duration-200"
             >
               Show Credential
+              <svg
+                fill="#101828"
+                width="15px"
+                height="15px"
+                viewBox="0 0 32 32"
+                version="1.1"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <title>share</title>
+                <path d="M0 25.472q0 2.368 1.664 4.032t4.032 1.664h18.944q2.336 0 4-1.664t1.664-4.032v-8.192l-3.776 3.168v5.024q0 0.8-0.544 1.344t-1.344 0.576h-18.944q-0.8 0-1.344-0.576t-0.544-1.344v-18.944q0-0.768 0.544-1.344t1.344-0.544h9.472v-3.776h-9.472q-2.368 0-4.032 1.664t-1.664 4v18.944zM5.696 19.808q0 2.752 1.088 5.28 0.512-2.944 2.24-5.344t4.288-3.872 5.632-1.664v5.6l11.36-9.472-11.36-9.472v5.664q-2.688 0-5.152 1.056t-4.224 2.848-2.848 4.224-1.024 5.152zM32 22.080v0 0 0z"></path>
+              </svg>
             </Link>
           </span>
           <Link
@@ -115,7 +136,6 @@ const Certification = () => {
             Search Engine Optimization (SEO), Spelling and +3 skills
           </Link>
         </div>
-
       </div>
     </div>
   );
