@@ -28,7 +28,7 @@ const ProfileAnalytics = () => {
           </svg>
           Private to you
         </p>
-        <ul className="flex justify-between gap-12 pb-4">
+        <ul className="flex flex-col md:flex-row md:justify-between gap-6 md:gap-12 pb-4">
           <li className="flex flex-col">
             <Link
               to="#"

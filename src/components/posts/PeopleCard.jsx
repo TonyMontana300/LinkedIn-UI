@@ -41,7 +41,7 @@ const PeopleCard = ({text, description}) => {
           <p className="text-gray-900 font-semibold hover:underline hover:text-blue-600">
             {text}
           </p>
-          <p className="text-sm w-50 text-gray-900 mb-4">
+          <p className="text-sm md:w-50 text-gray-900 mb-4">
             {description}
           </p>
           <span>

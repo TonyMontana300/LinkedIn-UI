@@ -34,7 +34,7 @@ const ViewCard = ({text}) => {
         </svg>
       </span>
       <div className="flex flex-col gap-3">
-        <span className="text-gray-900 font-semibold w-40">
+        <span className="text-gray-900 font-semibold md:w-40">
           {text}
         </span>
         <span>

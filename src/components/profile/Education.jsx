@@ -4,22 +4,24 @@ import EditBtn from "../ui/EditBtn";
 
 const Education = () => {
   return (
-    <div className="pt-6 px-6 bg-white rounded-xl shadow-sm hover:shadow-lg hover:shadow-gray-300 shadow-gray-300 transition-shadow duration-200">
+    <div className="md:pt-6 pt-4 px-6 bg-white rounded-xl shadow-sm hover:shadow-lg hover:shadow-gray-300 shadow-gray-300 transition-shadow duration-200">
       <div className="flex justify-between">
         <h2 className="text-xl font-semibold text-gray-900">Education</h2>
         <EditBtn />
       </div>
 
       <div className="flex gap-2 border-b border-b-gray-300 pb-5 mt-1">
-        <Link
-          to="#"
-          className="h-12 w-12 bg-[#E7E2DC] flex items-center justify-center"
-        >
-          <img
-            src="https://media.licdn.com/dms/image/v2/C4D0BAQEN5ak-MMOMFA/company-logo_100_100/company-logo_100_100/0/1662354967518/piemr_logo?e=1773273600&v=beta&t=ioKve_qz8RUjBfofV2c-8K-AgXDk9IojwuHEcgm3ko8"
-            alt="piemr"
-          />
-        </Link>
+        <div>
+          <Link
+            to="#"
+            className="h-12 w-12 bg-[#E7E2DC] flex items-center justify-center"
+          >
+            <img
+              src="https://media.licdn.com/dms/image/v2/C4D0BAQEN5ak-MMOMFA/company-logo_100_100/company-logo_100_100/0/1662354967518/piemr_logo?e=1773273600&v=beta&t=ioKve_qz8RUjBfofV2c-8K-AgXDk9IojwuHEcgm3ko8"
+              alt="piemr"
+            />
+          </Link>
+        </div>
         <div className="flex flex-col gap-5">
           <Link to="#">
             <h3 className="font-semibold text-gray-900 hover:text-blue-600 hover:underline cursor-pointer">
@@ -53,15 +55,17 @@ const Education = () => {
       </div>
 
       <div className="my-3 flex gap-2 pb-5">
-        <Link
-          to="#"
-          className="h-12 w-12 bg-[#E7E2DC] flex items-center justify-center"
-        >
-          <img
-            src="https://media.licdn.com/dms/image/v2/C4D0BAQEN5ak-MMOMFA/company-logo_100_100/company-logo_100_100/0/1662354967518/piemr_logo?e=1773273600&v=beta&t=ioKve_qz8RUjBfofV2c-8K-AgXDk9IojwuHEcgm3ko8"
-            alt="piemr"
-          />
-        </Link>
+        <div>
+          <Link
+            to="#"
+            className="h-12 w-12 bg-[#E7E2DC] flex items-center justify-center"
+          >
+            <img
+              src="https://media.licdn.com/dms/image/v2/C4D0BAQEN5ak-MMOMFA/company-logo_100_100/company-logo_100_100/0/1662354967518/piemr_logo?e=1773273600&v=beta&t=ioKve_qz8RUjBfofV2c-8K-AgXDk9IojwuHEcgm3ko8"
+              alt="piemr"
+            />
+          </Link>
+        </div>
         <div className="flex flex-col gap-5">
           <Link to="#">
             <h3 className="font-semibold text-gray-900 hover:text-blue-600 hover:underline cursor-pointer">

@@ -4,14 +4,14 @@ import { Link } from "react-router-dom";
 
 const Skills = () => {
   return (
-    <div className="pt-6 bg-white rounded-xl shadow-sm hover:shadow-lg hover:shadow-gray-300 shadow-gray-300 transition-shadow duration-200">
+    <div className="md:pt-6 pt-4 bg-white rounded-xl shadow-sm hover:shadow-lg hover:shadow-gray-300 shadow-gray-300 transition-shadow duration-200">
       <div className="px-6">
-        <div className="flex justify-between">
+        <div className="flex justify-between items-center">
           <h2 className="text-xl font-semibold text-gray-900">Skills</h2>
           <EditBtn />
         </div>
 
-        <div className="pb-5 mb-3 border-b border-b-gray-300">
+        <div className="pb-5 mb-3 border-b border-b-gray-300 mt-3 md:mt-0">
           <p className="text-gray-900 font-medium mb-2">Judge0</p>
           <p className="flex items-center gap-2 text-gray-950 text-sm">
             <svg

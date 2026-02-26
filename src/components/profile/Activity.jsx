@@ -47,7 +47,7 @@ const Activity = () => {
           >
             87 followers
           </Link>
-          <div className="flex gap-2 mt-1 mb-3">
+          <div className="md:flex gap-2 mt-1 mb-3 hidden">
             <Link
               to="#"
               className="hover:bg-[#004C33] bg-[#01754F] px-4 py-2 md:px-4 md:py-1 rounded-full disabled:opacity-70 disabled:cursor-not-allowed disabled:hover:bg-blue-600 disabled:active:scale-100 disabled:active:ring-0 text-white font-medium focus:outline-none active:ring-1 active:ring-blue-600 active:ring-offset-1 active:scale-[0.99] transition-all ease-out duration-200"
@@ -84,7 +84,7 @@ const Activity = () => {
         </div>
       </div>
 
-      <div className="relative w-209">
+      <div className="relative w-full md:w-209 mt-4 md:mt-0">
         <button
           onClick={scrollLeft}
           className={`absolute left-1 w-9 h-9 top-1/2 z-10 -translate-y-1/2 flex items-center justify-center hover:bg-[#404040] bg-[#666666] rounded-full p-1 transition-all ease-in-out duration-200 ${

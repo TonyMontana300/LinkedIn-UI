@@ -10,7 +10,7 @@ import {
 
 const PostCard = () => {
   return (
-    <div className="min-w-90.5 rounded-lg shadow-[0_1px_2px_(0,0,0,0.08)] px-4 pt-4 border border-gray-300 flex flex-col gap-2">
+    <div className="min-w-90.5 sm:min-w-[70%] rounded-lg shadow-[0_1px_2px_(0,0,0,0.08)] px-4 pt-4 border border-gray-300 flex flex-col gap-2">
       <div className="flex justify-between items-start">
         <div className="flex gap-3">
           <img
@@ -53,7 +53,7 @@ const PostCard = () => {
         <MoreHorizontal className="w-7 h-7 p-1 text-gray-500 cursor-pointer hover:bg-[#F3F3F3] rounded-full transition-all ease-in-out duration-200" />
       </div>
       <div className="flex flex-col border-b border-b-gray-200 py-1">
-        <p className="text-base font-medium text-gray-600 h-80">
+        <p className="text-base font-medium text-gray-600 h-16 md:h-80">
           Deployment teaches you more about the web than 10 tutorials ever will.
           🚀
         </p>

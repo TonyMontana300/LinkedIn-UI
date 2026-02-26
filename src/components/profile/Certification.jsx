@@ -4,8 +4,8 @@ import EditBtn from "../ui/EditBtn";
 
 const Certification = () => {
   return (
-    <div className="pt-6 px-6 bg-white rounded-xl shadow-sm hover:shadow-lg hover:shadow-gray-300 shadow-gray-300 transition-shadow duration-200">
-      <div className="flex justify-between">
+    <div className="md:pt-6 pt-4 px-6 bg-white rounded-xl shadow-sm hover:shadow-lg hover:shadow-gray-300 shadow-gray-300 transition-shadow duration-200">
+      <div className="flex justify-between items-center">
         <h2 className="text-xl font-semibold text-gray-900">
           Licenses & certifications
         </h2>
@@ -13,15 +13,17 @@ const Certification = () => {
       </div>
 
       <div className="flex gap-2 border-b border-b-gray-300 pb-5 mt-1">
-        <Link
-          to="#"
-          className="h-12 w-12 bg-[#E7E2DC] flex items-center justify-center"
-        >
-          <img
-            src="https://media.licdn.com/dms/image/v2/D560BAQEf_NHzN2yVQg/company-logo_100_100/company-logo_100_100/0/1723593046388/udemy_logo?e=1773273600&v=beta&t=SoZH1GaBhr1ZunvSpNTnfcywljH1wqmhrazye_DFK6M"
-            alt="Udemy"
-          />
-        </Link>
+        <div>
+          <Link
+            to="#"
+            className="h-12 w-12 bg-[#E7E2DC] flex items-center justify-center"
+          >
+            <img
+              src="https://media.licdn.com/dms/image/v2/D560BAQEf_NHzN2yVQg/company-logo_100_100/company-logo_100_100/0/1723593046388/udemy_logo?e=1773273600&v=beta&t=SoZH1GaBhr1ZunvSpNTnfcywljH1wqmhrazye_DFK6M"
+              alt="Udemy"
+            />
+          </Link>
+        </div>
         <div className="flex flex-col gap-5">
           <Link to="#">
             <h3 className="font-semibold text-gray-900 hover:text-blue-600 hover:underline cursor-pointer">
@@ -76,15 +78,17 @@ const Certification = () => {
       </div>
 
       <div className="flex gap-2 pb-7 mt-3">
-        <Link
-          to="#"
-          className="h-12 w-12 bg-[#E7E2DC] flex items-center justify-center"
-        >
-          <img
-            src="https://media.licdn.com/dms/image/v2/D560BAQEf_NHzN2yVQg/company-logo_100_100/company-logo_100_100/0/1723593046388/udemy_logo?e=1773273600&v=beta&t=SoZH1GaBhr1ZunvSpNTnfcywljH1wqmhrazye_DFK6M"
-            alt="Udemy"
-          />
-        </Link>
+        <div>
+          <Link
+            to="#"
+            className="h-12 w-12 bg-[#E7E2DC] flex items-center justify-center"
+          >
+            <img
+              src="https://media.licdn.com/dms/image/v2/D560BAQEf_NHzN2yVQg/company-logo_100_100/company-logo_100_100/0/1723593046388/udemy_logo?e=1773273600&v=beta&t=SoZH1GaBhr1ZunvSpNTnfcywljH1wqmhrazye_DFK6M"
+              alt="Udemy"
+            />
+          </Link>
+        </div>
         <div className="flex flex-col gap-5">
           <Link to="#">
             <h3 className="font-semibold text-gray-900 hover:text-blue-600 hover:underline cursor-pointer">
