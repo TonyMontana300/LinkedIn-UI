@@ -1,8 +1,8 @@
-import React from 'react'
+import React from "react";
 
 const FeedPost = () => {
   return (
-    <div>
+    <div className="border p-3">
       <h1>Name</h1>
       <p>Content</p>
       <div>
@@ -12,7 +12,7 @@ const FeedPost = () => {
         <span>Repost</span>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default FeedPost
+export default FeedPost;

@@ -4,6 +4,7 @@ import PostCard from "../posts/PostCard";
 import { useRef, useState, useEffect } from "react";
 import BlueBtn from "../ui/BlueBtn";
 import ShowBtn from "../ui/ShowBtn";
+import BlackBtn from "../ui/BlackBtn";
 
 const Activity = () => {
   const [showLeft, setShowLeft] = useState(false);
@@ -54,12 +55,7 @@ const Activity = () => {
             >
               Posts
             </Link>
-            <Link
-              to="#"
-              className="px-4 py-2 md:px-4 md:py-1 rounded-full disabled:opacity-70 disabled:cursor-not-allowed ring-1 ring-gray-400 disabled:active:scale-100 disabled:active:ring-0 bg-white hover:ring-2 hover:ring-gray-500 text-gray-900 font-medium hover:bg-gray-200 focus:outline-none active:ring-1 active:ring-blue-600 active:ring-offset-1 active:scale-[0.99] transition-all ease-out duration-200"
-            >
-              Comments
-            </Link>
+            <BlackBtn text="Comments"/>
           </div>
         </div>
         <div className="flex gap-2 items-center">
@@ -122,7 +118,7 @@ const Activity = () => {
 
         <button
           onClick={scrollRight}
-          className={`absolute right-1 w-9 h-9 flex items-center justify-center top-1/2 -translate-y-1/2 z-10 hover:bg-[#404040] bg-[#666666] rounded-full p-1 transition-all ease-in-out duration-200 transition-opacity duration-300 ${
+          className={`absolute right-1 w-9 h-9 flex items-center justify-center top-1/2 -translate-y-1/2 z-10 hover:bg-[#404040] bg-[#666666] rounded-full p-1 transition-all ease-in-out duration-200 ${
             showRight ? "opacity-100" : "opacity-0 pointer-events-none"
           }`}
         >

@@ -1,19 +1,14 @@
 import React from 'react'
+import MiniProfile from './MiniProfile'
+import Stats from './Stats'
+import Items from './Items'
 
 const LeftPanel = () => {
   return (
-    <div>
-      <div>
-        <h1>Profile</h1>
-        <p>Details</p>
-      </div>
-      <div>Stats</div>
-      <div>
-        <div>Save Items</div>
-        <div>Group</div>
-        <div>Newsletters</div>
-        <div>Events</div>
-      </div>
+    <div className='flex flex-col gap-3'>
+      <MiniProfile />
+      <Stats />
+      <Items />
     </div>
   )
 }

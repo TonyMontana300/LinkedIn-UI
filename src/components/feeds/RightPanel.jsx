@@ -2,7 +2,7 @@ import React from 'react'
 
 const RightPanel = () => {
   return (
-    <div>
+    <div className='border'>
       <div>
         <h1>News</h1>
       </div>
