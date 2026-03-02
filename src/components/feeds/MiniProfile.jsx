@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 const MiniProfile = () => {
   return (
     <div className="bg-white rounded-md shadow-sm overflow-hidden hover:shadow-lg hover:shadow-gray-300 shadow-gray-300 transition-shadow duration-200">
-      <div className="w-full relative rounded-md">
+      <div className="w-full rounded-md">
         <img
           src="https://media.licdn.com/dms/image/v2/D5616AQHFLAjgcbNERw/profile-displaybackgroundimage-shrink_350_1400/B56ZuIhdB2JMAc-/0/1767522030526?e=1773273600&v=beta&t=lpEhP5c8Mz93iKlLOke3ZY8GRSc38qIz8xyJOTcKDIY"
           alt="Cover Image"

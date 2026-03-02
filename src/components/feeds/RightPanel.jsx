@@ -1,16 +1,14 @@
-import React from 'react'
+import React from "react";
+import News from "./News";
+import Footer from "../layout/Footer";
 
 const RightPanel = () => {
   return (
-    <div className='border'>
-      <div>
-        <h1>News</h1>
-      </div>
-      <div>
-        <p>Suggestions</p>
-      </div>
+    <div className="flex flex-col gap-2">
+      <News />
+      <Footer />
     </div>
-  )
-}
+  );
+};
 
-export default RightPanel
+export default RightPanel;

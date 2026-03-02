@@ -4,8 +4,9 @@ import FeedPost from "./FeedPost";
 
 const MainPanel = () => {
   return (
-    <div className="border flex flex-col gap-2">
+    <div className="flex flex-col gap-2">
       <CreatePost />
+      <div className="border-t-2 border-t-gray-300 my-2"></div>
       <FeedPost />
       <FeedPost />
       <FeedPost />
