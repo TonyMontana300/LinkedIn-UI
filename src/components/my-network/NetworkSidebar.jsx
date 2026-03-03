@@ -1,23 +1,12 @@
 import React from 'react'
+import NetworkTab from './NetworkTab'
+import Footer from '../layout/Footer'
 
 const NetworkSidebar = () => {
   return (
-    <div style={{border: "1px solid lightgray"}}>
-      <div>
-        <h1>Manage my network</h1>
-        <ul>
-            <li>NavItem</li>
-            <li>NavItem</li>
-            <li>NavItem</li>
-            <li>NavItem</li>
-            <li>NavItem</li>
-            <li>NavItem</li>
-        </ul>
-      </div> 
-      <div>
-        <p>Advertisement</p>
-        <a href="#">Redeem Offer</a>
-      </div>
+    <div className='flex flex-col gap-3'>
+      <NetworkTab />
+      <Footer />
     </div>
   )
 }
