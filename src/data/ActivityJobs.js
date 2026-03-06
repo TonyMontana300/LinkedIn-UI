@@ -1,0 +1,47 @@
+export const ActivityJobs = [
+  {
+    id: 1,
+    title: "Junior JavaScript Developer",
+    company: "BairesDev LLC",
+    location: "Jaipur (Remote)",
+    posted: "9 months ago",
+    type: "normal",
+    logo: "https://logo.clearbit.com/bairesdev.com",
+  },
+  {
+    id: 2,
+    title: "Frontend Developer (ReactJS) - Night Shift",
+    company: "Uplers",
+    location: "Kanpur (Hybrid)",
+    posted: "Promoted",
+    type: "promoted",
+    logo: "https://logo.clearbit.com/uplers.com",
+  },
+  {
+    id: 3,
+    title: "Remote Full-Stack Developer",
+    company: "Turing India",
+    location: "Bengaluru (Remote)",
+    posted: "Promoted",
+    type: "promoted",
+    logo: "https://logo.clearbit.com/turing.com",
+  },
+  {
+    id: 4,
+    title: "React Developer",
+    company: "Infosys",
+    location: "Pune (Hybrid)",
+    posted: "3 weeks ago",
+    type: "normal",
+    logo: "https://logo.clearbit.com/infosys.com",
+  },
+  {
+    id: 5,
+    title: "MERN Stack Developer",
+    company: "Accenture",
+    location: "Indore (On-site)",
+    posted: "1 month ago",
+    type: "normal",
+    logo: "https://logo.clearbit.com/accenture.com",
+  }
+];

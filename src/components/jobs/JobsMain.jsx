@@ -1,10 +1,12 @@
 import React from "react";
 import Preference from "./Preference";
+import Activity from "./Activity";
 
 const JobsMain = () => {
   return (
-    <div className="border flex flex-col gap-3">
+    <div className="flex flex-col gap-3">
       <Preference />
+      <Activity />
       <div>
         <h2>Section Header(Based on Activity)</h2>
         <ul>
