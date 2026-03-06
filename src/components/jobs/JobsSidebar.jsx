@@ -1,18 +1,15 @@
 import React from 'react'
+import MiniProfile from '../feeds/MiniProfile'
+import Footer from '../layout/Footer'
+import CTATab from './CTATab'
+import { Link } from 'react-router-dom'
 
 const JobsSidebar = () => {
   return (
-    <div style={{border: "1px solid lightgray"}}>
-      <div>
-        <h1>Name</h1>
-        <p>Details</p>
-      </div>
-      <div>
-        <div>Preference</div>
-        <div>Job Tracker</div>
-        <div>My Career Insight</div>
-        <a href="#">Post Job CTA</a>
-      </div>
+    <div className='flex flex-col gap-3'>
+      <MiniProfile />
+      <CTATab />
+      <Footer />
     </div>
   )
 }

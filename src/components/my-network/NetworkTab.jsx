@@ -10,7 +10,7 @@ const NetworkTab = () => {
       <div className="flex flex-col">
         <Link
           to="#"
-          className="px-4 py-3 hover:bg-[#F3F3F3] text-gray-600 font-semibold flex gap-2 items-center"
+          className="px-4 py-3 hover:bg-[#F3F3F3] text-gray-600 font-semibold flex gap-2 items-center transition-all ease-in-out duration-200"
         >
           <svg
             width="20px"
@@ -66,7 +66,7 @@ const NetworkTab = () => {
         </Link>
         <Link
           to="#"
-          className="px-4 py-3 hover:bg-[#F3F3F3] text-gray-600 font-semibold flex gap-2 items-center"
+          className="px-4 py-3 hover:bg-[#F3F3F3] text-gray-600 font-semibold flex gap-2 items-center transition-all ease-in-out duration-200"
         >
           <svg
             width="20px"
@@ -88,7 +88,7 @@ const NetworkTab = () => {
         </Link>
         <Link
           to="#"
-          className="px-4 py-3 hover:bg-[#F3F3F3] text-gray-600 font-semibold flex gap-2 items-center"
+          className="px-4 py-3 hover:bg-[#F3F3F3] text-gray-600 font-semibold flex gap-2 items-center transition-all ease-in-out duration-200"
         >
           <svg
             fill="#666666"
@@ -121,7 +121,7 @@ const NetworkTab = () => {
         </Link>
         <Link
           to="#"
-          className="px-4 py-3 hover:bg-[#F3F3F3] text-gray-600 font-semibold flex gap-2 items-center"
+          className="px-4 py-3 hover:bg-[#F3F3F3] text-gray-600 font-semibold flex gap-2 items-center transition-all ease-in-out duration-200"
         >
           <svg
             height="20px"
@@ -165,7 +165,7 @@ const NetworkTab = () => {
         </Link>
         <Link
           to="#"
-          className="px-4 py-3 hover:bg-[#F3F3F3] text-gray-600 font-semibold flex gap-2 items-center"
+          className="px-4 py-3 hover:bg-[#F3F3F3] text-gray-600 font-semibold flex gap-2 items-center transition-all ease-in-out duration-200"
         >
           <svg
             width="20px"
@@ -184,7 +184,7 @@ const NetworkTab = () => {
         </Link>
         <Link
           to="#"
-          className="px-4 py-3 hover:bg-[#F3F3F3] text-gray-600 font-semibold flex gap-2 items-center"
+          className="px-4 py-3 hover:bg-[#F3F3F3] text-gray-600 font-semibold flex gap-2 items-center transition-all ease-in-out duration-200"
         >
           <svg
             fill="#666666"

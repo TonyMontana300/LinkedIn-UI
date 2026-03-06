@@ -5,7 +5,7 @@ const ShowBtn = ({text}) => {
   return (
     <Link
         to="#"
-        className="flex justify-center items-center gap-1 border-t border-t-gray-200 py-2 hover:bg-[#F3F3F3] w-full hover:text-gray-900 font-semibold text-gray-800"
+        className="flex justify-center items-center gap-1 border-t border-t-gray-200 py-3 hover:bg-[#F3F3F3] w-full hover:text-gray-900 font-semibold text-gray-800"
       >
         {text}
         <svg

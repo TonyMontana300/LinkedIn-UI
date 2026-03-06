@@ -1,11 +1,11 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-const EditBtn2 = () => {
+const EditBtn2 = ({className}) => {
   return (
     <Link
       to="#"
-      className="hover:bg-[#D4DDE6] rounded-full p-1 transition-all ease-in-out duration-200 w-11 h-11 flex items-center justify-center"
+      className={`hover:bg-[#D4DDE6] rounded-full p-1 transition-all ease-in-out duration-200 w-11 h-11 flex items-center justify-center ${className}`}
     >
       <svg
         className="hover:fill-[#151617]"
