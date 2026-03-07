@@ -5,8 +5,8 @@ import MainPanel from "../feeds/MainPanel";
 
 const FeedLayout = () => {
   return (
-    <main className="bg-[#F4F2EE] py-1">
-      <div className="grid grid-cols-[1fr_3fr_1.3fr] gap-5 max-w-6xl mx-auto my-5">
+    <main className="bg-[#F4F2EE] py-2">
+      <div className="grid grid-cols-[1fr_3fr_1.3fr] gap-5 max-w-6xl mx-auto my-4">
         <LeftPanel />
         <MainPanel />
         <RightPanel />
