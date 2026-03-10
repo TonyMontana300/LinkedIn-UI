@@ -30,7 +30,6 @@ const MessagePanel = () => {
       </div>
 
       <MessageApp />
-      
     </div>
   );
 };
