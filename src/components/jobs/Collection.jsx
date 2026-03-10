@@ -44,36 +44,38 @@ const Collection = () => {
             >
               <div className="w-10 h-10 flex items-center justify-center">
                 <Lottie
-                animationData={tab.anim}
-                autoplay={activeTab === tab.name}
-                loop={activeTab === tab.name}
-                style={{ width: 35, height: 35 }}
-                rendererSettings={{
+                  animationData={tab.anim}
+                  autoplay={activeTab === tab.name}
+                  loop={activeTab === tab.name}
+                  style={{ width: 35, height: 35 }}
+                  rendererSettings={{
                     preserveAspectRatio: "xMidYMid slice",
-                }}
-              />
+                  }}
+                />
               </div>
               {tab.name}
             </Link>
           ))}
         </div>
-        {filterJobs.slice(0, visibleJobs).map((job) => (
-          <div
-            key={job.id}
-            className="flex flex-col border-b border-b-gray-200 py-2 last:border-none"
-          >
-            <Link to="#" className="flex justify-between">
-              <div>
-                <h2 className="text-blue-600 font-semibold">{job.title}</h2>
-                <p className="text-sm text-gray-900">
-                  {job.company} • {job.location} • {job.salary}
-                </p>
-                <span className="text-xs text-gray-500">{job.posted}</span>
-              </div>
-              <CutBtn2 />
-            </Link>
-          </div>
-        ))}
+        <div className="py-1">
+          {filterJobs.slice(0, visibleJobs).map((job) => (
+            <div
+              key={job.id}
+              className="flex flex-col border-b border-b-gray-200 py-2 last:border-none"
+            >
+              <Link to="#" className="flex justify-between">
+                <div>
+                  <h2 className="text-blue-600 font-semibold">{job.title}</h2>
+                  <p className="text-sm text-gray-900">
+                    {job.company} • {job.location} • {job.salary}
+                  </p>
+                  <span className="text-xs text-gray-500">{job.posted}</span>
+                </div>
+                <CutBtn2 />
+              </Link>
+            </div>
+          ))}
+        </div>
       </div>
       {filterJobs.length > 2 && (
         <Link

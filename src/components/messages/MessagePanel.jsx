@@ -1,55 +1,36 @@
 import React from "react";
+import MessageEditBtn from "../ui/MessageEditBtn";
+import SearchMsg from "../ui/SearchMsg";
+import GreenBtn from "../ui/GreenBtn";
+import BlackBtn from "../ui/BlackBtn";
+import MessageApp from "./MessageApp";
 
 const MessagePanel = () => {
   return (
-    <div
-      style={{ display: "grid", gridTemplateColumns: "3fr 1fr", gap: "10px" }}
-    >
-      <div>
-        <h2>Section Header</h2>
-        <input type="text" />
-        <ul>
-          <li>Focused Jobs Unread Connections InMail Starred</li>
-        </ul>
+    <div className="bg-white rounded-md shadow-sm hover:shadow-lg hover:shadow-gray-300 shadow-gray-300 transition-shadow duration-200">
+      <div className="flex justify-between items-center border-b border-b-gray-300 py-1 px-4">
+        <div className="flex gap-4 items-center">
+          <h1 className="text-gray-900 font-medium">Messaging</h1>
+          <SearchMsg />
+        </div>
+        <MessageEditBtn />
+      </div>
 
-        <div
-          style={{
-            display: "grid",
-            gridTemplateColumns: "1fr 2fr",
-            gap: "10px",
-            height: "400px",
-            borderTop: "1px solid gray",
-            marginTop: "10px",
-            paddingTop: "10px",
-          }}
-        >
-          <div>
-            <ul>
-              <li>Contact 1</li>
-              <li>Contact 2</li>
-              <li>Contact 3</li>
-            </ul>
-          </div>
-          <div>
-            <h3>Messenger Name</h3>
-            <p>
-              Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-              Consequuntur, commodi. Illum repellat possimus eveniet animi modi
-              ducimus unde aliquid sunt ullam dolor fugiat vero, natus inventore
-              dolorem autem pariatur, obcaecati architecto assumenda fuga atque.
-            </p>
-            <div>
-              <input type="text" />
-              <button>Send</button>
-            </div>
-          </div>
+      <div className="flex gap-2 py-2 px-4 border-b border-b-gray-300">
+        <div className="border-r border-r-gray-300 pr-2">
+          <GreenBtn text="Focused" />
+        </div>
+        <div className="flex gap-2">
+          <BlackBtn text="Jobs" />
+          <BlackBtn text="Unread" />
+          <BlackBtn text="Connections" />
+          <BlackBtn text="InMain" />
+          <BlackBtn text="Started" />
         </div>
       </div>
 
-      <div>
-        <p>Advertisement</p>
-        <a href="#">Redeem Offer</a>
-      </div>
+      <MessageApp />
+      
     </div>
   );
 };

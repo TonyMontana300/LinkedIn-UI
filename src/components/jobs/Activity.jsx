@@ -17,24 +17,25 @@ const Activity = () => {
         <p className="text-sm text-gray-500">
           Including applies, searches, and saves
         </p>
-
-        {ActivityJobs.slice(0, visibleJobs).map((job) => (
-          <div
-            key={job.id}
-            className="flex flex-col border-b border-b-gray-200 py-2 last:border-none"
-          >
-            <Link to="#" className="flex justify-between">
-              <div>
-                <h2 className="text-blue-600 font-semibold">{job.title}</h2>
-                <p className="text-sm text-gray-900">
-                  {job.company} • {job.location} • {job.salary}
-                </p>
-                <span className="text-xs text-gray-500">{job.posted}</span>
-              </div>
-              <CutBtn2 />
-            </Link>
-          </div>
-        ))}
+        <div className="py-1">
+          {ActivityJobs.slice(0, visibleJobs).map((job) => (
+            <div
+              key={job.id}
+              className="flex flex-col border-b border-b-gray-200 py-2 last:border-none"
+            >
+              <Link to="#" className="flex justify-between">
+                <div>
+                  <h2 className="text-blue-600 font-semibold">{job.title}</h2>
+                  <p className="text-sm text-gray-900">
+                    {job.company} • {job.location} • {job.salary}
+                  </p>
+                  <span className="text-xs text-gray-500">{job.posted}</span>
+                </div>
+                <CutBtn2 />
+              </Link>
+            </div>
+          ))}
+        </div>
       </div>
       {ActivityJobs.length > 3 && (
         <Link

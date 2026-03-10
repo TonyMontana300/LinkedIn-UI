@@ -5,6 +5,7 @@ import { useRef, useState, useEffect } from "react";
 import BlueBtn from "../ui/BlueBtn";
 import ShowBtn from "../ui/ShowBtn";
 import BlackBtn from "../ui/BlackBtn";
+import GreenBtn from "../ui/GreenBtn";
 
 const Activity = () => {
   const [showLeft, setShowLeft] = useState(false);
@@ -49,12 +50,7 @@ const Activity = () => {
             87 followers
           </Link>
           <div className="md:flex gap-2 mt-1 mb-3 hidden">
-            <Link
-              to="#"
-              className="hover:bg-[#004C33] bg-[#01754F] px-4 py-2 md:px-4 md:py-1 rounded-full disabled:opacity-70 disabled:cursor-not-allowed disabled:hover:bg-blue-600 disabled:active:scale-100 disabled:active:ring-0 text-white font-medium focus:outline-none active:ring-1 active:ring-blue-600 active:ring-offset-1 active:scale-[0.99] transition-all ease-out duration-200"
-            >
-              Posts
-            </Link>
+            <GreenBtn text="Posts"/>
             <BlackBtn text="Comments"/>
           </div>
         </div>

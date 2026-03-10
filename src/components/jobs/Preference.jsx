@@ -23,6 +23,7 @@ const Preference = () => {
           </div>
           <EditBtn2 />
         </div>
+        <div className="py-1">
         {dummyJobs.slice(0, visibleJobs).map((job) => (
           <div
             key={job.id}
@@ -40,6 +41,7 @@ const Preference = () => {
             </Link>
           </div>
         ))}
+        </div>
       </div>
       {dummyJobs.length > 3 && (
         <Link
