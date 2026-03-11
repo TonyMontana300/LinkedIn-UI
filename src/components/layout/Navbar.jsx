@@ -1,15 +1,16 @@
 import React from "react";
-import { useRef } from "react";
+import { useRef, useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import LogoIn from "../ui/LogoIn";
 import SearchBar from "../ui/SearchBar";
 import HoverIcons from "../icons/HoverIcons";
 import homeAnim from "../../assets/icons/Home Icon Loading.json";
 import networkAnim from "../../assets/icons/Man and Woman say Hi !.json";
-import jobsAnim from "../../assets/icons/jobs.json"
-import messageAnim from "../../assets/icons/Message Icon Animation.json"
-import notificationAnim from "../../assets/icons/Notification Bell.json"
-import profileAnim from "../../assets/icons/Profile Avatar of Young Boy.json"
+import jobsAnim from "../../assets/icons/jobs.json";
+import messageAnim from "../../assets/icons/Message Icon Animation.json";
+import notificationAnim from "../../assets/icons/Notification Bell.json";
+import profileAnim from "../../assets/icons/Profile Avatar of Young Boy.json";
+import HoverProfile from "../navbar/HoverProfile";
 
 const Navbar = () => {
   const homeRef = useRef(null);
@@ -18,6 +19,16 @@ const Navbar = () => {
   const messageRef = useRef(null);
   const notificationRef = useRef(null);
   const profileRef = useRef(null);
+
+  const [openProfile, setOpenProfile] = useState(false);
+
+  useEffect(() => {
+    const handleClickOutside = () => setOpenProfile(false);
+    document.addEventListener("click", handleClickOutside);
+    return () => {
+      document.removeEventListener("click", handleClickOutside);
+    };
+  }, []);
 
   return (
     <nav className="hover:shadow-md transition-all duration-200 ease-in-out sticky top-0 bg-white shadow-sm z-50 opacity-0 animate-[slideDown_0.6s_ease_forwards]">
@@ -97,7 +108,11 @@ const Navbar = () => {
               notificationRef.current?.goToAndStop(0, true);
             }}
           >
-            <HoverIcons ref={notificationRef} animation={notificationAnim} size={35} />
+            <HoverIcons
+              ref={notificationRef}
+              animation={notificationAnim}
+              size={35}
+            />
             <Link
               to="/notifications"
               className="text-sm text-gray-600 hover:text-gray-800 font-semibold"
@@ -106,7 +121,11 @@ const Navbar = () => {
             </Link>
           </li>
           <li
-            className="transition-transform duration-200 ease-out hover:-translate-y-0.5 flex flex-col items-center"
+            onClick={(e) => {
+              e.stopPropagation();
+              setOpenProfile(!openProfile);
+            }}
+            className="relative transition-transform duration-200 ease-out hover:-translate-y-0.5 flex flex-col items-center"
             onMouseEnter={() => profileRef.current?.play()}
             onMouseLeave={() => {
               profileRef.current?.stop();
@@ -115,10 +134,11 @@ const Navbar = () => {
           >
             <HoverIcons ref={profileRef} animation={profileAnim} size={35} />
             <Link
-              to="/profile/:id"
+              to="#"
               className="text-sm text-gray-600 hover:text-gray-800 font-semibold"
             >
               Me
+              {openProfile && <HoverProfile />}
             </Link>
           </li>
         </ul>

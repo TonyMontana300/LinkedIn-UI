@@ -36,7 +36,7 @@ const NotificationFeed = () => {
           <Link
             to="/feed"
             key={item.id}
-            className="flex justify-between p-5 hover:bg-[#EBEBEB] border-b border-b-gray-300"
+            className="flex justify-between p-5 transition-all ease-in-out duration-200 hover:bg-[#EBEBEB] border-b border-b-gray-300"
           >
             <div className="flex items-center gap-2">
               <img
