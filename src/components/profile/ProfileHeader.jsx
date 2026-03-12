@@ -2,13 +2,16 @@ import React from "react";
 import { Link } from "react-router-dom";
 import BlueBtn from "../ui/BlueBtn";
 import BlackBtn from "../ui/BlackBtn";
+import profile from "../../assets/images/profile.jfif";
+import cover from "../../assets/images/cover.jfif";
+import piemrLogo from "../../assets/images/piemr_logo.jfif"
 
 const ProfileHeader = () => {
   return (
     <div className="bg-white rounded-xl shadow-sm overflow-hidden hover:shadow-lg hover:shadow-gray-300 shadow-gray-300 transition-shadow duration-200">
       <div className="w-full relative h-40 md:h-50 rounded-xl">
         <img
-          src="https://media.licdn.com/dms/image/v2/D5616AQHFLAjgcbNERw/profile-displaybackgroundimage-shrink_350_1400/B56ZuIhdB2JMAc-/0/1767522030526?e=1773273600&v=beta&t=lpEhP5c8Mz93iKlLOke3ZY8GRSc38qIz8xyJOTcKDIY"
+          src={cover}
           alt="Cover Image"
           className="w-full h-full object-cover"
         />
@@ -33,7 +36,7 @@ const ProfileHeader = () => {
       <div className="px-6 relative">
         <div className="-mt-20">
           <img
-            src="https://media.licdn.com/dms/image/v2/D5603AQHskjWs-MGpdg/profile-displayphoto-scale_400_400/B56ZuIhVWsJ8Ak-/0/1767522000929?e=1773273600&v=beta&t=tIk8REL4W4HC5Ii_-3tpY4yfTt5O6v1Q5HhERCM8ywY"
+            src={profile}
             alt="Profile Image"
             className="w-35 h-35 rounded-full object-cover shadow-md ring-white ring-4"
           />
@@ -137,7 +140,7 @@ const ProfileHeader = () => {
         <div className="py-5 relative">
           <Link to="#" className="flex gap-2">
             <img
-              src="https://media.licdn.com/dms/image/v2/C4D0BAQEN5ak-MMOMFA/company-logo_100_100/company-logo_100_100/0/1662354967518/piemr_logo?e=1773273600&v=beta&t=ioKve_qz8RUjBfofV2c-8K-AgXDk9IojwuHEcgm3ko8"
+              src={piemrLogo}
               alt="logo"
               className="w-10 h-8"
             />

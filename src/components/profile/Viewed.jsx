@@ -1,5 +1,4 @@
 import React from "react";
-import BlackBtn from "../ui/BlackBtn";
 import ViewCard from "../posts/ViewCard";
 
 const Viewed = () => {

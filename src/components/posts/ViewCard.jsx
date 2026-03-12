@@ -1,7 +1,7 @@
 import React from "react";
 import BlackBtn from "../ui/BlackBtn";
 
-const ViewCard = ({text}) => {
+const ViewCard = ({ text }) => {
   return (
     <div className="flex gap-3 border-b border-b-gray-300 pb-5 mb-3">
       <span className="w-14 h-14 rounded-full flex items-center justify-center bg-[#DDE7F1]">
@@ -34,12 +34,8 @@ const ViewCard = ({text}) => {
         </svg>
       </span>
       <div className="flex flex-col gap-3">
-        <span className="text-gray-900 font-semibold md:w-40">
-          {text}
-        </span>
-        <span>
-          <BlackBtn text="View" />
-        </span>
+        <p className="text-gray-900 font-semibold md:w-40">{text}</p>
+        <BlackBtn text="View" />
       </div>
     </div>
   );

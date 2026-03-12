@@ -1,12 +1,14 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import cover from "../../assets/images/cover.jfif"
+import profile from "../../assets/images/profile.jfif"
 
 const MiniProfile = () => {
   return (
     <div className="bg-white rounded-md shadow-sm overflow-hidden hover:shadow-lg hover:shadow-gray-300 shadow-gray-300 transition-shadow duration-200">
       <div className="w-full rounded-md">
         <img
-          src="https://media.licdn.com/dms/image/v2/D5616AQHFLAjgcbNERw/profile-displaybackgroundimage-shrink_350_1400/B56ZuIhdB2JMAc-/0/1767522030526?e=1773273600&v=beta&t=lpEhP5c8Mz93iKlLOke3ZY8GRSc38qIz8xyJOTcKDIY"
+          src={cover}
           alt="Cover Image"
           className="w-full h-full object-cover"
         />
@@ -14,7 +16,7 @@ const MiniProfile = () => {
       <div className="px-4 relative">
         <div className="-mt-5">
           <img
-            src="https://media.licdn.com/dms/image/v2/D5603AQHskjWs-MGpdg/profile-displayphoto-scale_400_400/B56ZuIhVWsJ8Ak-/0/1767522000929?e=1773273600&v=beta&t=tIk8REL4W4HC5Ii_-3tpY4yfTt5O6v1Q5HhERCM8ywY"
+            src={profile}
             alt="Profile Image"
             className="w-16 h-16 rounded-full object-cover shadow-md ring-white ring-2"
           />

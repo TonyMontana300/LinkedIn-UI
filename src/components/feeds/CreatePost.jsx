@@ -1,11 +1,11 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import Lottie from "lottie-react";
 import { useRef } from "react";
 import HoverIcons from "../icons/HoverIcons";
 import videoAnim from "../../assets/icons/Calling video icon.json";
 import imageAnim from "../../assets/icons/Image Not Preview.json";
 import articleAnim from "../../assets/icons/Write.json" 
+import profile from "../../assets/images/profile.jfif"
 
 const CreatePost = () => {
   const videoRef = useRef(null);
@@ -16,7 +16,7 @@ const CreatePost = () => {
     <div className="md:pt-3 px-4 pb-1 bg-white rounded-md shadow-sm hover:shadow-lg hover:shadow-gray-300 shadow-gray-300 transition-shadow duration-200">
       <div className="flex gap-2">
         <img
-          src="https://media.licdn.com/dms/image/v2/D5603AQHskjWs-MGpdg/profile-displayphoto-scale_400_400/B56ZuIhVWsJ8Ak-/0/1767522000929?e=1773273600&v=beta&t=tIk8REL4W4HC5Ii_-3tpY4yfTt5O6v1Q5HhERCM8ywY"
+          src={profile}
           alt="Profile Image"
           className="w-12 h-12 rounded-full object-cover shadow-md"
         />
