@@ -1,13 +1,15 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import BlueBtn from "../ui/BlueBtn";
+import profile from "../../assets/images/profile.jfif";
+import cover from "../../assets/images/cover.jfif";
 
 const UserCard = () => {
   return (
     <div className="cursor-pointer bg-white rounded-md shadow-sm overflow-hidden hover:shadow-lg hover:shadow-gray-300 shadow-gray-300 transition-shadow duration-200">
       <div className="w-full rounded-md">
         <img
-          src="https://media.licdn.com/dms/image/v2/D5616AQHFLAjgcbNERw/profile-displaybackgroundimage-shrink_350_1400/B56ZuIhdB2JMAc-/0/1767522030526?e=1773273600&v=beta&t=lpEhP5c8Mz93iKlLOke3ZY8GRSc38qIz8xyJOTcKDIY"
+          src={cover}
           alt="Cover Image"
           className="w-full h-full object-cover"
         />
@@ -15,7 +17,7 @@ const UserCard = () => {
       <div className="mx-15 relative">
         <div className="-mt-5">
           <img
-            src="https://media.licdn.com/dms/image/v2/D5603AQHskjWs-MGpdg/profile-displayphoto-scale_400_400/B56ZuIhVWsJ8Ak-/0/1767522000929?e=1773273600&v=beta&t=tIk8REL4W4HC5Ii_-3tpY4yfTt5O6v1Q5HhERCM8ywY"
+            src={profile}
             alt="Profile Image"
             className="w-18 h-18 rounded-full object-cover shadow-md"
           />

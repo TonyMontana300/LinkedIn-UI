@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import BlueBtn from "../ui/BlueBtn";
+import profile from "../../assets/images/profile.jfif"
 
 const HoverProfile = () => {
   return (
@@ -10,8 +11,8 @@ const HoverProfile = () => {
           <div className="w-full">
             <img
               className="w-14 h-14 rounded-full"
-              src="https://media.licdn.com/dms/image/v2/D5603AQHskjWs-MGpdg/profile-displayphoto-scale_100_100/B56ZuIhVWsJ8Ag-/0/1767522000929?e=1774483200&v=beta&t=0CvUHGDjrCk53mdHLbzX4C3w7E63RBHpH1C85LU8UIo"
-              alt=""
+              src={profile}
+              alt="profile"
             />
           </div>
           <div>

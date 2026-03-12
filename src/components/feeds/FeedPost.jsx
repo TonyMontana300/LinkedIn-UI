@@ -8,6 +8,7 @@ import {
   Repeat2,
   Send,
 } from "lucide-react";
+import profile from "../../assets/images/profile.jfif"
 
 const FeedPost = () => {
   return (
@@ -20,7 +21,7 @@ const FeedPost = () => {
               className="h-12 w-12 rounded-full flex justify-center items-center"
             >
               <img
-                src="https://media.licdn.com/dms/image/v2/D5603AQHskjWs-MGpdg/profile-displayphoto-scale_400_400/B56ZuIhVWsJ8Ak-/0/1767522000929?e=1773273600&v=beta&t=tIk8REL4W4HC5Ii_-3tpY4yfTt5O6v1Q5HhERCM8ywY"
+                src={profile}
                 alt="Profile Image"
                 className="w-12 h-12 rounded-full object-cover shadow-md"
               />

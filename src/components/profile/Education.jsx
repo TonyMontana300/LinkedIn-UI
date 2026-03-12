@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import EditBtn from "../ui/EditBtn";
+import piemrLogo from "../../assets/images/piemr_logo.jfif"
 
 const Education = () => {
   return (
@@ -17,7 +18,7 @@ const Education = () => {
             className="h-12 w-12 bg-[#E7E2DC] flex items-center justify-center"
           >
             <img
-              src="https://media.licdn.com/dms/image/v2/C4D0BAQEN5ak-MMOMFA/company-logo_100_100/company-logo_100_100/0/1662354967518/piemr_logo?e=1773273600&v=beta&t=ioKve_qz8RUjBfofV2c-8K-AgXDk9IojwuHEcgm3ko8"
+              src={piemrLogo}
               alt="piemr"
             />
           </Link>
@@ -61,7 +62,7 @@ const Education = () => {
             className="h-12 w-12 bg-[#E7E2DC] flex items-center justify-center"
           >
             <img
-              src="https://media.licdn.com/dms/image/v2/C4D0BAQEN5ak-MMOMFA/company-logo_100_100/company-logo_100_100/0/1662354967518/piemr_logo?e=1773273600&v=beta&t=ioKve_qz8RUjBfofV2c-8K-AgXDk9IojwuHEcgm3ko8"
+              src={piemrLogo}
               alt="piemr"
             />
           </Link>

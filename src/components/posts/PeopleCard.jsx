@@ -44,7 +44,7 @@ const PeopleCard = ({text, description}) => {
           <p className="text-sm md:w-50 text-gray-900 mb-4">
             {description}
           </p>
-          <span>
+          <div className='w-28'>
             <BlackBtn
               text="Connect"
               svg={
@@ -77,7 +77,7 @@ const PeopleCard = ({text, description}) => {
                 </svg>
               }
             />
-          </span>
+          </div>
         </Link>
       </div>
   )

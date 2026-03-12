@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import profile from "../../assets/images/profile.jfif";
 import {
   MoreHorizontal,
   ThumbsUp,
@@ -14,7 +15,7 @@ const PostCard = () => {
       <div className="flex justify-between items-start">
         <div className="flex gap-3">
           <img
-            src="https://media.licdn.com/dms/image/v2/D5603AQHskjWs-MGpdg/profile-displayphoto-scale_100_100/B56ZuIhVWsJ8Ag-/0/1767522000929?e=1773273600&v=beta&t=oZDkUTrgeKHH0io61oOZlwUfbzGyeVIIrv2ft6A694k"
+            src={profile}
             alt="Profile"
             className="w-12 h-12 rounded-full object-cover"
           />

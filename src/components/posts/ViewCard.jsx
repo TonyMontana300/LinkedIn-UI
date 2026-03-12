@@ -35,7 +35,9 @@ const ViewCard = ({ text }) => {
       </span>
       <div className="flex flex-col gap-3">
         <p className="text-gray-900 font-semibold md:w-40">{text}</p>
-        <BlackBtn text="View" />
+        <div className="w-17">
+          <BlackBtn text="View" />
+        </div>
       </div>
     </div>
   );
