@@ -28,7 +28,7 @@ const SignUpForm = () => {
     });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
 
     const newErrors = {};
@@ -43,11 +43,34 @@ const SignUpForm = () => {
     if (Object.keys(newErrors).length > 0) return;
     setIsLoading(true);
 
-    setTimeout(() => {
-      console.log(formData);
-      setIsLoading(false);
+    try {
+      const res = await fetch("http://localhost:5000/api/auth/register", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          name: "Ayush",
+          email: formData.email,
+          password: formData.password,
+        })
+      });
+
+      const data = await res.json();
+
+      if (!res.ok) {
+        throw new Error(data.message);
+      }
+
+      console.log("Signup success", data);
       navigate("/login");
-    }, 1500);
+
+    } catch (error) {
+      console.error(error.message);
+    } finally {
+      setIsLoading(false);
+    }
+
   };
 
   return (

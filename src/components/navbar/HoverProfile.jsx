@@ -1,9 +1,14 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import BlueBtn from "../ui/BlueBtn";
-import profile from "../../assets/images/profile.jfif"
+import profile from "../../assets/images/profile.jfif";
 
 const HoverProfile = () => {
+  const handleLogout = () => {
+    localStorage.removeItem("token");
+    window.location.href = "/login";
+  };
+
   return (
     <div className="absolute right-0 top-20 w-72 bg-white rounded-xl shadow-sm hover:shadow-lg hover:shadow-gray-300 shadow-gray-300 transition-shadow duration-200">
       <div className="border-b border-b-gray-300 px-2 pt-2 pb-3">
@@ -53,17 +58,50 @@ const HoverProfile = () => {
 
       <div className="border-b border-b-gray-300 px-4 pt-2 pb-3 flex flex-col gap-2">
         <h2 className="text-lg text-gray-900 font-medium">Account</h2>
-        <Link to="#"className="text-gray-600 font-normal hover:underline transition-transform duration-200 ease-out hover:-translate-y-0.5">Setting & Privacy</Link>
-        <Link to="#"className="text-gray-600 font-normal hover:underline transition-transform duration-200 ease-out hover:-translate-y-0.5">Help</Link>
-        <Link to="#"className="text-gray-600 font-normal hover:underline transition-transform duration-200 ease-out hover:-translate-y-0.5">Language</Link>
+        <Link
+          to="#"
+          className="text-gray-600 font-normal hover:underline transition-transform duration-200 ease-out hover:-translate-y-0.5"
+        >
+          Setting & Privacy
+        </Link>
+        <Link
+          to="#"
+          className="text-gray-600 font-normal hover:underline transition-transform duration-200 ease-out hover:-translate-y-0.5"
+        >
+          Help
+        </Link>
+        <Link
+          to="#"
+          className="text-gray-600 font-normal hover:underline transition-transform duration-200 ease-out hover:-translate-y-0.5"
+        >
+          Language
+        </Link>
       </div>
 
       <div className="border-b border-b-gray-300 px-4 pt-2 pb-3 flex flex-col gap-2">
         <h2 className="text-lg text-gray-900 font-medium">Manage</h2>
-        <Link to="#"className="text-gray-600 font-normal hover:underline transition-transform duration-200 ease-out hover:-translate-y-0.5">Posts & Activity</Link>
-        <Link to="#"className="text-gray-600 font-normal hover:underline transition-transform duration-200 ease-out hover:-translate-y-0.5">Job Posting Account</Link>
+        <Link
+          to="#"
+          className="text-gray-600 font-normal hover:underline transition-transform duration-200 ease-out hover:-translate-y-0.5"
+        >
+          Posts & Activity
+        </Link>
+        <Link
+          to="#"
+          className="text-gray-600 font-normal hover:underline transition-transform duration-200 ease-out hover:-translate-y-0.5"
+        >
+          Job Posting Account
+        </Link>
       </div>
-      <Link to="/login" className="flex pb-3 pt-2 px-4 font-normal hover:underline text-gray-600">Sign Out</Link>
+      <button
+        onClick={(e) => {
+          e.stopPropagation();
+          handleLogout();
+        }}
+        className="flex pb-3 pt-2 px-4 font-normal hover:underline text-gray-600"
+      >
+        Sign Out
+      </button>
     </div>
   );
 };

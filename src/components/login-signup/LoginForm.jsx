@@ -11,6 +11,9 @@ import { useNavigate } from "react-router-dom";
 const LoginForm = () => {
 
   const navigate = useNavigate();
+
+  const [serverError, setServerError] = useState("");
+
   const [formData, setFormData] = useState({
     emailOrPhone: "",
     password: "",
@@ -29,7 +32,7 @@ const LoginForm = () => {
     });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
 
     const newErrors = {};
@@ -44,12 +47,33 @@ const LoginForm = () => {
     if (Object.keys(newErrors).length > 0) return;
     setIsLoading(true);
 
-    setTimeout(() => {
-      console.log(formData);
-      setIsLoading(false);
-      localStorage.setItem("isLoggedIn", "true");
+    try {
+      const res = await fetch("http://localhost:5000/api/auth/login", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          email: formData.emailOrPhone,
+          password: formData.password,
+        })
+      });
+
+      const data = await res.json();
+
+      if (!res.ok) {
+        throw new Error(data.message);
+      }
+
+      localStorage.setItem("token", data.token);
+      console.log("Login success: ", data);
       navigate("/feed");
-    }, 1500);
+
+    } catch {
+      setServerError("Failed to connect with server!");
+    } finally {
+      setIsLoading(false);
+    }
   };
 
   return (
@@ -79,6 +103,9 @@ const LoginForm = () => {
           Forget Password?
         </Link>
       </span>
+      {serverError && (
+        <p className="text-red-500 text-sm mx-1 text-center">{serverError}</p>
+      )}
       <Button type="submit" disabled={isLoading}>
         {isLoading && (
           <span className="relative">

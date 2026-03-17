@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import EditBtn from "../ui/EditBtn";
+import udemyLogo from "../../assets/images/udemy_logo.jfif"
 
 const Certification = () => {
   return (
@@ -19,7 +20,7 @@ const Certification = () => {
             className="h-12 w-12 bg-[#E7E2DC] flex items-center justify-center"
           >
             <img
-              src="https://media.licdn.com/dms/image/v2/D560BAQEf_NHzN2yVQg/company-logo_100_100/company-logo_100_100/0/1723593046388/udemy_logo?e=1773273600&v=beta&t=SoZH1GaBhr1ZunvSpNTnfcywljH1wqmhrazye_DFK6M"
+              src={udemyLogo}
               alt="Udemy"
             />
           </Link>
@@ -84,7 +85,7 @@ const Certification = () => {
             className="h-12 w-12 bg-[#E7E2DC] flex items-center justify-center"
           >
             <img
-              src="https://media.licdn.com/dms/image/v2/D560BAQEf_NHzN2yVQg/company-logo_100_100/company-logo_100_100/0/1723593046388/udemy_logo?e=1773273600&v=beta&t=SoZH1GaBhr1ZunvSpNTnfcywljH1wqmhrazye_DFK6M"
+              src={udemyLogo}
               alt="Udemy"
             />
           </Link>
