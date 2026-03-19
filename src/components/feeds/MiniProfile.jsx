@@ -2,8 +2,16 @@ import React from "react";
 import { Link } from "react-router-dom";
 import cover from "../../assets/images/cover.jfif"
 import profile from "../../assets/images/profile.jfif"
+import { useAuth } from "../../hooks/useAuth.js";
 
 const MiniProfile = () => {
+
+  const { user, loading } = useAuth();
+
+  console.log("USER DATA: ", user);
+
+  if (loading) return <p>Loading...</p>;
+
   return (
     <div className="bg-white rounded-md shadow-sm overflow-hidden hover:shadow-lg hover:shadow-gray-300 shadow-gray-300 transition-shadow duration-200">
       <div className="w-full rounded-md">
@@ -25,7 +33,7 @@ const MiniProfile = () => {
       <div className="px-4 mt-2 mb-4">
         <Link to="#">
           <h1 className="inline-flex items-center gap-1 font-medium text-xl text-gray-900">
-            Ayush Barman
+            {user?.name || "User"}
             <svg
               width="18px"
               height="18px"
@@ -50,9 +58,9 @@ const MiniProfile = () => {
             </svg>
           </h1>
           <p className="text-xs text-gray-900 leading-snug">
-            Full-Stack Web Developer | JavaScript, Node.js, React, Next.js...
+            {user?.headline || "Headline"}
           </p>
-          <p className="text-xs text-gray-500 my-1">Indore, Madhya Pradesh </p>
+          <p className="text-xs text-gray-500 my-1">{user?.location || "Location"}</p>
           <div className="my-2">
             <svg
               width="20px"

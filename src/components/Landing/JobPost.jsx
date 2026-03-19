@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import LandingBlueBtn from "../ui/LandingBlueBtn";
 
 const JobPost = () => {
   return (
@@ -7,9 +8,7 @@ const JobPost = () => {
       <h2 className="text-3xl my-4 text-center text-[#B24020]">
         Post your job for millions of people to see
       </h2>
-      <Link className="active:ring-1 border border-solid border-blue-500 font-semibold text-blue-700 rounded-full mb-4 px-6 py-3 w-fit transition-all duration-200 ease-in-out hover:bg-blue-100 hover:text-blue-800">
-        Post a job
-      </Link>
+      <LandingBlueBtn text="Post a job"/>
     </section>
   );
 };

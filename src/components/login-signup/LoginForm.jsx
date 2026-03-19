@@ -7,8 +7,11 @@ import Button from "../ui/Button";
 import Policy from "../ui/Policy";
 import { Loader } from "lucide-react";
 import { useNavigate } from "react-router-dom";
+import { useAuth } from "../../hooks/useAuth";
 
 const LoginForm = () => {
+
+  const { setUser } = useAuth();
 
   const navigate = useNavigate();
 
@@ -30,6 +33,8 @@ const LoginForm = () => {
       ...errors,
       [e.target.name]: "",
     });
+
+    setServerError("");
   };
 
   const handleSubmit = async (e) => {
@@ -56,7 +61,7 @@ const LoginForm = () => {
         body: JSON.stringify({
           email: formData.emailOrPhone,
           password: formData.password,
-        })
+        }),
       });
 
       const data = await res.json();
@@ -66,11 +71,15 @@ const LoginForm = () => {
       }
 
       localStorage.setItem("token", data.token);
+      setUser(data);
       console.log("Login success: ", data);
       navigate("/feed");
-
-    } catch {
-      setServerError("Failed to connect with server!");
+    } catch (error) {
+      if (error instanceof TypeError) {
+        setServerError("Failed to connect with server! Please try again later.")
+      } else {
+        setServerError(error.message);
+      }
     } finally {
       setIsLoading(false);
     }

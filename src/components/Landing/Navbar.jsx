@@ -2,6 +2,7 @@ import React from "react";
 import { useRef } from "react";
 import { Link } from "react-router-dom";
 import Logo from "../ui/Logo";
+import LandingBlueBtn from "../ui/LandingBlueBtn";
 import HoverIcons from "../icons/HoverIcons";
 import rocketAnim from "../../assets/icons/Rocket launch animation _Space exploration.json";
 import peopleAnim from "../../assets/icons/Success.json";
@@ -126,12 +127,7 @@ const Navbar = () => {
             </li>
           </ul>
           <div className="flex items-center gap-2">
-            <Link
-              to="/login"
-              className="ring-1 ring-blue-600 px-4 py-2 md:px-6 md:py-3 text-blue-600 hover:text-blue-800 rounded-3xl font-medium hover:bg-blue-100 focus:outline-none active:ring-1 active:ring-blue-600 active:ring-offset-1 active:scale-[0.99] transition-all ease-out duration-200"
-            >
-              Sign in
-            </Link>
+            <LandingBlueBtn text="Sign in" LinkTo="/login"/>
             <Link
               to="/signup"
               className="px-4 py-2 md:px-6 md:py-3 disabled:opacity-70 disabled:cursor-not-allowed disabled:hover:bg-blue-600 disabled:active:scale-100 disabled:active:ring-0 bg-blue-700 text-white rounded-3xl font-medium hover:bg-blue-800 focus:outline-none active:ring-1 active:ring-blue-600 active:ring-offset-1 active:scale-[0.99] transition-all ease-out duration-200"

@@ -2,10 +2,15 @@ import React from "react";
 import { Link } from "react-router-dom";
 import BlueBtn from "../ui/BlueBtn";
 import profile from "../../assets/images/profile.jfif";
+import { useAuth } from "../../hooks/useAuth.js";
 
 const HoverProfile = () => {
+
+  const { user, setUser } = useAuth();
+
   const handleLogout = () => {
     localStorage.removeItem("token");
+    setUser(null);
     window.location.href = "/login";
   };
 
@@ -22,7 +27,7 @@ const HoverProfile = () => {
           </div>
           <div>
             <h1 className="inline-flex items-center gap-1 font-medium text-gray-900">
-              Ayush Barman
+              {user?.name || "User"}
               <svg
                 width="18px"
                 height="18px"

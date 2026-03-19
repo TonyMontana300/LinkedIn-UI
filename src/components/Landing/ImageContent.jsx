@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import Lottie from "lottie-react";
 import connectAnim from "../../assets/images/Connection people.json";
 import skillsAnim from "../../assets/images/developer skills.json";
+import LandingBlackBtn from "../ui/LandingBlackBtn";
 
 const ImageContent = () => {
   return (
@@ -19,12 +20,7 @@ const ImageContent = () => {
         <h2 className="text-3xl text-center md:text-left py-2 leading-normal">
           Connect with people who can help
         </h2>
-        <Link
-          className="border border-solid border-gray-500 font-semibold text-gray-700 rounded-full px-6 py-3 w-fit transition-all duration-200 ease-in-out hover:border-gray-800 hover:text-gray-900 hover:bg-gray-200 active:ring-1"
-          to="#"
-        >
-          Find people you know
-        </Link>
+        <LandingBlackBtn text="Find people you know"/>
       </div>
       <div className="flex flex-col items-center gap-2">
         <div className="md:w-md">
@@ -38,12 +34,7 @@ const ImageContent = () => {
         <h2 className="text-3xl py-2 text-center md:text-left leading-normal">
           Learn the skills you need to succeed
         </h2>
-        <Link
-          className="border border-solid border-gray-500 font-semibold text-gray-700 rounded-full px-6 py-3 w-fit transition-all duration-200 ease-in-out hover:border-gray-800 hover:text-gray-900 hover:bg-gray-200 active:ring-1"
-          to="#"
-        >
-          Choose a topic to learn about
-        </Link>
+        <LandingBlackBtn text="Choose a topic to learn about"/>
       </div>
     </section>
   );

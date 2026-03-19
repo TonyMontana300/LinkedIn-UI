@@ -37,8 +37,15 @@ const SignUpForm = () => {
       newErrors.email = "Email or Phone is required";
     }
     if (!formData.password.trim()) {
-      newErrors.password = "Password is required";
+      newErrors.password = "Password is required!";
+    } else if (!formData.password.length < 6) {
+      newErrors.password = "Password must be at least 6 characters!";
+    } else if (!/\d/.test(formData.password)) {
+      newErrors.password = "Password must include a number!";
+    } else if (!/[!@#$%^&*]/.test(formData.password)) {
+      newErrors.password = "Password must include a special character!";
     }
+
     setErrors(newErrors);
     if (Object.keys(newErrors).length > 0) return;
     setIsLoading(true);

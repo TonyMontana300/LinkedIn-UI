@@ -11,8 +11,12 @@ import messageAnim from "../../assets/icons/Message Icon Animation.json";
 import notificationAnim from "../../assets/icons/Notification Bell.json";
 import profileAnim from "../../assets/icons/Profile Avatar of Young Boy.json";
 import HoverProfile from "../navbar/HoverProfile";
+import { useAuth } from "../../hooks/useAuth";
 
 const Navbar = () => {
+
+  const { user } = useAuth();
+
   const homeRef = useRef(null);
   const networkRef = useRef(null);
   const jobsRef = useRef(null);
@@ -137,7 +141,7 @@ const Navbar = () => {
               to="#"
               className="text-sm text-gray-600 hover:text-gray-800 font-semibold"
             >
-              Me
+              {user?.name || "Me"}
               {openProfile && <HoverProfile />}
             </Link>
           </li>

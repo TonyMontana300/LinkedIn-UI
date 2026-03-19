@@ -1,5 +1,8 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import LandingBlueBtn from "../ui/LandingBlueBtn";
+import LandingBlackBtn from "../ui/LandingBlackBtn";
+
 const games = ["Zip", "Mini Sudoku", "Queens", "Tango", "Pinpoint", "Tango"];
 
 const Section_2_flip = () => {
@@ -9,13 +12,7 @@ const Section_2_flip = () => {
         <div className="flex flex-col-reverse md:flex-row md:justify-between items-center gap-10 md:gap-30">
           <div className="flex flex-wrap gap-y-3 gap-x-2 md:w-3xl mb-15 md:mb-0">
             {games.map((game) => (
-              <Link
-                key={game}
-                to="#"
-                className="border border-solid border-gray-500 font-semibold text-gray-700 rounded-full px-6 py-3 w-fit transition-all duration-200 ease-in-out hover:border-gray-800 hover:text-gray-900 hover:bg-gray-200 active:ring-1"
-              >
-                {game}
-              </Link>
+              <LandingBlackBtn key={game} text={game}/>
             ))}
           </div>
           <div className="flex flex-col items-center justify-center">

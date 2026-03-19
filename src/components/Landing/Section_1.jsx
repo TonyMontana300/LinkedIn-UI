@@ -1,5 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import LandingBlueBtn from "../ui/LandingBlueBtn";
+import LandingBlackBtn from "../ui/LandingBlackBtn";
 
 const topics = [
   "Career",
@@ -27,20 +29,9 @@ const Section_1 = () => {
           </div>
           <div className="flex flex-wrap gap-y-3 gap-x-2 px-2 md:px-0 mb-12 md:mb-0 justify-center md:justify-start">
             {topics.map((topic) => (
-              <Link
-                key={topic}
-                to="#"
-                className="border border-solid border-gray-500 font-semibold text-gray-700 rounded-full px-6 py-3 w-fit transition-all duration-200 ease-in-out hover:border-gray-800 hover:text-gray-900 hover:bg-gray-200 active:ring-1"
-              >
-                {topic}
-              </Link>
+              <LandingBlackBtn key={topic} text={topic}/>
             ))}
-            <Link
-              to="#"
-              className="active:ring-1 border border-solid border-blue-500 font-semibold text-blue-700 rounded-full px-6 py-3 w-fit transition-all duration-200 ease-in-out hover:bg-blue-100 hover:text-blue-800"
-            >
-              Show all
-            </Link>
+            <LandingBlueBtn text="Show all"/>
           </div>
         </div>
       </div>
