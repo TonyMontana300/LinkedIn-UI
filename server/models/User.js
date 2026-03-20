@@ -38,6 +38,12 @@ const userSchema = new mongoose.Schema(
       type: String,
       default: "",
     },
+    about: {
+      type: String,
+      default: `Hello everyone, My name is Ayush Barman, and I’m a Full-Stack Web
+        Developer passionate about building modern, responsive, and
+        user-friendly web applications...`
+    },
     connections: [
       {
         type: mongoose.Schema.Types.ObjectId,

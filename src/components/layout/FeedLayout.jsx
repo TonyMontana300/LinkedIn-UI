@@ -1,31 +1,14 @@
 import React from "react";
-import { useState, useEffect } from "react";
 import LeftPanel from "../feeds/LeftPanel";
 import RightPanel from "../feeds/RightPanel";
 import MainPanel from "../feeds/MainPanel";
-import { API_URL } from "../../../server/utils/api.js";
+import { useAuth } from "../../hooks/useAuth.js";
 
 const FeedLayout = () => {
-  const [user, setUser] = useState(null);
 
-  useEffect(() => {
-    const fetchUser = async () => {
-      try {
-        const token = localStorage.getItem("token");
-        const res = await fetch(`${API_URL}/api/users/me`, {
-          headers: {
-            authorization: `Bearer ${token}`,
-          },
-        });
+  const { user, loading } = useAuth();
 
-        const data = await res.json();
-        setUser(data.user);
-      } catch (error) {
-        console.error(error);
-      }
-    };
-    fetchUser();
-  }, []);
+  if  (loading) return <p>Loading...</p>
 
   return (
     <main className="bg-[#F4F2EE] py-2">

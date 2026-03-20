@@ -1,14 +1,16 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { useAuth } from "../../hooks/useAuth";
 
 const About = () => {
+
+  const { user } = useAuth();
+
   return (
     <div className="bg-white rounded-xl px-6 pt-6 pb-7 shadow-sm overflow-hidden hover:shadow-lg hover:shadow-gray-300 shadow-gray-300 transition-shadow duration-200">
       <h2 className="text-xl font-semibold text-gray-900">About</h2>
       <p className="my-6 text-sm text-gray-900 relative">
-        Hello everyone, My name is Ayush Barman, and I’m a Full-Stack Web
-        Developer passionate about building modern, responsive, and
-        user-friendly web applications...
+        {user?.about || "write something about yourself."}
         <Link
           to="#"
           className="absolute -top-14 -right-1 bg-white hover:bg-[#F3F3F3] w-10 h-10 rounded-full p-1 flex justify-center items-center transition-all ease-in-out duration-200"

@@ -4,9 +4,15 @@ import BlueBtn from "../ui/BlueBtn";
 import BlackBtn from "../ui/BlackBtn";
 import profile from "../../assets/images/profile.jfif";
 import cover from "../../assets/images/cover.jfif";
-import piemrLogo from "../../assets/images/piemr_logo.jfif"
+import piemrLogo from "../../assets/images/piemr_logo.jfif";
+import { useAuth } from "../../hooks/useAuth";
 
 const ProfileHeader = () => {
+
+  const { user, loading } = useAuth();
+
+  if (loading) return <p>Loading...</p>
+
   return (
     <div className="bg-white rounded-xl shadow-sm overflow-hidden hover:shadow-lg hover:shadow-gray-300 shadow-gray-300 transition-shadow duration-200">
       <div className="w-full relative h-40 md:h-50 rounded-xl">
@@ -45,7 +51,7 @@ const ProfileHeader = () => {
       <div className="flex justify-between gap-10">
         <div className="my-3 px-6">
           <h1 className="inline-flex items-center gap-1 text-2xl font-semibold text-gray-900 hover:bg-[#EBEBEB] rounded-sm transition-all ease-out duration-200">
-            Ayush Barman
+            {user?.name || "User"}
             <svg
               width="24px"
               height="24px"
@@ -75,10 +81,10 @@ const ProfileHeader = () => {
             Apps and API’s
           </p>
           <p className="text-sm text-gray-500 my-2">
-            Indore, Madhya Pradesh, India .{" "}
+            {user?.location || "Indore, Madhya Pradesh, India ."}
             <Link
               to="#"
-              className="text-blue-600 hover:underline hover:text-blue-700 font-semibold"
+              className="text-blue-600 hover:underline hover:text-blue-700 font-semibold mx-2"
             >
               Contact info
             </Link>
