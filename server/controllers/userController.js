@@ -62,7 +62,6 @@ export const deleteUser = async (req, res) => {
 export const getMe = async (req, res) => {
   try {
 
-    console.log("Req user: ", req.user);
     if (!req.user) {
         return res.status(401).json({ message: "User now found!"})
     }

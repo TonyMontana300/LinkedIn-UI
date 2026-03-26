@@ -8,16 +8,20 @@ import {
   Repeat2,
   Send,
 } from "lucide-react";
-import profile from "../../assets/images/profile.jfif"
+import profile from "../../assets/images/profile.jfif";
+import { useAuth } from "../../hooks/useAuth";
 
-const FeedPost = () => {
+const FeedPost = ({ post, onDelete, onLike }) => {
+  const { user } = useAuth();
+  const isLiked = post.likes.some((id) => id.toString() === user._id);
+
   return (
     <div className="md:pt-3 pb-1 bg-white rounded-md shadow-sm hover:shadow-lg hover:shadow-gray-300 shadow-gray-300 transition-shadow duration-200">
       <div className="flex justify-between px-4">
         <div className="flex gap-2">
           <div>
             <Link
-              to="#"
+              to="/profile/:id"
               className="h-12 w-12 rounded-full flex justify-center items-center"
             >
               <img
@@ -27,9 +31,9 @@ const FeedPost = () => {
               />
             </Link>
           </div>
-          <Link to="#">
+          <Link to="/profile/:id">
             <h1 className="inline-flex items-center gap-1 font-medium text-gray-900 hover:text-blue-600 hover:underline">
-              Manu Arora
+              {post.user.name}
               <svg
                 width="18px"
                 height="18px"
@@ -54,34 +58,53 @@ const FeedPost = () => {
               </svg>
             </h1>
             <span className="text-xs text-gray-700"> • Following</span>
-            <p className="text-xs text-gray-700">
-              Founder at Aceternity | Building products and web apps that can
-              impact millions of lives..
-            </p>
-            <span className="text-xs text-gray-700">1w •</span>
+            <p className="text-xs text-gray-700">{post.user.headline}</p>
+            <span className="text-xs text-gray-700">
+              {new Date(post.createdAt).toLocaleString()} •
+            </span>
           </Link>
         </div>
-        <CutBtn />
+        <CutBtn onClick={() => onDelete(post._id)} />
       </div>
 
       <div className="my-2">
         <p className="px-4 text-gray-900 text-sm my-1">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Nulla, quas?
-          Rem, obcaecati distinctio eos repellat unde officia veritatis voluptas
-          modi possimus laborum maiores odit consequatur molestias!
-          Necessitatibus temporibus minus laudantium fugit quidem.
+          {post?.description}
         </p>
-        <div className="text-gray-900 text-sm">
-          Content
-        </div>
+        <div className="text-gray-900 text-sm">{post.content}</div>
       </div>
       <div className="border-b border-b-gray-300 mx-6"></div>
 
       <div className="flex justify-between gap-3 pb-1 px-4 mt-2">
-        <Link to="#" className="flex items-center justify-center gap-2 transition-all ease-in-out duration-200 hover:bg-[#F3F3F3] rounded-sm py-2 px-3 flex-1 hover:text-blue-600"><ThumbsUp className="w-4 h-4"/>Like</Link>
-        <Link to="#" className="flex items-center justify-center gap-2 transition-all ease-in-out duration-200 hover:bg-[#F3F3F3] rounded-sm py-2 px-3 flex-1"><MessageCircle className="w-4 h-4"/>Comment</Link>
-        <Link to="#" className="flex items-center justify-center gap-2 transition-all ease-in-out duration-200 hover:bg-[#F3F3F3] rounded-sm py-2 px-3 flex-1"><Repeat2 className="w-4 h-4"/>Repost</Link>
-        <Link to="#" className="flex items-center justify-center gap-2 transition-all ease-in-out duration-200 hover:bg-[#F3F3F3] rounded-sm py-2 px-3 flex-1"><Send className="w-4 h-4"/>Share</Link>
+        <Link
+          onClick={() => onLike(post._id)}
+          to="#"
+          className={`flex items-center justify-center gap-2 transition-all ease-in-out duration-200 hover:bg-[#F3F3F3] rounded-sm py-2 px-3 flex-1 ${isLiked ? "text-blue-600" : ""} hover:text-blue-600`}
+        >
+          <ThumbsUp className="w-4 h-4" />
+          Like ({post.likes.length})
+        </Link>
+        <Link
+          to="#"
+          className="flex items-center justify-center gap-2 transition-all ease-in-out duration-200 hover:bg-[#F3F3F3] rounded-sm py-2 px-3 flex-1"
+        >
+          <MessageCircle className="w-4 h-4" />
+          Comment
+        </Link>
+        <Link
+          to="#"
+          className="flex items-center justify-center gap-2 transition-all ease-in-out duration-200 hover:bg-[#F3F3F3] rounded-sm py-2 px-3 flex-1"
+        >
+          <Repeat2 className="w-4 h-4" />
+          Repost
+        </Link>
+        <Link
+          to="#"
+          className="flex items-center justify-center gap-2 transition-all ease-in-out duration-200 hover:bg-[#F3F3F3] rounded-sm py-2 px-3 flex-1"
+        >
+          <Send className="w-4 h-4" />
+          Share
+        </Link>
       </div>
     </div>
   );

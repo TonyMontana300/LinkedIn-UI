@@ -8,8 +8,6 @@ const MiniProfile = () => {
 
   const { user, loading } = useAuth();
 
-  console.log("USER DATA: ", user);
-
   if (loading) return <p>Loading...</p>;
 
   return (
@@ -31,7 +29,7 @@ const MiniProfile = () => {
         </div>
       </div>
       <div className="px-4 mt-2 mb-4">
-        <Link to="#">
+        <Link to="/profile/:id">
           <h1 className="inline-flex items-center gap-1 font-medium text-xl text-gray-900">
             {user?.name || "User"}
             <svg
