@@ -86,7 +86,7 @@ const FeedLayout = () => {
     <main className="bg-[#F4F2EE] py-2 min-h-163">
       <div className="grid grid-cols-[1fr_3fr_1.3fr] gap-5 max-w-6xl mx-auto my-4">
         <LeftPanel />
-        <MainPanel posts={posts} onDelete={handleDelete} onLike={handleLike}/>
+        <MainPanel posts={posts} onDelete={handleDelete} onLike={handleLike} onPostCreated={(newPost) => setPosts(prev => [newPost, ...prev])}/>
         <RightPanel />
       </div>
     </main>

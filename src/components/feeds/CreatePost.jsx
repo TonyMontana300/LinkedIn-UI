@@ -1,19 +1,52 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { useRef } from "react";
+import { useRef, useState, useEffect } from "react";
+import { API_URL } from "../../../server/utils/api";
 import HoverIcons from "../icons/HoverIcons";
 import videoAnim from "../../assets/icons/Calling video icon.json";
 import imageAnim from "../../assets/icons/Image Not Preview.json";
-import articleAnim from "../../assets/icons/Write.json" 
-import profile from "../../assets/images/profile.jfif"
+import articleAnim from "../../assets/icons/Write.json";
+import profile from "../../assets/images/profile.jfif";
+import BlueBtn from "../ui/BlueBtn";
+import CutBtn2 from "../ui/CutBtn2";
 
-const CreatePost = () => {
+const CreatePost = ({onPostCreated}) => {
+  const [showModal, setShowModal] = useState(false);
+  const [content, setContent] = useState("");
   const videoRef = useRef(null);
   const imageRef = useRef(null);
   const articleRef = useRef(null);
+  const textareaRef = useRef();
+
+  useEffect(() => {
+    if(showModal) textareaRef.current?.focus();
+  }, [showModal])
+
+  const handleCreatePost = async () => {
+    try {
+      const token = localStorage.getItem("token");
+      const res = await fetch(`${API_URL}/api/posts`, {
+        method: "POST",
+        headers: {
+          "content-type": "application/json",
+          Authorization: `Bearer ${token}`
+        },
+        body: JSON.stringify({content})
+      });
+      const newPost = await res.json();
+
+      if (res.ok) {
+        onPostCreated(newPost);
+        setShowModal(false);
+        setContent("");
+      }
+    } catch (error) {
+      console.error(error);
+    }
+  }
 
   return (
-    <div className="md:pt-3 px-4 pb-1 bg-white rounded-md shadow-sm hover:shadow-lg hover:shadow-gray-300 shadow-gray-300 transition-shadow duration-200">
+    <div className="md:pt-3 px-4 pb-1 bg-white rounded-md shadow-sm hover:shadow-lg hover:shadow-gray-300 shadow-gray-300 transition-shadow duration-200 relative">
       <div className="flex gap-2">
         <img
           src={profile}
@@ -21,12 +54,12 @@ const CreatePost = () => {
           className="w-12 h-12 rounded-full object-cover shadow-md"
         />
 
-        <Link
-          to="#"
-          className="w-full border border-gray-400 rounded-full px-4 py-3 text-sm font-semibold text-gray-900"
+        <button
+          className="w-full border inline text-left hover:bg-[#F3F3F3] border-gray-400 rounded-full px-4 py-3 text-sm font-semibold text-gray-900 cursor-pointer transition-all duration-200 ease-in-out"
+          onClick={() => setShowModal(true)}
         >
           Start a post
-        </Link>
+        </button>
       </div>
 
       <div className="flex justify-around my-1">
@@ -54,7 +87,9 @@ const CreatePost = () => {
           <HoverIcons ref={imageRef} animation={imageAnim} size={35} />
           Photo
         </Link>
-        <Link to="#" className="hover:bg-[#F3F3F3] py-2 px-2 rounded-sm flex items-center"
+        <Link
+          to="#"
+          className="hover:bg-[#F3F3F3] py-2 px-2 rounded-sm flex items-center"
           onMouseEnter={() => articleRef.current?.play()}
           onMouseLeave={() => {
             articleRef.current?.stop();
@@ -65,6 +100,46 @@ const CreatePost = () => {
           Write Article
         </Link>
       </div>
+
+      {showModal && (
+        <div className="fixed inset-0 z-50 flex justify-center items-center bg-black/50">
+          <div className="bg-white rounded-xl w-2xl pt-4 shadow-sm hover:shadow-lg hover:shadow-black/50 shadow-black/40 transition-shadow duration-200 relative">
+            <div className="px-6">
+              <Link
+                to=""
+                className="flex gap-3 items-center hover:bg-[#F3F3F3] w-57 p-3 rounded-2xl mb-6"
+              >
+                <img
+                  src={profile}
+                  alt="Profile Image"
+                  className="rounded-full h-14 w-14"
+                />
+                <div>
+                  <h2 className="text-xl font-semibold text-gray-900">
+                    Ayush Barman
+                  </h2>
+                  <p className="text-sm text-gray-900">Post to anyone</p>
+                </div>
+              </Link>
+            </div>
+            <div className="px-6 min-h-60">
+              <textarea
+                ref={textareaRef}
+                onChange={(e) => setContent(e.target.value)}
+                value={content}
+                placeholder="What do you want to talk about?"
+                className="w-full h-30 outline-none text-xl resize-none"
+              />
+            </div>
+            <div className="px-6 py-3 border-t border-t-gray-300 flex justify-end">
+              <BlueBtn text="Post" onClick={handleCreatePost} disabled={!content.trim()}/>
+            </div>
+            <div className="absolute right-3 top-3">
+              <CutBtn2 onClick={() => setShowModal(false)}/>
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 };

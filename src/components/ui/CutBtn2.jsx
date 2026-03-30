@@ -1,9 +1,10 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-const CutBtn2 = () => {
+const CutBtn2 = ({onClick}) => {
   return (
     <Link
+      onClick={onClick}
       to="#"
       className="hover:bg-[#D4DDE6] rounded-full p-1 transition-all ease-in-out duration-200 w-9 h-9 flex items-center justify-center"
     >

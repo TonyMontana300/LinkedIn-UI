@@ -11,7 +11,9 @@ export const createPost = async (req, res) => {
       description,
     });
 
-    res.status(201).json(post);
+    const updatedPost = await Post.findById(post._id).populate("user", "name profileImage headline description");
+
+    res.status(201).json(updatedPost);
   } catch (error) {
     res.status(500).json({ message: error.message });
   }

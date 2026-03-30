@@ -11,7 +11,7 @@ import { useAuth } from "../../hooks/useAuth";
 
 const LoginForm = () => {
 
-  const { setUser } = useAuth();
+  const { fetchUser } = useAuth();
 
   const navigate = useNavigate();
 
@@ -71,7 +71,8 @@ const LoginForm = () => {
       }
 
       localStorage.setItem("token", data.token);
-      setUser(data);
+
+      await fetchUser();
       console.log("Login success: ", data);
       navigate("/feed");
     } catch (error) {
