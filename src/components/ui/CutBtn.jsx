@@ -1,10 +1,12 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-const CutBtn = ({ onClick }) => {
+const CutBtn = ({ onDelete, onEdit }) => {
+
   return (
     <div className="flex gap-1">
       <Link
+        onClick={onEdit}
         to="#"
         className="hover:bg-[#D4DDE6] rounded-full p-1 transition-all ease-in-out duration-200 w-9 h-9 flex items-center justify-center"
       >
@@ -30,7 +32,7 @@ const CutBtn = ({ onClick }) => {
         </svg>
       </Link>
       <Link
-        onClick={onClick}
+        onClick={onDelete}
         to="#"
         className="hover:bg-[#D4DDE6] rounded-full p-1 transition-all ease-in-out duration-200 w-9 h-9 flex items-center justify-center"
       >

@@ -14,7 +14,7 @@ import {
 import profile from "../../assets/images/profile.jfif";
 import { useAuth } from "../../hooks/useAuth";
 
-const FeedPost = ({ post, onDelete, onLike }) => {
+const FeedPost = ({ post, onDelete, onEdit, onLike }) => {
   const { user } = useAuth();
   const isLiked = post.likes.some(
     (id) => id.toString() === user._id.toString(),
@@ -40,8 +40,6 @@ const FeedPost = ({ post, onDelete, onLike }) => {
         } else {
           console.error("Invalid comments data: ", data);
         }
-
-        setComments(data);
       } catch (error) {
         console.error(error);
       }
@@ -90,7 +88,7 @@ const FeedPost = ({ post, onDelete, onLike }) => {
           </div>
           <Link to={`/profile/${post.user._id}`}>
             <h1 className="inline-flex items-center gap-1 font-medium text-gray-900 hover:text-blue-600 hover:underline">
-              {post.user.name}
+              {post?.user?.name}
               <svg
                 width="18px"
                 height="18px"
@@ -115,13 +113,13 @@ const FeedPost = ({ post, onDelete, onLike }) => {
               </svg>
             </h1>
             <span className="text-xs text-gray-700"> • Following</span>
-            <p className="text-xs text-gray-700">{post.user.headline}</p>
+            <p className="text-xs text-gray-700">{post?.user?.headline}</p>
             <span className="text-xs text-gray-700">
               {new Date(post.createdAt).toLocaleString()} •
             </span>
           </Link>
         </div>
-        <CutBtn onClick={() => onDelete(post._id)} />
+        <CutBtn onEdit={() => onEdit(post)} onDelete={() => onDelete(post._id)} />
       </div>
 
       <div className="my-2">

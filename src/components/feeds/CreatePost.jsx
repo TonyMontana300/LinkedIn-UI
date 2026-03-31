@@ -2,6 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { useRef, useState, useEffect } from "react";
 import { API_URL } from "../../../server/utils/api";
+import { useAuth } from "../../hooks/useAuth";
 import HoverIcons from "../icons/HoverIcons";
 import videoAnim from "../../assets/icons/Calling video icon.json";
 import imageAnim from "../../assets/icons/Image Not Preview.json";
@@ -10,7 +11,14 @@ import profile from "../../assets/images/profile.jfif";
 import BlueBtn from "../ui/BlueBtn";
 import CutBtn2 from "../ui/CutBtn2";
 
-const CreatePost = ({onPostCreated}) => {
+const CreatePost = ({
+  onPostCreated,
+  isEdit,
+  post,
+  onPostUpdated,
+  onClose,
+}) => {
+  const { user } = useAuth();
   const [showModal, setShowModal] = useState(false);
   const [content, setContent] = useState("");
   const videoRef = useRef(null);
@@ -19,31 +27,49 @@ const CreatePost = ({onPostCreated}) => {
   const textareaRef = useRef();
 
   useEffect(() => {
-    if(showModal) textareaRef.current?.focus();
-  }, [showModal])
+    if (showModal) textareaRef.current?.focus();
+  }, [showModal]);
 
-  const handleCreatePost = async () => {
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  useEffect(() => {
+    if (isEdit && post) {
+      setContent(post.content);
+    }
+  }, [isEdit, post]);
+
+  const handleSubmit = async () => {
     try {
       const token = localStorage.getItem("token");
-      const res = await fetch(`${API_URL}/api/posts`, {
-        method: "POST",
+
+      const url = isEdit
+        ? `${API_URL}/api/posts/${post._id}`
+        : `${API_URL}/api/posts`;
+      const method = isEdit ? "PUT" : "POST";
+
+      const res = await fetch(url, {
+        method,
         headers: {
-          "content-type": "application/json",
-          Authorization: `Bearer ${token}`
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${token}`,
         },
-        body: JSON.stringify({content})
+        body: JSON.stringify({ content }),
       });
       const newPost = await res.json();
 
       if (res.ok) {
-        onPostCreated(newPost);
-        setShowModal(false);
+        if (isEdit) {
+          onPostUpdated(newPost);
+          onClose();
+        } else {
+          onPostCreated(newPost);
+          setShowModal(false);
+        }
         setContent("");
       }
     } catch (error) {
       console.error(error);
     }
-  }
+  };
 
   return (
     <div className="md:pt-3 px-4 pb-1 bg-white rounded-md shadow-sm hover:shadow-lg hover:shadow-gray-300 shadow-gray-300 transition-shadow duration-200 relative">
@@ -101,7 +127,7 @@ const CreatePost = ({onPostCreated}) => {
         </Link>
       </div>
 
-      {showModal && (
+      {(showModal || isEdit) && (
         <div className="fixed inset-0 z-50 flex justify-center items-center bg-black/50">
           <div className="bg-white rounded-xl w-2xl pt-4 shadow-sm hover:shadow-lg hover:shadow-black/50 shadow-black/40 transition-shadow duration-200 relative">
             <div className="px-6">
@@ -116,7 +142,7 @@ const CreatePost = ({onPostCreated}) => {
                 />
                 <div>
                   <h2 className="text-xl font-semibold text-gray-900">
-                    Ayush Barman
+                    {user?.name}
                   </h2>
                   <p className="text-sm text-gray-900">Post to anyone</p>
                 </div>
@@ -132,10 +158,17 @@ const CreatePost = ({onPostCreated}) => {
               />
             </div>
             <div className="px-6 py-3 border-t border-t-gray-300 flex justify-end">
-              <BlueBtn text="Post" onClick={handleCreatePost} disabled={!content.trim()}/>
+              <BlueBtn
+                text={isEdit ? "Save" : "Post"}
+                onClick={handleSubmit}
+                disabled={!content.trim()}
+              />
             </div>
             <div className="absolute right-3 top-3">
-              <CutBtn2 onClick={() => setShowModal(false)}/>
+              <CutBtn2 onClick={() => {
+                setShowModal(false);
+                onClose && onClose()
+              }} />
             </div>
           </div>
         </div>
