@@ -44,8 +44,8 @@ const FeedPost = ({ post, onDelete, onEdit, onLike }) => {
         console.error(error);
       }
     };
-    if (showComments) fetchComments();
-  }, [showComments, post._id]);
+    fetchComments();
+  }, [post._id]);
 
   const handleAddComment = async () => {
     try {
@@ -143,7 +143,7 @@ const FeedPost = ({ post, onDelete, onEdit, onLike }) => {
           className="flex items-center justify-center gap-2 transition-all ease-in-out duration-200 hover:bg-[#F3F3F3] rounded-sm py-2 px-3 flex-1"
         >
           <MessageCircle className="w-4 h-4" />
-          Comment
+          Comment ({comments.length})
         </Link>
         <Link
           to="#"
@@ -220,7 +220,7 @@ const FeedPost = ({ post, onDelete, onEdit, onLike }) => {
                     </h1>
                     <span className="text-xs text-gray-700"> • Following</span>
                     <p className="text-xs text-gray-700">
-                      {post.user.headline}
+                      {c.user?.headline}
                     </p>
                   </Link>
                   <p className="text-sm text-gray-900 my-4">{c.content}</p>
