@@ -15,10 +15,15 @@ import profile from "../../assets/images/profile.jfif";
 import { useAuth } from "../../hooks/useAuth";
 
 const FeedPost = ({ post, onDelete, onEdit, onLike }) => {
-  const { user } = useAuth();
-  const isLiked = post.likes.some(
-    (id) => id.toString() === user._id.toString(),
-  );
+  const { user, token } = useAuth();
+
+  const isLiked =
+    user && post?.likes?.some((id) => id.toString() === user._id.toString());
+
+  const isOwner =
+    user &&
+    post?.user?._id &&
+    post.user._id.toString() === user?._id.toString();
 
   const [comments, setComments] = useState([]);
   const [commentText, setCommentText] = useState("");
@@ -27,7 +32,11 @@ const FeedPost = ({ post, onDelete, onEdit, onLike }) => {
   useEffect(() => {
     const fetchComments = async () => {
       try {
-        const token = localStorage.getItem("token");
+        if (!token) {
+          console.log("No token!, skipping posts fetch");
+          return;
+        }
+
         const res = await fetch(`${API_URL}/api/comments/${post._id}`, {
           headers: {
             Authorization: `Bearer ${token}`,
@@ -45,11 +54,10 @@ const FeedPost = ({ post, onDelete, onEdit, onLike }) => {
       }
     };
     fetchComments();
-  }, [post._id]);
+  }, [post._id, token]);
 
   const handleAddComment = async () => {
     try {
-      const token = localStorage.getItem("token");
       const res = await fetch(`${API_URL}/api/comments/${post._id}`, {
         method: "POST",
         headers: {
@@ -119,7 +127,12 @@ const FeedPost = ({ post, onDelete, onEdit, onLike }) => {
             </span>
           </Link>
         </div>
-        <CutBtn onEdit={() => onEdit(post)} onDelete={() => onDelete(post._id)} />
+        {isOwner && (
+          <CutBtn
+            onEdit={() => onEdit(post)}
+            onDelete={() => onDelete(post._id)}
+          />
+        )}
       </div>
 
       <div className="my-2">
@@ -192,7 +205,7 @@ const FeedPost = ({ post, onDelete, onEdit, onLike }) => {
                   </Link>
                 </div>
                 <div className="bg-gray-100 px-3 py-2 w-full rounded-xl">
-                  <Link to={`/profile/${post.user._id}`} >
+                  <Link to={`/profile/${post.user._id}`}>
                     <h1 className="inline-flex items-center gap-1 font-semibold text-sm text-gray-900">
                       {c.user.name}
                       <svg
@@ -219,9 +232,7 @@ const FeedPost = ({ post, onDelete, onEdit, onLike }) => {
                       </svg>
                     </h1>
                     <span className="text-xs text-gray-700"> • Following</span>
-                    <p className="text-xs text-gray-700">
-                      {c.user?.headline}
-                    </p>
+                    <p className="text-xs text-gray-700">{c.user?.headline}</p>
                   </Link>
                   <p className="text-sm text-gray-900 my-4">{c.content}</p>
                 </div>

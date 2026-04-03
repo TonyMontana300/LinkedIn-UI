@@ -61,11 +61,11 @@ export const deleteUser = async (req, res) => {
 // GET current user
 export const getMe = async (req, res) => {
   try {
-
-    if (!req.user) {
-        return res.status(401).json({ message: "User now found!"})
+    const freshUser = await User.findById(req.user._id).select("-password");
+    if (!freshUser) {
+      return res.status(404).json({ message: "User not found!" });
     }
-    res.status(200).json(req.user);
+    res.status(200).json(freshUser);
   } catch (error) {
     console.error("Get me error: ", error)
     res.status(500).json({ message: error.message });
@@ -75,9 +75,9 @@ export const getMe = async (req, res) => {
 //UPDATE logged-in user
 export const updateProfile = async (req, res) => {
   try {
-    const userId = req.user.id;
+    const userId = req.user._id;
 
-    const { name, headline, location, profileImage, coverImage } = req.body;
+    const { name, headline, location, profileImage, coverImage, about } = req.body;
 
     const user = await User.findById(userId);
     if (!user) return res.status(404).json({message: "User not found!"});
@@ -87,9 +87,12 @@ export const updateProfile = async (req, res) => {
     user.location = location || user.location;
     user.profileImage = profileImage || user.profileImage;
     user.coverImage = coverImage || user.coverImage;
+    user.about = about || user.about;
 
     const updatedUser = await user.save();
-    res.json(updatedUser);
+    const userObj = updatedUser.toObject();
+    delete userObj.password;
+    res.json({ userObj });
 
   } catch (error) {
     res.status(500).json({ message: error.message });

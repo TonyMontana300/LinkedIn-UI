@@ -16,7 +16,7 @@ const protect = async (req, res, next) => {
     const user = await User.findById(decoded.id).select("-password");
     if (!user) return res.status(404).json({ message: "User not found" });
 
-    req.user = user;
+    req.user = {  ...user._doc };
     next();
   } catch (error) {
     console.error("Auth error: ", error);

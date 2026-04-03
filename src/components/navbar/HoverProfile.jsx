@@ -1,17 +1,19 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import BlueBtn from "../ui/BlueBtn";
 import profile from "../../assets/images/profile.jfif";
 import { useAuth } from "../../hooks/useAuth.js";
 
 const HoverProfile = () => {
 
-  const { user, setUser } = useAuth();
+  const navigate = useNavigate();
+  const { user, setUser, setToken } = useAuth();
 
   const handleLogout = () => {
     localStorage.removeItem("token");
+    setToken(null);
     setUser(null);
-    window.location.href = "/login";
+    navigate("/login");
   };
 
   return (
@@ -58,7 +60,7 @@ const HoverProfile = () => {
             </p>
           </div>
         </Link>
-        <BlueBtn text="View profile" linkTo="/profile/:id" />
+        <BlueBtn text="View profile" linkTo={`/profile/${user?._id}`} />
       </div>
 
       <div className="border-b border-b-gray-300 px-4 pt-2 pb-3 flex flex-col gap-2">

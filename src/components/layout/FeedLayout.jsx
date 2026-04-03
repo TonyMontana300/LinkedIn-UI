@@ -8,19 +8,19 @@ import { useAuth } from "../../hooks/useAuth.js";
 import { API_URL } from "../../../server/utils/api.js";
 
 const FeedLayout = () => {
-  const { loading } = useAuth();
+  const { user, loading, token } = useAuth();
   const [posts, setPosts] = useState([]);
   const [editingPost, setEditingPost] = useState(null);
 
   useEffect(() => {
     const fetchPosts = async () => {
       try {
-        const token = localStorage.getItem("token");
-
         if (!token) {
           console.log("No token!, skipping posts fetch");
           return;
         }
+
+        setPosts([]);
 
         const res = await fetch(`${API_URL}/api/posts`, {
           headers: {
@@ -38,12 +38,28 @@ const FeedLayout = () => {
         console.error("Error fetching posts: ", error);
       }
     };
+
+    if (!user?._id) return;
+
     fetchPosts();
-  }, []);
+  }, [user?._id, token]);
 
   const handleLike = async (postId) => {
+    const prevPosts = posts;
+
+    setPosts((prev) =>
+      prev.map((p) => {
+        if (p._id !== postId) return p;
+
+        const isLiked = p.likes.some((id) => String(id) === String(user._id));
+        const updatedLikes = isLiked
+          ? p.likes.filter((id) => String(id) !== String(user._id))
+          : [...p.likes, user._id];
+        return { ...p, likes: updatedLikes };
+      }),
+    );
+
     try {
-      const token = localStorage.getItem("token");
       const res = await fetch(`${API_URL}/api/posts/${postId}/like`, {
         method: "PUT",
         headers: {
@@ -54,17 +70,19 @@ const FeedLayout = () => {
 
       if (res.ok) {
         setPosts((prev) =>
-          prev.map((p) => (p._id === postId ? updatedPost : p)),
+          prev.map((p) =>
+            p._id === postId ? { ...p, likes: updatedPost.likes } : p,
+          ),
         );
       }
     } catch (error) {
       console.error(error);
+      setPosts(prevPosts);
     }
   };
 
   const handleDelete = async (postId) => {
     try {
-      const token = localStorage.getItem("token");
       const res = await fetch(`${API_URL}/api/posts/${postId}`, {
         method: "DELETE",
         headers: {

@@ -18,7 +18,7 @@ const CreatePost = ({
   onPostUpdated,
   onClose,
 }) => {
-  const { user } = useAuth();
+  const { user, token } = useAuth();
   const [showModal, setShowModal] = useState(false);
   const [content, setContent] = useState("");
   const videoRef = useRef(null);
@@ -39,8 +39,6 @@ const CreatePost = ({
 
   const handleSubmit = async () => {
     try {
-      const token = localStorage.getItem("token");
-
       const url = isEdit
         ? `${API_URL}/api/posts/${post._id}`
         : `${API_URL}/api/posts`;

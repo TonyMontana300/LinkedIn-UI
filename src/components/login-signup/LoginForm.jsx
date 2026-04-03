@@ -11,7 +11,7 @@ import { useAuth } from "../../hooks/useAuth";
 
 const LoginForm = () => {
 
-  const { fetchUser } = useAuth();
+  const { setToken } = useAuth();
 
   const navigate = useNavigate();
 
@@ -71,10 +71,9 @@ const LoginForm = () => {
       }
 
       localStorage.setItem("token", data.token);
-
-      await fetchUser();
+      setToken(data.token);
       console.log("Login success: ", data);
-      navigate("/feed");
+      navigate("/feed", {replace: true});
     } catch (error) {
       if (error instanceof TypeError) {
         setServerError("Failed to connect with server! Please try again later.")

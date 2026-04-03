@@ -21,7 +21,7 @@ export const createPost = async (req, res) => {
 
 export const getPosts = async (req, res) => {
     try {
-        const posts = await Post.find().populate("user", "name profileImage, headline").sort({createdAt:-1});
+        const posts = await Post.find().populate("user", "name profileImage headline description").sort({createdAt:-1}).lean();
         res.status(201).json(posts);
     } catch (error) {
         res.status(500).json({message: error.message});
@@ -67,8 +67,7 @@ export const toggleLikePost = async (req, res) => {
 
         await post.save();
 
-        const updatedPost = await Post.findById(post._id).populate("user", "name profileImage headline description");
-        res.status(201).json(updatedPost);
+        res.status(201).json({ likes: post.likes });
 
     } catch (error) {
         res.status(500).json({ message: error.message })
