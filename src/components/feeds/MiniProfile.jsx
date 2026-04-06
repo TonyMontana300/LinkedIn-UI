@@ -1,12 +1,30 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import cover from "../../assets/images/cover.jfif"
-import profile from "../../assets/images/profile.jfif"
+import cover from "../../assets/images/cover.jfif";
 import { useAuth } from "../../hooks/useAuth.js";
+import { API_URL } from "../../../server/utils/api.js";
 
 const MiniProfile = () => {
+  const { user, loading, token, setUser } = useAuth();
 
-  const { user, loading } = useAuth();
+  const handleUpload = async (file) => {
+    const formData = new FormData();
+    formData.append("profileImage", file);
+
+    const res = await fetch(`${API_URL}/api/users/profile`, {
+      method: "PUT",
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+      body: formData,
+    });
+
+    const updatedUser = await res.json();
+
+    if (res.ok) {
+      setUser(updatedUser);
+    }
+  };
 
   if (loading) return <p>Loading...</p>;
 
@@ -21,11 +39,20 @@ const MiniProfile = () => {
       </div>
       <div className="px-4 relative">
         <div className="-mt-5">
-          <img
-            src={profile}
-            alt="Profile Image"
-            className="w-16 h-16 rounded-full object-cover shadow-md ring-white ring-2"
-          />
+          <label className="cursor-pointer">
+            <img
+              src={user?.profileImage}
+              alt="Profile Image"
+              className="w-16 h-16 rounded-full object-cover shadow-md ring-white ring-2 hover:opacity-80 transition"
+            />
+
+            <input
+              type="file"
+              hidden
+              accept="image/*"
+              onChange={(e) => handleUpload(e.target.files[0])}
+            />
+          </label>
         </div>
       </div>
       <div className="px-4 mt-2 mb-4">
@@ -58,7 +85,9 @@ const MiniProfile = () => {
           <p className="text-xs text-gray-900 leading-snug">
             {user?.headline || "Headline"}
           </p>
-          <p className="text-xs text-gray-500 my-1">{user?.location || "Location"}</p>
+          <p className="text-xs text-gray-500 my-1">
+            {user?.location || "Location"}
+          </p>
           <div className="my-2">
             <svg
               width="20px"

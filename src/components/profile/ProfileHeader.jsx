@@ -2,7 +2,6 @@ import React from "react";
 import { Link } from "react-router-dom";
 import BlueBtn from "../ui/BlueBtn";
 import BlackBtn from "../ui/BlackBtn";
-import profile from "../../assets/images/profile.jfif";
 import cover from "../../assets/images/cover.jfif";
 import piemrLogo from "../../assets/images/piemr_logo.jfif";
 import { useAuth } from "../../hooks/useAuth";
@@ -42,7 +41,7 @@ const ProfileHeader = () => {
       <div className="px-6 relative">
         <div className="-mt-20">
           <img
-            src={profile}
+            src={user?.profileImage}
             alt="Profile Image"
             className="w-35 h-35 rounded-full object-cover shadow-md ring-white ring-4"
           />

@@ -8,12 +8,18 @@ import {
   deleteUser,
 } from "../controllers/userController.js";
 import protect from "../middleware/authMiddleware.js";
+import upload from "../middleware/upload.js";
 
 const router = express.Router();
 router.get("/", getUser);
 
 router.get("/me", protect, getMe);
-router.put("/update-profile", protect, updateProfile);
+router.put(
+  "/profile",
+  protect,
+  upload.single("profileImage"),
+  updateProfile
+)
 
 router.get("/:id", getUserById);
 

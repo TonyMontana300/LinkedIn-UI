@@ -11,7 +11,6 @@ import {
   Repeat2,
   Send,
 } from "lucide-react";
-import profile from "../../assets/images/profile.jfif";
 import { useAuth } from "../../hooks/useAuth";
 
 const FeedPost = ({ post, onDelete, onEdit, onLike }) => {
@@ -88,7 +87,7 @@ const FeedPost = ({ post, onDelete, onEdit, onLike }) => {
               className="h-12 w-12 rounded-full flex justify-center items-center"
             >
               <img
-                src={profile}
+                src={post?.user?.profileImage}
                 alt="Profile Image"
                 className="w-12 h-12 rounded-full object-cover shadow-md"
               />
@@ -177,7 +176,7 @@ const FeedPost = ({ post, onDelete, onEdit, onLike }) => {
         <div className="px-4 mt-3">
           {/* Input */}
           <div className="flex gap-2 mb-3">
-            <img src={profile} className="w-8 h-8 rounded-full" alt="" />
+            <img src={user?.profileImage} className="w-8 h-8 rounded-full" alt="" />
             <input
               type="text"
               placeholder="Add a comment..."
@@ -198,7 +197,7 @@ const FeedPost = ({ post, onDelete, onEdit, onLike }) => {
                     className="h-10 w-10 rounded-full flex justify-center items-center"
                   >
                     <img
-                      src={profile}
+                      src={user?.profileImage}
                       alt="Profile Image"
                       className="w-8 h-8 rounded-full object-cover shadow-md"
                     />

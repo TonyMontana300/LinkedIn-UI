@@ -7,7 +7,6 @@ import HoverIcons from "../icons/HoverIcons";
 import videoAnim from "../../assets/icons/Calling video icon.json";
 import imageAnim from "../../assets/icons/Image Not Preview.json";
 import articleAnim from "../../assets/icons/Write.json";
-import profile from "../../assets/images/profile.jfif";
 import BlueBtn from "../ui/BlueBtn";
 import CutBtn2 from "../ui/CutBtn2";
 
@@ -73,7 +72,7 @@ const CreatePost = ({
     <div className="md:pt-3 px-4 pb-1 bg-white rounded-md shadow-sm hover:shadow-lg hover:shadow-gray-300 shadow-gray-300 transition-shadow duration-200 relative">
       <div className="flex gap-2">
         <img
-          src={profile}
+          src={user?.profileImage}
           alt="Profile Image"
           className="w-12 h-12 rounded-full object-cover shadow-md"
         />
@@ -134,7 +133,7 @@ const CreatePost = ({
                 className="flex gap-3 items-center hover:bg-[#F3F3F3] w-57 p-3 rounded-2xl mb-6"
               >
                 <img
-                  src={profile}
+                  src={user?.profileImage}
                   alt="Profile Image"
                   className="rounded-full h-14 w-14"
                 />

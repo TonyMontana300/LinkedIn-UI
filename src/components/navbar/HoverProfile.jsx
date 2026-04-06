@@ -1,7 +1,6 @@
 import React from "react";
 import { Link, useNavigate } from "react-router-dom";
 import BlueBtn from "../ui/BlueBtn";
-import profile from "../../assets/images/profile.jfif";
 import { useAuth } from "../../hooks/useAuth.js";
 
 const HoverProfile = () => {
@@ -23,7 +22,7 @@ const HoverProfile = () => {
           <div className="w-full">
             <img
               className="w-14 h-14 rounded-full"
-              src={profile}
+              src={user?.profileImage}
               alt="profile"
             />
           </div>

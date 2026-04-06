@@ -2,12 +2,12 @@ import Post from "../models/Post.js";
 
 export const createPost = async (req, res) => {
   try {
-    const { content, image, description } = req.body;
+    const { content, profileImage, description } = req.body;
 
     const post = await Post.create({
       user: req.user._id,
       content,
-      image,
+      profileImage,
       description,
     });
 
@@ -78,7 +78,7 @@ export const updatePost = async (req, res) => {
     try {
         const postId = req.params.id;
         const userId = req.user._id;
-        const { content, image, description } = req.body;
+        const { content, profileImage, description } = req.body;
 
         const post = await Post.findById(postId);
         if (!post) {
@@ -90,7 +90,7 @@ export const updatePost = async (req, res) => {
         }
 
         post.content = content || post.content;
-        post.image = image || post.image;
+        post.profileImage = profileImage || post.profileImage;
         post.description = description || post.description;
 
         await post.save();

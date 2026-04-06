@@ -82,17 +82,24 @@ export const updateProfile = async (req, res) => {
     const user = await User.findById(userId);
     if (!user) return res.status(404).json({message: "User not found!"});
 
+    if (req.file) {
+      user.profileImage = req.file.path;
+    };
+
+     if (!req.file && profileImage) {
+      user.profileImage = profileImage;
+    };
+
     user.name = name || user.name;
     user.headline = headline || user.headline;
     user.location = location || user.location;
-    user.profileImage = profileImage || user.profileImage;
     user.coverImage = coverImage || user.coverImage;
     user.about = about || user.about;
 
     const updatedUser = await user.save();
     const userObj = updatedUser.toObject();
     delete userObj.password;
-    res.json({ userObj });
+    res.json(userObj);
 
   } catch (error) {
     res.status(500).json({ message: error.message });
