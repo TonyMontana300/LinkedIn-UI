@@ -43,13 +43,20 @@ const FeedPost = ({ post, onDelete, onEdit, onLike }) => {
         });
         const data = await res.json();
 
+        console.group(`Fetch Comments by post: ${post._id}`);
+        console.log("Comments data: ", data);  
+        console.log("Status: ", res.status);
+        console.groupEnd();
+
         if (Array.isArray(data)) {
           setComments(data);
         } else {
           console.error("Invalid comments data: ", data);
         }
       } catch (error) {
+        console.group(`Fetch Comments Error: ${post._id}`);
         console.error(error);
+        console.groupEnd();
       }
     };
     fetchComments();
@@ -57,6 +64,11 @@ const FeedPost = ({ post, onDelete, onEdit, onLike }) => {
 
   const handleAddComment = async () => {
     try {
+
+      console.group("Adding comment");
+      console.log("Post ID: ", post._id);
+      console.log("Comment text: ", commentText);
+
       const res = await fetch(`${API_URL}/api/comments/${post._id}`, {
         method: "POST",
         headers: {
@@ -68,12 +80,18 @@ const FeedPost = ({ post, onDelete, onEdit, onLike }) => {
 
       const newComment = await res.json();
 
+      console.log("New comment response: ", newComment);
+      console.log("New comment user: ", newComment.user);
+      console.groupEnd();
+
       if (res.ok) {
         setComments((prev) => [newComment, ...prev]);
         setCommentText("");
       }
     } catch (error) {
+      console.group("Add Comment Error");
       console.error(error);
+      console.groupEnd();
     }
   };
 
@@ -189,22 +207,28 @@ const FeedPost = ({ post, onDelete, onEdit, onLike }) => {
 
           {/* Comments List */}
           {Array.isArray(comments) &&
-            comments.map((c) => (
+            comments.map((c) => {
+              console.group(`Comment: ${c._id}`);
+              console.log("Content: ", c.content);
+              console.log("User: ", c.user?.name);
+              console.log("Profile Image: ", c.user?.profileImage);
+              console.groupEnd();
+              return (
               <div className="flex gap-1 mb-2" key={c._id}>
                 <div>
                   <Link
-                    to={`/profile/${post.user._id}`}
+                    to={`/profile/${c.user._id}`}
                     className="h-10 w-10 rounded-full flex justify-center items-center"
                   >
                     <img
-                      src={user?.profileImage}
+                      src={c.user?.profileImage}
                       alt="Profile Image"
                       className="w-8 h-8 rounded-full object-cover shadow-md"
                     />
                   </Link>
                 </div>
                 <div className="bg-gray-100 px-3 py-2 w-full rounded-xl">
-                  <Link to={`/profile/${post.user._id}`}>
+                  <Link to={`/profile/${c.user._id}`}>
                     <h1 className="inline-flex items-center gap-1 font-semibold text-sm text-gray-900">
                       {c.user.name}
                       <svg
@@ -236,7 +260,7 @@ const FeedPost = ({ post, onDelete, onEdit, onLike }) => {
                   <p className="text-sm text-gray-900 my-4">{c.content}</p>
                 </div>
               </div>
-            ))}
+            )})}
         </div>
       )}
     </div>

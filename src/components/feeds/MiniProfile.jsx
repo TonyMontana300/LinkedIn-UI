@@ -11,6 +11,8 @@ const MiniProfile = () => {
     const formData = new FormData();
     formData.append("profileImage", file);
 
+    console.log("Uploading file...");
+
     const res = await fetch(`${API_URL}/api/users/profile`, {
       method: "PUT",
       headers: {
@@ -19,7 +21,11 @@ const MiniProfile = () => {
       body: formData,
     });
 
+    console.log("Upload response status: ", res.status);
+
     const updatedUser = await res.json();
+
+    console.log("Updated user: ", updatedUser);
 
     if (res.ok) {
       setUser(updatedUser);

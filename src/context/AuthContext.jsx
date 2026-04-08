@@ -9,6 +9,9 @@ export const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(null);
   const [loading, setLoading] = useState(true);
 
+  console.log("TOKEN: ", token);
+  console.log("USER STATE: ", user);
+
   const fetchUser = useCallback(async () => {
     try {
       if (!token) {
@@ -17,14 +20,20 @@ export const AuthProvider = ({ children }) => {
         return;
       }
 
+      console.log("FETCHING USER...");
+
       const res = await fetch(`${API_URL}/api/users/me`, {
         headers: {
           Authorization: `Bearer ${token}`,
         },
       });
 
+      console.log("Response status: ", res.status);
+
       const data = await res.json();
       setUser(data);
+
+      console.log("Fetched user from backend: ", data);
       
     } catch (error) {
       console.error(error);

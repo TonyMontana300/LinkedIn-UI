@@ -19,8 +19,6 @@ app.use("/api/users", userRoutes);
 app.use("/api/posts", postRoutes);
 app.use("/api/comments", commentRoutes);
 
-console.log("Cloud Name: ", process.env.CLOUDINARY_CLOUD_NAME);
-
 app.get("/", (req, res) => {
     res.send("LinkedIn API running...");
 })

@@ -57,7 +57,6 @@ export const deleteUser = async (req, res) => {
   }
 };
 
-
 // GET current user
 export const getMe = async (req, res) => {
   try {
@@ -65,9 +64,11 @@ export const getMe = async (req, res) => {
     if (!freshUser) {
       return res.status(404).json({ message: "User not found!" });
     }
+    console.log("req.user in getMe: ", req.user);
     res.status(200).json(freshUser);
+    console.log("Get me user: ", freshUser);
   } catch (error) {
-    console.error("Get me error: ", error)
+    console.error("Get me error: ", error);
     res.status(500).json({ message: error.message });
   }
 };
@@ -77,18 +78,23 @@ export const updateProfile = async (req, res) => {
   try {
     const userId = req.user._id;
 
-    const { name, headline, location, profileImage, coverImage, about } = req.body;
+    const { name, headline, location, profileImage, coverImage, about } =
+      req.body;
 
+    console.log("Body: ", req.body);
     const user = await User.findById(userId);
-    if (!user) return res.status(404).json({message: "User not found!"});
+    if (!user) return res.status(404).json({ message: "User not found!" });
+    
+    console.log("User before update: ", user);
 
     if (req.file) {
       user.profileImage = req.file.path;
-    };
+      console.log("File: ", req.file);
+    }
 
-     if (!req.file && profileImage) {
+    if (!req.file && profileImage) {
       user.profileImage = profileImage;
-    };
+    }
 
     user.name = name || user.name;
     user.headline = headline || user.headline;
@@ -100,7 +106,7 @@ export const updateProfile = async (req, res) => {
     const userObj = updatedUser.toObject();
     delete userObj.password;
     res.json(userObj);
-
+    console.log("Updated user: ", userObj);
   } catch (error) {
     res.status(500).json({ message: error.message });
   }

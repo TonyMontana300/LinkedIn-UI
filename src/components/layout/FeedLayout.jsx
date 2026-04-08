@@ -27,7 +27,11 @@ const FeedLayout = () => {
             Authorization: `Bearer ${token}`,
           },
         });
+
         const data = await res.json();
+
+        console.log("Fetched posts: ", data);
+
         if (Array.isArray(data)) {
           setPosts(data);
         } else {
@@ -44,8 +48,12 @@ const FeedLayout = () => {
     fetchPosts();
   }, [user?._id, token]);
 
+  console.log("All posts: ", posts);
+
   const handleLike = async (postId) => {
-    const prevPosts = posts;
+    const prevPosts = [...posts];
+
+    console.log("Toggling like for post: ", postId);
 
     setPosts((prev) =>
       prev.map((p) => {
@@ -74,6 +82,7 @@ const FeedLayout = () => {
             p._id === postId ? { ...p, likes: updatedPost.likes } : p,
           ),
         );
+        console.log("Updated likes: ", updatedPost.likes);
       }
     } catch (error) {
       console.error(error);
