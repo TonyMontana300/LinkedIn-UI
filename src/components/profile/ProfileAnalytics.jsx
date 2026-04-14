@@ -1,8 +1,15 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import ShowBtn from "../ui/ShowBtn";
+import { useAuth } from "../../hooks/useAuth";
 
-const ProfileAnalytics = () => {
+const ProfileAnalytics = ({ profileUser }) => {
+
+  const { user } = useAuth();
+
+  const isOwner = user?._id === profileUser?._id;
+  if (!isOwner) return null;
+
   return (
     <div className="bg-white rounded-xl pt-6 shadow-sm overflow-hidden hover:shadow-lg hover:shadow-gray-300 shadow-gray-300 transition-shadow duration-200">
       <div className="px-6">

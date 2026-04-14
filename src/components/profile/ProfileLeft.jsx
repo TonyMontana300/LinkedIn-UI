@@ -10,18 +10,18 @@ import Projects from "../profile/Projects";
 import Skills from "../profile/Skills";
 import AuthFooter from "../login-signup/AuthFooter"
 
-const ProfileLeft = () => {
+const ProfileLeft = ({profileUser}) => {
   return (
     <div className="flex flex-col gap-3">
-      <ProfileHeader />
-      <ProfileAnalytics />
-      <About />
-      <Activity />
-      <Experience />
-      <Education />
-      <Certification />
-      <Projects />
-      <Skills />
+      <ProfileHeader profileUser={profileUser} />
+      <ProfileAnalytics profileUser={profileUser} />
+      <About profileUser={profileUser} />
+      <Activity profileUser={profileUser} />
+      <Experience profileUser={profileUser} />
+      <Education profileUser={profileUser} />
+      <Certification profileUser={profileUser} />
+      <Projects profileUser={profileUser} />
+      <Skills profileUser={profileUser} />
       <AuthFooter />
     </div>
   );

@@ -3,12 +3,12 @@ import Language from "../profile/Language";
 import Viewed from "../profile/Viewed";
 import Know from "../profile/Know";
 
-const ProfileRight = () => {
+const ProfileRight = ({ profileUser }) => {
   return (
     <div className="flex flex-col gap-3">
-      <Language />
-      <Viewed />
-      <Know />
+      <Language profileUser={profileUser} />
+      <Viewed profileUser={profileUser} />
+      <Know profileUser={profileUser} />
     </div>
   );
 };

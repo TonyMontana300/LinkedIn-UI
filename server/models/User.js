@@ -34,7 +34,7 @@ const userSchema = new mongoose.Schema(
       type: String,
       default: "",
     },
-    bannerImage: {
+    coverImage: {
       type: String,
       default: "",
     },

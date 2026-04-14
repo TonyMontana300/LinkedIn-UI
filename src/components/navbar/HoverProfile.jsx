@@ -21,7 +21,7 @@ const HoverProfile = () => {
         <Link to="#" className="flex gap-1">
           <div className="w-full">
             <img
-              className="w-14 h-14 rounded-full"
+              className="w-14 h-14 rounded-full object-cover"
               src={user?.profileImage}
               alt="profile"
             />
