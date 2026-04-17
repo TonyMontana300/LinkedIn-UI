@@ -1,14 +1,17 @@
 import React from "react";
 import EditBtn from "../ui/EditBtn";
 import { Link } from "react-router-dom";
+import { useAuth } from "../../hooks/useAuth";
 
-const Skills = () => {
+const Skills = ({ profileUser }) => {
+  const { user } = useAuth();
+  const isOwner = user?._id === profileUser?._id;
   return (
     <div className="md:pt-6 pt-4 bg-white rounded-xl shadow-sm hover:shadow-lg hover:shadow-gray-300 shadow-gray-300 transition-shadow duration-200">
       <div className="px-6">
         <div className="flex justify-between items-center">
           <h2 className="text-xl font-semibold text-gray-900">Skills</h2>
-          <EditBtn />
+          {isOwner && <EditBtn />}
         </div>
 
         <div className="pb-5 mb-3 border-b border-b-gray-300 mt-3 md:mt-0">

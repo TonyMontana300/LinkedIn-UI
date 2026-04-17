@@ -2,7 +2,7 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import BlackBtn from '../ui/BlackBtn'
 
-const PeopleCard = ({text, description}) => {
+const PeopleCard = ({text, description, btn}) => {
   return (
     <div className="flex gap-3 border-b border-b-gray-300 pb-5 mt-3">
         <Link
@@ -46,7 +46,7 @@ const PeopleCard = ({text, description}) => {
           </p>
           <div className='w-29'>
             <BlackBtn
-              text="Connect"
+              text={btn}
               svg={
                 <svg
                   width="16px"

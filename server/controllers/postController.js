@@ -33,6 +33,18 @@ export const getPosts = async (req, res) => {
     }
 }
 
+export const getUserPosts = async (req, res) => {
+    try {
+        const userId = req.params.userId;
+        console.log("Fetching posts for user: ", userId);
+
+        const posts = await Post.find({ user: userId }).populate("user", "name profileImage headline description").sort({ createdAt: -1 });
+        res.status(200).json(posts);
+    } catch (error) {
+        res.status(500).json({ message: error.message });
+    }
+}
+
 export const deletePost = async (req, res) => {
     try {
         const postId = req.params.id;

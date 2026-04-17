@@ -9,7 +9,7 @@ import {
   Send,
 } from "lucide-react";
 
-const PostCard = () => {
+const PostCard = ({ post }) => {
   return (
     <div className="min-w-90.5 sm:min-w-[70%] rounded-lg shadow-[0_1px_2px_(0,0,0,0.08)] px-4 pt-4 border border-gray-300 flex flex-col gap-2">
       <div className="flex justify-between items-start">
@@ -21,7 +21,7 @@ const PostCard = () => {
           />
           <div>
             <h3 className="font-semibold text-gray-900 inline-flex items-center gap-1 hover:underline hover:text-blue-600">
-              Ayush Barman
+              {post?.user?.name}
               <svg
                 width="18px"
                 height="18px"
@@ -55,8 +55,7 @@ const PostCard = () => {
       </div>
       <div className="flex flex-col border-b border-b-gray-200 py-1">
         <p className="text-base font-medium text-gray-600 h-16 md:h-80">
-          Deployment teaches you more about the web than 10 tutorials ever will.
-          🚀
+          {post?.content}
         </p>
         <span className="hover:underline hover:text-blue-600 cursor-pointer flex items-center gap-1"><ThumbsUp className="w-4 h-4"/> 3</span>
       </div>

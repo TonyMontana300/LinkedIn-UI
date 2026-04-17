@@ -1,16 +1,19 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import EditBtn from "../ui/EditBtn";
-import udemyLogo from "../../assets/images/udemy_logo.jfif"
+import udemyLogo from "../../assets/images/udemy_logo.jfif";
+import { useAuth } from "../../hooks/useAuth";
 
-const Certification = () => {
+const Certification = ({ profileUser }) => {
+  const { user } = useAuth();
+  const isOwner = user?._id === profileUser?._id;
   return (
     <div className="md:pt-6 pt-4 px-6 bg-white rounded-xl shadow-sm hover:shadow-lg hover:shadow-gray-300 shadow-gray-300 transition-shadow duration-200">
       <div className="flex justify-between items-center">
         <h2 className="text-xl font-semibold text-gray-900">
           Licenses & certifications
         </h2>
-        <EditBtn />
+        {isOwner && <EditBtn />}
       </div>
 
       <div className="flex gap-2 border-b border-b-gray-300 pb-5 mt-1">
@@ -19,10 +22,7 @@ const Certification = () => {
             to="#"
             className="h-12 w-12 bg-[#E7E2DC] flex items-center justify-center"
           >
-            <img
-              src={udemyLogo}
-              alt="Udemy"
-            />
+            <img src={udemyLogo} alt="Udemy" />
           </Link>
         </div>
         <div className="flex flex-col gap-5">
@@ -84,10 +84,7 @@ const Certification = () => {
             to="#"
             className="h-12 w-12 bg-[#E7E2DC] flex items-center justify-center"
           >
-            <img
-              src={udemyLogo}
-              alt="Udemy"
-            />
+            <img src={udemyLogo} alt="Udemy" />
           </Link>
         </div>
         <div className="flex flex-col gap-5">

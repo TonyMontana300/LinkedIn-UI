@@ -1,14 +1,17 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import EditBtn from "../ui/EditBtn";
-import piemrLogo from "../../assets/images/piemr_logo.jfif"
+import piemrLogo from "../../assets/images/piemr_logo.jfif";
+import { useAuth } from "../../hooks/useAuth";
 
-const Education = () => {
+const Education = ({ profileUser }) => {
+  const { user } = useAuth();
+  const isOwner = user?._id === profileUser?._id;
   return (
     <div className="md:pt-6 pt-4 px-6 bg-white rounded-xl shadow-sm hover:shadow-lg hover:shadow-gray-300 shadow-gray-300 transition-shadow duration-200">
       <div className="flex justify-between">
         <h2 className="text-xl font-semibold text-gray-900">Education</h2>
-        <EditBtn />
+        {isOwner && <EditBtn />}
       </div>
 
       <div className="flex gap-2 border-b border-b-gray-300 pb-5 mt-1">
@@ -17,10 +20,7 @@ const Education = () => {
             to="#"
             className="h-12 w-12 bg-[#E7E2DC] flex items-center justify-center"
           >
-            <img
-              src={piemrLogo}
-              alt="piemr"
-            />
+            <img src={piemrLogo} alt="piemr" />
           </Link>
         </div>
         <div className="flex flex-col gap-5">
@@ -61,10 +61,7 @@ const Education = () => {
             to="#"
             className="h-12 w-12 bg-[#E7E2DC] flex items-center justify-center"
           >
-            <img
-              src={piemrLogo}
-              alt="piemr"
-            />
+            <img src={piemrLogo} alt="piemr" />
           </Link>
         </div>
         <div className="flex flex-col gap-5">

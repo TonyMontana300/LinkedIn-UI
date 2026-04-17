@@ -3,11 +3,19 @@ import { Link } from "react-router-dom";
 import PostCard from "../posts/PostCard";
 import { useRef, useState, useEffect } from "react";
 import BlueBtn from "../ui/BlueBtn";
-import ShowBtn from "../ui/ShowBtn";
 import BlackBtn from "../ui/BlackBtn";
+import ShowBtn from "../ui/ShowBtn";
 import GreenBtn from "../ui/GreenBtn";
+import { useAuth } from "../../hooks/useAuth";
+import { API_URL } from "../../../server/utils/api";
 
-const Activity = () => {
+const Activity = ({ profileUser }) => {
+  const { user, token } = useAuth();
+  const isOwner = user?._id === profileUser?._id;
+
+  const [posts, setPosts] = useState([]);
+  const [loading, setLoading] = useState(true);
+
   const [showLeft, setShowLeft] = useState(false);
   const [showRight, setShowRight] = useState(true);
 
@@ -19,6 +27,28 @@ const Activity = () => {
   const scrollRight = () => {
     scrollRef.current.scrollBy({ left: 300, behavior: "smooth" });
   };
+
+  useEffect(() => {
+    const fetchPosts = async () => {
+      setLoading(true);
+      try {
+        const res = await fetch(`${API_URL}/api/posts/user/${profileUser._id}`, {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          }
+        });
+        const data = await res.json();
+        setPosts(data);
+      } catch (error) {
+        console.error("Error fetching posts:", error);
+      } finally {
+        setLoading(false);
+      }
+    };
+    if (profileUser?._id) {
+      fetchPosts();
+    }
+  }, [profileUser, token]);
 
   useEffect(() => {
     const container = scrollRef.current;
@@ -50,30 +80,34 @@ const Activity = () => {
             87 followers
           </Link>
           <div className="md:flex gap-2 mt-1 mb-3 hidden">
-            <GreenBtn text="Posts"/>
-            <BlackBtn text="Comments"/>
+            <GreenBtn text="Posts" />
+            <BlackBtn text="Comments" />
           </div>
         </div>
-        <div className="flex gap-2 items-center">
-          <BlueBtn text="Create a post"/>
-          <Link
-            to="#"
-            className="hover:bg-[#D4DDE6] rounded-full p-1 transition-all ease-in-out duration-200 w-11 h-11 flex items-center justify-center"
-          >
-            <svg
-              className="hover:fill-[#151617]"
-              fill="#000000"
-              width="30"
-              height="30"
-              viewBox="-5 0 32 32"
-              version="1.1"
-              xmlns="http://www.w3.org/2000/svg"
+        {isOwner ? (
+          <div className="flex gap-2 items-center">
+            <BlueBtn text="Create a post" />
+            <Link
+              to="#"
+              className="hover:bg-[#D4DDE6] rounded-full p-1 transition-all ease-in-out duration-200 w-11 h-11 flex items-center justify-center"
             >
-              <title>pencil</title>
-              <path d="M18.344 4.781l-3.406 3.063s1.125 0.688 2.156 1.656c1 0.969 1.719 2.063 1.719 2.063l2.906-3.469s-0.031-0.625-1.406-1.969c-1.406-1.344-1.969-1.344-1.969-1.344zM7.25 21.938l-0.156 1.5 10.813-11.25s-0.719-1-1.594-1.844c-0.906-0.875-1.938-1.563-1.938-1.563l-10.813 11.25 1.688-0.094 0.188 1.813zM0 26.719l2.688-5.5 1.5-0.125 0.125 1.719 1.813 0.25-0.188 1.375-5.438 2.75z"></path>
-            </svg>
-          </Link>
-        </div>
+              <svg
+                className="hover:fill-[#151617]"
+                fill="#000000"
+                width="30"
+                height="30"
+                viewBox="-5 0 32 32"
+                version="1.1"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <title>pencil</title>
+                <path d="M18.344 4.781l-3.406 3.063s1.125 0.688 2.156 1.656c1 0.969 1.719 2.063 1.719 2.063l2.906-3.469s-0.031-0.625-1.406-1.969c-1.406-1.344-1.969-1.344-1.969-1.344zM7.25 21.938l-0.156 1.5 10.813-11.25s-0.719-1-1.594-1.844c-0.906-0.875-1.938-1.563-1.938-1.563l-10.813 11.25 1.688-0.094 0.188 1.813zM0 26.719l2.688-5.5 1.5-0.125 0.125 1.719 1.813 0.25-0.188 1.375-5.438 2.75z"></path>
+              </svg>
+            </Link>
+          </div>
+        ) : (
+          <BlackBtn text="Follow" />
+        )}
       </div>
 
       <div className="relative w-full md:w-209 mt-4 md:mt-0">
@@ -103,13 +137,15 @@ const Activity = () => {
           ref={scrollRef}
           className="flex items-start px-6 gap-4 shrink-0 overflow-x-auto scroll-smooth no-scrollbar mb-2 snap-x snap-mandatory"
         >
-          {/* {posts.map((post, index) => {
-          <div key={index} className="min-w-[320px] bg-white rounded-lg shadow-sm p-4"></div>
-        })} */}
-          <PostCard />
-          <PostCard />
-          <PostCard />
-          <PostCard />
+          {loading ? (
+            <p className="text-gray-500">Loading posts...</p>
+          ) : posts.length > 0 ? (
+            posts.map((post) => (
+              <PostCard key={post._id} post={post} />
+            ))
+          ) : (
+            <p className="text-gray-500">No posts yet.</p>
+          )}
         </div>
 
         <button
@@ -135,7 +171,7 @@ const Activity = () => {
           </svg>
         </button>
       </div>
-      <ShowBtn text="Show all posts"/>
+      <ShowBtn text="Show all posts" />
     </div>
   );
 };
