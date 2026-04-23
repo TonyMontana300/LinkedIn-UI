@@ -4,7 +4,7 @@ import Footer from '../layout/Footer'
 
 const NetworkSidebar = () => {
   return (
-    <div className='flex flex-col gap-3'>
+    <div className='hidden md:flex flex-col gap-3'>
       <NetworkTab />
       <Footer />
     </div>

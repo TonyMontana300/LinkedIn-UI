@@ -6,20 +6,20 @@ import RightPanel from "../feeds/RightPanel";
 import MainPanel from "../feeds/MainPanel";
 import { useAuth } from "../../hooks/useAuth.js";
 import { API_URL } from "../../../server/utils/api.js";
+import toast from "react-hot-toast"
 
 const FeedLayout = () => {
   const { user, loading, token } = useAuth();
   const [posts, setPosts] = useState([]);
+  const [postsLoading, setPostsLoading] = useState(true);
   const [editingPost, setEditingPost] = useState(null);
 
   useEffect(() => {
     const fetchPosts = async () => {
       try {
-        if (!token) {
-          console.log("No token!, skipping posts fetch");
-          return;
-        }
+        if (!token) return;
 
+        setPostsLoading(true);
         setPosts([]);
 
         const res = await fetch(`${API_URL}/api/posts`, {
@@ -30,8 +30,6 @@ const FeedLayout = () => {
 
         const data = await res.json();
 
-        console.log("Fetched posts: ", data);
-
         if (Array.isArray(data)) {
           setPosts(data);
         } else {
@@ -40,6 +38,8 @@ const FeedLayout = () => {
         }
       } catch (error) {
         console.error("Error fetching posts: ", error);
+      } finally {
+        setPostsLoading(false);
       }
     };
 
@@ -48,12 +48,8 @@ const FeedLayout = () => {
     fetchPosts();
   }, [user?._id, token]);
 
-  console.log("All posts: ", posts);
-
   const handleLike = async (postId) => {
     const prevPosts = [...posts];
-
-    console.log("Toggling like for post: ", postId);
 
     setPosts((prev) =>
       prev.map((p) => {
@@ -82,7 +78,7 @@ const FeedLayout = () => {
             p._id === postId ? { ...p, likes: updatedPost.likes } : p,
           ),
         );
-        console.log("Updated likes: ", updatedPost.likes);
+        toast.success(updatedPost.likes.includes(user._id) ? "Post liked!" : "Like removed!");
       }
     } catch (error) {
       console.error(error);
@@ -102,21 +98,24 @@ const FeedLayout = () => {
       const data = await res.json();
       if (res.ok) {
         setPosts((prev) => prev.filter((p) => p._id !== postId));
+        toast.success("Post deleted!");
       } else {
-        console.log(data.message);
+        toast.error(data.message || "Failed to delete post.");
       }
     } catch (error) {
       console.error(error);
+      toast.error("Something went wrong.");
     }
   };
 
   if (loading) return <p>Loading...</p>;
 
   return (
-    <main className="bg-[#F4F2EE] py-2 min-h-163">
-      <div className="grid grid-cols-[1fr_3fr_1.3fr] gap-5 max-w-6xl mx-auto my-4">
+    <main className="bg-[#F4F2EE] md:py-2 px-2 py-1 lg:min-h-163 min-h-screen">
+      <div className="grid lg:grid-cols-[1fr_3fr_1.3fr] md:grid-cols-[1fr_2.5fr] grid-cols-1 gap-5 max-w-6xl mx-auto my-4">
         <LeftPanel />
         <MainPanel
+          loading={postsLoading}
           posts={posts}
           onDelete={handleDelete}
           onEdit={(post) => setEditingPost(post)}

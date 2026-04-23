@@ -9,6 +9,7 @@ import imageAnim from "../../assets/icons/Image Not Preview.json";
 import articleAnim from "../../assets/icons/Write.json";
 import BlueBtn from "../ui/BlueBtn";
 import CutBtn2 from "../ui/CutBtn2";
+import toast from "react-hot-toast";
 
 const CreatePost = ({
   onPostCreated,
@@ -54,6 +55,9 @@ const CreatePost = ({
       const newPost = await res.json();
 
       if (res.ok) {
+
+        toast.success(isEdit ? "Post updated!" : "Post created!");
+
         if (isEdit) {
           onPostUpdated(newPost);
           onClose();
@@ -62,14 +66,17 @@ const CreatePost = ({
           setShowModal(false);
         }
         setContent("");
+      } else {
+        toast.error("Failed to create post.");
       }
     } catch (error) {
       console.error(error);
+      toast.error("Something went wrong.");
     }
   };
 
   return (
-    <div className="md:pt-3 px-4 pb-1 bg-white rounded-md shadow-sm hover:shadow-lg hover:shadow-gray-300 shadow-gray-300 transition-shadow duration-200 relative">
+    <div className="md:pt-3 pt-4 md:px-4 px-3 pb-1 bg-white rounded-md shadow-sm hover:shadow-lg hover:shadow-gray-300 shadow-gray-300 transition-shadow duration-200 relative">
       <div className="flex gap-2">
         <img
           src={user?.profileImage}
@@ -85,7 +92,7 @@ const CreatePost = ({
         </button>
       </div>
 
-      <div className="flex justify-around my-1">
+      <div className="flex justify-around md:my-1 mt-2">
         <Link
           to="#"
           className="hover:bg-[#F3F3F3] py-2 px-2 rounded-sm flex items-center"
@@ -126,7 +133,7 @@ const CreatePost = ({
 
       {(showModal || isEdit) && (
         <div className="fixed inset-0 z-50 flex justify-center items-center bg-black/50">
-          <div className="bg-white rounded-xl w-2xl pt-4 shadow-sm hover:shadow-lg hover:shadow-black/50 shadow-black/40 transition-shadow duration-200 relative">
+          <div className="bg-white rounded-xl w-[95%] max-w-2xl pt-4 shadow-sm hover:shadow-lg hover:shadow-black/50 shadow-black/40 transition-shadow duration-200 relative">
             <div className="px-6">
               <Link
                 to=""
@@ -135,7 +142,7 @@ const CreatePost = ({
                 <img
                   src={user?.profileImage}
                   alt="Profile Image"
-                  className="rounded-full h-14 w-14"
+                  className="rounded-full h-14 w-14 object-cover shadow-md"
                 />
                 <div>
                   <h2 className="text-xl font-semibold text-gray-900">

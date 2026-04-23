@@ -6,7 +6,7 @@ import Items from './Items'
 const LeftPanel = () => {
   
   return (
-    <div className='flex flex-col gap-3'>
+    <div className='md:flex md:flex-col md:gap-3 hidden'>
       <MiniProfile />
       <Stats />
       <Items />
