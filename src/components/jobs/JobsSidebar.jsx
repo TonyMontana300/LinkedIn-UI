@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom'
 
 const JobsSidebar = () => {
   return (
-    <div className='flex flex-col gap-3'>
+    <div className='hidden md:flex flex-col gap-3'>
       <MiniProfile />
       <CTATab />
       <Footer />

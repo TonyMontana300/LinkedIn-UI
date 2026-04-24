@@ -27,11 +27,11 @@ const Collection = () => {
 
   return (
     <div className="md:pt-5 pt-4 bg-white rounded-md shadow-sm hover:shadow-lg hover:shadow-gray-300 shadow-gray-300 transition-shadow duration-200">
-      <div className="px-6">
+      <div className="md:px-6 px-3">
         <h2 className="text-gray-900 text-xl font-medium">
           Explore with job collections
         </h2>
-        <div className="flex gap-6 border-b border-b-gray-300 mt-2">
+        <div className="flex md:gap-6 gap-4 overflow-x-auto no-scrollbar border-b border-b-gray-300 mt-2">
           {tabs.map((tab) => (
             <Link
               to="#"

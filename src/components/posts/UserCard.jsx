@@ -1,32 +1,31 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import BlueBtn from "../ui/BlueBtn";
-import profile from "../../assets/images/profile.jfif";
 import cover from "../../assets/images/cover.jfif";
 
-const UserCard = () => {
+const UserCard = ({ user }) => {
   return (
-    <div className="cursor-pointer bg-white rounded-md shadow-sm overflow-hidden hover:shadow-lg hover:shadow-gray-300 shadow-gray-300 transition-shadow duration-200">
+    <div className="cursor-pointer h-full flex flex-col bg-white rounded-md shadow-sm overflow-hidden hover:shadow-lg hover:-translate-y-0.5 hover:shadow-gray-300 shadow-gray-300 transition-all duration-200">
       <div className="w-full rounded-md">
         <img
-          src={cover}
+          src={user.coverImage || cover}
           alt="Cover Image"
-          className="w-full h-full object-cover"
+          className="w-full h-20 object-cover"
         />
       </div>
-      <div className="mx-15 relative">
-        <div className="-mt-5">
+      <div className="flex justify-center">
+        <div className="-mt-4 rounded-full border-2 border-white">
           <img
-            src={profile}
+            src={user.profileImage}
             alt="Profile Image"
             className="w-18 h-18 rounded-full object-cover shadow-md"
           />
         </div>
       </div>
-      <div className="px-4 mt-2 mb-4">
-        <Link to="#" className="flex flex-col items-center">
-          <h1 className="inline-flex items-center gap-1 font-medium text-gray-900">
-            Ayush Barman
+      <div className="px-3 mt-2 mb-3 flex flex-col justify-between grow">
+        <Link to="#" className="flex flex-col items-center gap-1">
+          <h1 className="inline-flex items-center gap-1 text-sm md:text-base font-medium text-gray-900">
+            {user.name}
             <svg
               width="18px"
               height="18px"
@@ -50,8 +49,8 @@ const UserCard = () => {
               />
             </svg>
           </h1>
-          <p className="text-sm text-gray-500 leading-snug text-center mb-3">
-            Full-Stack Web Developer | JavaScript, Node.js, React, Next.js...
+          <p className="text-xs md:text-sm text-gray-500 leading-snug text-center mb-3 line-clamp-2">
+            {user.headline || "Software Developer at XYZ Company"}
           </p>
         </Link>
         <BlueBtn
