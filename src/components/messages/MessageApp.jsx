@@ -9,36 +9,36 @@ const MessageApp = () => {
   const [selectedChat, setSelectedChat] = useState(conversations[0]);
 
   return (
-    <div className="grid grid-cols-[1.2fr_2fr] h-[71vh]">
-      <div className="border-r border-r-gray-300">
+    <div className="grid grid-cols-[80px_1fr] md:grid-cols-[1.2fr_2fr] flex-1 overflow-hidden">
+      <div className="border-r border-r-gray-300 overflow-y-auto">
         {conversations.map((chat) => (
           <div
             onClick={() => setSelectedChat(chat)}
             key={chat.id}
-            className="flex gap-2 py-3 px-4 hover:bg-[#EBEBEB] cursor-pointer border-b border-b-gray-200"
+            className="flex flex-col md:flex-row md:gap-2 gap-1 items-center md:items-start md:py-3 py-2 px-3 md:px-4 hover:bg-[#EBEBEB] cursor-pointer border-b border-b-gray-200"
           >
             <div>
               <img
                 src={chat.avatar}
                 alt="avatar"
-                className="w-12 h-12 rounded-full"
+                className="md:w-12 md:h-12 w-8 h-8 rounded-full object-cover"
               />
             </div>
             <div className=" flex-1">
               <div className="flex justify-between">
-                <h2 className="text-gray-900 leading-tight">{chat.name}</h2>
-                <p className="text-sm text-gray-900">{chat.time}</p>
+                <h2 className=" text-gray-900 text-xs md:text-base leading-tight">{chat.name}</h2>
+                <p className="hidden md:block text-sm text-gray-900">{chat.time}</p>
               </div>
-              <p className="text-sm text-gray-500">
+              <p className="hidden md:block text-sm text-gray-500">
                 {chat.role}: {chat.lastMessage}
               </p>
             </div>
           </div>
         ))}
       </div>
-      <div className="py-1">
+      <div className="py-1 flex flex-col h-full overflow-hidden">
         <div className="flex justify-between items-center px-3 border-b border-b-gray-300">
-          <div className="">
+          <div>
             <h2 className="font-semibold">{selectedChat.name}</h2>
             <p className="text-xs text-gray-500">{selectedChat.role}</p>
           </div>

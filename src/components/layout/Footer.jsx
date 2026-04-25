@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 const Footer = () => {
   return (
-    <footer>
+    <footer className="hidden md:block">
       <div className="flex flex-wrap gap-y-2 gap-x-3 px-2 md:px-0 mb-12 md:mb-0 justify-center my-3">
         <Link
           to="#"

@@ -5,7 +5,7 @@ import Collection from "./Collection";
 
 const JobsMain = () => {
   return (
-    <div className="flex flex-col gap-4">
+    <div className="flex flex-col md:gap-4 gap-3">
       <Preference />
       <Activity />
       <Collection />

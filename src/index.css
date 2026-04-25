@@ -10,6 +10,7 @@ input::-ms-clear {
 }
 .no-scrollbar {
   -ms-overflow-style: none;
+  scrollbar-width: none;
 }
 
 .footer-link-1 {

@@ -9,9 +9,9 @@ const ChatContainer = ({selectedChat}) => {
   const filteredMsges = chatMessages.filter((msg) => msg.conversationId === selectedChat.id);
 
   return (
-    <div className="flex flex-col h-65 py-2 border-b-2 border-b-gray-300 overflow-y-auto overflow-x-hidden flex-1">
+    <div className="flex flex-col py-2 border-b-2 border-b-gray-300 overflow-y-auto overflow-x-hidden flex-1">
       {filteredMsges.map((msg) => (
-        <div key={msg.id} className="w-120">
+        <div key={msg.id} className="md:w-120 w-full">
           <div className="px-2">
             <Link to="#" className="">
               <img
@@ -46,10 +46,10 @@ const ChatContainer = ({selectedChat}) => {
           </div>
 
           <div className="flex flex-col gap-4 hover:bg-[#EBEBEB] py-2">
-            <p className="px-14 font-medium text-gray-900 text-sm">
+            <p className="md:px-14 px-3 font-medium text-gray-900 text-sm">
               {msg.role} - {msg.lastMessage}
             </p>
-            <p className="px-14 text-sm text-gray-800 text-left">
+            <p className="md:px-14 px-3 text-sm text-gray-800 text-left">
               {msg.message}
             </p>
           </div>
