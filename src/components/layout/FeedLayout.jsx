@@ -6,13 +6,17 @@ import RightPanel from "../feeds/RightPanel";
 import MainPanel from "../feeds/MainPanel";
 import { useAuth } from "../../hooks/useAuth.js";
 import { API_URL } from "../../../server/utils/api.js";
-import toast from "react-hot-toast"
+import toast from "react-hot-toast";
+import { useOutletContext } from "react-router-dom";
+import { ReceiptIcon } from "lucide-react";
 
 const FeedLayout = () => {
   const { user, loading, token } = useAuth();
   const [posts, setPosts] = useState([]);
   const [postsLoading, setPostsLoading] = useState(true);
   const [editingPost, setEditingPost] = useState(null);
+
+  const { setNotifications } = useOutletContext();
 
   useEffect(() => {
     const fetchPosts = async () => {
@@ -49,6 +53,12 @@ const FeedLayout = () => {
   }, [user?._id, token]);
 
   const handleLike = async (postId) => {
+
+    const targetPost = posts.find((p) => p._id === postId);
+    const wasLiked = targetPost?.likes.some(
+      (id) => String(id) === String(user._id),
+    );
+
     const prevPosts = [...posts];
 
     setPosts((prev) =>
@@ -78,7 +88,34 @@ const FeedLayout = () => {
             p._id === postId ? { ...p, likes: updatedPost.likes } : p,
           ),
         );
-        toast.success(updatedPost.likes.includes(user._id) ? "Post liked!" : "Like removed!");
+
+        const postOwnerId = targetPost.user._id;
+        const isNowLiked = updatedPost.likes.includes(user._id);
+        if (!wasLiked && isNowLiked && String(postOwnerId) !== String(user._id)) {
+          
+          const resNotif = await fetch(`${API_URL}/api/notifications`, {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+              Authorization: `Bearer ${token}`,
+            },
+            body: JSON.stringify({
+              recipient: postOwnerId,
+              type: "like",
+              post: postId,
+            }),
+          })
+
+          if (!resNotif.ok) {
+            console.error("Failed to create notification");
+            return;
+          }
+
+          const newNotification = await resNotif.json()
+
+          setNotifications((prev) => [newNotification, ...prev]);
+          toast.success(isNowLiked ? "Post liked!" : "Like removed!");
+        }
       }
     } catch (error) {
       console.error(error);

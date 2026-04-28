@@ -1,17 +1,59 @@
 import React from "react";
 import { conversations } from "../../data/messages";
+import { chatMessages } from "../../data/chatMessages";
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import ChatContainer from "./ChatContainer";
 import BlueBtn from "../ui/BlueBtn";
 
 const MessageApp = () => {
+  const [messages, setMessages] = useState(chatMessages);
+  const [chatList, setChatList] = useState(conversations);
   const [selectedChat, setSelectedChat] = useState(conversations[0]);
+  const [newMessage, setNewMessage] = useState("");
+
+  const filteredMsges = messages.filter(
+    (msg) => msg.conversationId === selectedChat.id,
+  );
+
+  const handleSendMessage = () => {
+    if (newMessage.trim() === "") return;
+
+    const newMsg = {
+      id: Date.now(),
+      conversationId: selectedChat.id,
+      sender: "You",
+      avatar: "https://randomuser.me/api/portraits/lego/1.jpg",
+      message: newMessage,
+      time: new Date().toLocaleTimeString([], {
+        hour: "2-digit",
+        minute: "2-digit",
+      }),
+      date: new Date().toLocaleDateString(),
+    };
+    setMessages((prev) => [...prev, newMsg]);
+    setNewMessage("");
+    setChatList((prevChat) => {
+      return prevChat.map((chat) => {
+       return chat.id === selectedChat.id
+          ? {
+              ...chat,
+              lastMessage: newMessage,
+              time: new Date().toLocaleTimeString([], {
+                hour: "2-digit",
+                minute: "2-digit",
+              }),
+            }
+          : chat;
+      });
+    });
+    
+  };
 
   return (
     <div className="grid grid-cols-[80px_1fr] md:grid-cols-[1.2fr_2fr] flex-1 overflow-hidden">
       <div className="border-r border-r-gray-300 overflow-y-auto">
-        {conversations.map((chat) => (
+        {chatList.map((chat) => (
           <div
             onClick={() => setSelectedChat(chat)}
             key={chat.id}
@@ -26,8 +68,12 @@ const MessageApp = () => {
             </div>
             <div className=" flex-1">
               <div className="flex justify-between">
-                <h2 className=" text-gray-900 text-xs md:text-base leading-tight">{chat.name}</h2>
-                <p className="hidden md:block text-sm text-gray-900">{chat.time}</p>
+                <h2 className=" text-gray-900 text-xs md:text-base leading-tight">
+                  {chat.name}
+                </h2>
+                <p className="hidden md:block text-sm text-gray-900">
+                  {chat.time}
+                </p>
               </div>
               <p className="hidden md:block text-sm text-gray-500">
                 {chat.role}: {chat.lastMessage}
@@ -77,9 +123,11 @@ const MessageApp = () => {
           </Link>
         </div>
 
-        <ChatContainer selectedChat={selectedChat}/>
+        <ChatContainer messages={filteredMsges} />
         <div className="px-3 py-2 border-b border-b-gray-300">
           <textarea
+            value={newMessage}
+            onChange={(e) => setNewMessage(e.target.value)}
             type="text"
             placeholder="Write a message..."
             className="w-full rounded-md p-3 placeholder:text-gray-600 placeholder:text-sm min-h-25 overflow-y-auto bg-[#EBEBEB] outline-none resize-none"
@@ -181,7 +229,7 @@ const MessageApp = () => {
             </Link>
           </div>
           <div className="flex items-center gap-2">
-            <BlueBtn text="Send"/>
+            <BlueBtn text="Send" onClick={handleSendMessage} />
             <Link
               to="#"
               className="hover:bg-[#D4DDE6] rounded-full p-1 transition-all ease-in-out duration-200 w-9 h-9 flex items-center justify-center"

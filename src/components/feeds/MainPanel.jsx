@@ -1,8 +1,12 @@
 import React from "react";
 import CreatePost from "./CreatePost";
 import FeedPost from "./FeedPost";
+import { useOutletContext } from "react-router-dom";
 
 const MainPanel = ({ posts, onDelete, onEdit, onLike, onPostCreated, loading }) => {
+
+  const { setNotifications } = useOutletContext();
+
   return (
     <div className="flex flex-col gap-2 w-full">
       <CreatePost onPostCreated={onPostCreated} />
@@ -20,6 +24,7 @@ const MainPanel = ({ posts, onDelete, onEdit, onLike, onPostCreated, loading }) 
               onDelete={onDelete}
               onEdit={onEdit}
               onLike={onLike}
+              setNotifications={setNotifications}
             />
           );
         })

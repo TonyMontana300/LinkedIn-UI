@@ -1,16 +1,13 @@
 import React from "react";
-import { chatMessages } from "../../data/chatMessages";
 import { Link } from "react-router-dom";
 import MsgBorder from "../ui/MsgBorder";
 import BlueBtn from "../ui/BlueBtn";
 
-const ChatContainer = ({selectedChat}) => {
-
-  const filteredMsges = chatMessages.filter((msg) => msg.conversationId === selectedChat.id);
+const ChatContainer = ({ messages }) => {
 
   return (
     <div className="flex flex-col py-2 border-b-2 border-b-gray-300 overflow-y-auto overflow-x-hidden flex-1">
-      {filteredMsges.map((msg) => (
+      {messages.map((msg) => (
         <div key={msg.id} className="md:w-120 w-full">
           <div className="px-2">
             <Link to="#" className="">
