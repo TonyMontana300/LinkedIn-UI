@@ -59,7 +59,7 @@ const HoverProfile = () => {
             </p>
           </div>
         </Link>
-        <BlueBtn text="View profile" linkTo={`/profile/${user?._id}`} />
+        <BlueBtn text="View profile" fullWidth linkTo={`/profile/${user?._id}`} />
       </div>
 
       <div className="border-b border-b-gray-300 px-4 pt-2 pb-3 flex flex-col gap-2">

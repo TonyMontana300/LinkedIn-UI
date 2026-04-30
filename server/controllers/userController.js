@@ -63,12 +63,9 @@ export const getMe = async (req, res) => {
     const freshUser = await User.findById(req.user._id).select("-password");
     if (!freshUser) {
       return res.status(404).json({ message: "User not found!" });
-    }
-    console.log("req.user in getMe: ", req.user);
+    };
     res.status(200).json(freshUser);
-    console.log("Get me user: ", freshUser);
   } catch (error) {
-    console.error("Get me error: ", error);
     res.status(500).json({ message: error.message });
   }
 };
@@ -81,11 +78,8 @@ export const updateProfile = async (req, res) => {
     const { name, headline, location, profileImage, coverImage, about } =
       req.body;
 
-    console.log("Body: ", req.body);
     const user = await User.findById(userId);
     if (!user) return res.status(404).json({ message: "User not found!" });
-    
-    console.log("User before update: ", user);
 
     if (req.file) {
       user.profileImage = req.file.path;
@@ -106,7 +100,6 @@ export const updateProfile = async (req, res) => {
     const userObj = updatedUser.toObject();
     delete userObj.password;
     res.json(userObj);
-    console.log("Updated user: ", userObj);
   } catch (error) {
     res.status(500).json({ message: error.message });
   }

@@ -4,9 +4,6 @@ export const createPost = async (req, res) => {
   try {
     const { content, profileImage, description } = req.body;
 
-    console.log("User: ", req.user._id);
-    console.log("Data: ", req.body);
-
     const post = await Post.create({
       user: req.user._id,
       content,
@@ -24,10 +21,8 @@ export const createPost = async (req, res) => {
 
 export const getPosts = async (req, res) => {
     try {
-        console.log("Fetching posts...");
         const posts = await Post.find().populate("user", "name profileImage headline description").sort({createdAt:-1}).lean();
         res.status(200).json(posts);
-        console.log("Post fetched: ", posts.length);
     } catch (error) {
         res.status(500).json({message: error.message});
     }
@@ -36,8 +31,6 @@ export const getPosts = async (req, res) => {
 export const getUserPosts = async (req, res) => {
     try {
         const userId = req.params.userId;
-        console.log("Fetching posts for user: ", userId);
-
         const posts = await Post.find({ user: userId }).populate("user", "name profileImage headline description").sort({ createdAt: -1 });
         res.status(200).json(posts);
     } catch (error) {
@@ -70,15 +63,10 @@ export const toggleLikePost = async (req, res) => {
         const postId = req.params.id;
         const userId = req.user._id;
 
-        console.log("Post Id: ", postId);
-        console.log("User Id: ", userId);
-
         const post = await Post.findById(postId);
         if (!post) {
             return res.status(404).json({ message: "Post not found"});
         }
-
-        console.log("Before Likes: ", post.likes);
 
         const isLiked = post.likes.some((id) => id.toString() === userId.toString());
         if (isLiked) {
@@ -90,7 +78,6 @@ export const toggleLikePost = async (req, res) => {
         await post.save();
 
         res.status(201).json({ likes: post.likes });
-        console.log("Post likes updated: ", post.likes);
 
     } catch (error) {
         res.status(500).json({ message: error.message })

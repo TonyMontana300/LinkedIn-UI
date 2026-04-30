@@ -10,7 +10,10 @@ const NotificationFeed = ({ notifications }) => {
   const category = ["All", "Jobs", "My posts", "Mentions"];
 
   const getCategory = (item) => {
-    if (item.type === "like") return "My posts";
+    if (item.isFake) return item.category || "All";
+    if (item.type === "like" || item.type === "comment" || item.type === "post") return "My posts";
+    if (item.type === "job") return "Jobs";
+    if (item.type === "mention") return "Mentions";
     return "All";
   };
 
@@ -22,7 +25,6 @@ const NotificationFeed = ({ notifications }) => {
         );
 
   const getNotificationText = (item) => {
-
     const isFake = item.isFake;
 
     if (isFake) return item;
@@ -45,6 +47,12 @@ const NotificationFeed = ({ notifications }) => {
           ...item,
           text: "started following you.",
           message: "",
+        };
+      case "post":
+        return {
+          ...item,
+          text: "created a new post:",
+          message: item.post?.content || item.post?.description || "",
         };
 
       default:
@@ -86,8 +94,7 @@ const NotificationFeed = ({ notifications }) => {
                     <span className="text-gray-900 font-semibold text-sm">
                       {notif.sender?.name || notif.user}
                     </span>{" "}
-                    {notif.text}{" "}
-                    {notif.message && (notif.message)}
+                    {notif.text} {notif.message && notif.message}
                   </p>
                 </div>
               </div>

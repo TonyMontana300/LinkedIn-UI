@@ -73,6 +73,7 @@ const UserCard = ({ user }) => {
             </svg>
           }
           text="Connect"
+          fullWidth
         />
       </div>
     </div>

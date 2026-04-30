@@ -54,8 +54,8 @@ const ProfileHeader = ({ profileUser }) => {
           />
         </div>
       </div>
-      <div className="flex justify-between gap-10">
-        <div className="my-3 px-6">
+      <div className="flex flex-col md:flex-row md:justify-between md:gap-10">
+        <div className="md:my-3 my-1 px-6">
           <h1 className="inline-flex items-center gap-1 text-2xl font-semibold text-gray-900 hover:bg-[#EBEBEB] rounded-sm transition-all ease-out duration-200">
             {profileUser?.name || "User"}
             <svg
@@ -81,7 +81,7 @@ const ProfileHeader = ({ profileUser }) => {
               />
             </svg>
           </h1>
-          <p className="text-md text-gray-900 my-1 leading-snug w-md">
+          <p className="text-md text-gray-900 my-1 leading-snug max-w-md md:w-md">
             {profileUser?.headline}
           </p>
           <p className="text-sm text-gray-500 my-2">
@@ -102,12 +102,12 @@ const ProfileHeader = ({ profileUser }) => {
               79 connections
             </Link>
           </div>
-          <div className="flex gap-3 mb-6 flex-wrap">
+          <div className="flex md:gap-3 gap-2 mb-6 flex-wrap">
             {isOwner ? (
               <>
                 <Link
                   to="#"
-                  className="px-4 py-2 md:px-4 md:py-1 rounded-full disabled:opacity-70 disabled:cursor-not-allowed disabled:hover:bg-blue-600 disabled:active:scale-100 disabled:active:ring-0 bg-blue-600 text-white font-medium hover:bg-blue-800 focus:outline-none active:ring-1 active:ring-blue-600 active:ring-offset-1 active:scale-[0.99] transition-all ease-out duration-200"
+                  className="inline-flex justify-center item-center whitespace-nowrap w-fit shrink-0 px-3 py-1 md:px-4 text-xs md:text-base rounded-full disabled:opacity-70 disabled:cursor-not-allowed disabled:hover:bg-blue-600 disabled:active:scale-100 disabled:active:ring-0 bg-blue-600 text-white font-medium hover:bg-blue-800 focus:outline-none active:ring-1 active:ring-blue-600 active:ring-offset-1 active:scale-[0.99] transition-all ease-out duration-200"
                 >
                   Open to
                 </Link>
@@ -123,7 +123,8 @@ const ProfileHeader = ({ profileUser }) => {
               </>
             )}
           </div>
-          <div className="bg-[#DDE7F1] rounded-xl px-3 py-4 flex flex-col mb-2 w-sm relative">
+
+          <div className="bg-[#DDE7F1] rounded-xl px-3 py-4 flex flex-col mb-2 max-w-sm w-full relative">
             <Link to="#" className="text-gray-950 font-semibold -my-1 text-sm">
               Open to work . Recruiters only
             </Link>
@@ -157,7 +158,7 @@ const ProfileHeader = ({ profileUser }) => {
             )}
           </div>
         </div>
-        <div className="py-5 relative">
+        <div className="md:py-5 py-3 px-6 relative">
           <Link to="#" className="flex gap-2">
             <img src={piemrLogo} alt="logo" className="w-10 h-8" />
             <span className="text-gray-900 leading-tight font-semibold text-sm hover:text-blue-600 hover:underline transition-all ease-out duration-100">
@@ -167,7 +168,7 @@ const ProfileHeader = ({ profileUser }) => {
           {isOwner && (
             <Link
               to="#"
-              className="absolute -top-8 right-5 bg-white hover:bg-[#F3F3F3] w-10 h-10 rounded-full p-1 flex justify-center items-center transition-all ease-in-out duration-200"
+              className="absolute md:-top-8 md:right-5 top-3 right-1  bg-white hover:bg-[#F3F3F3] w-10 h-10 rounded-full p-1 flex justify-center items-center transition-all ease-in-out duration-200"
             >
               <svg
                 width="25px"

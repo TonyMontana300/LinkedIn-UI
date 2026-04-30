@@ -1,5 +1,5 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, useOutletContext } from "react-router-dom";
 import { useRef, useState, useEffect } from "react";
 import { API_URL } from "../../../server/utils/api";
 import { useAuth } from "../../hooks/useAuth";
@@ -10,6 +10,7 @@ import articleAnim from "../../assets/icons/Write.json";
 import BlueBtn from "../ui/BlueBtn";
 import CutBtn2 from "../ui/CutBtn2";
 import toast from "react-hot-toast";
+import { sendNotification } from "../../utils/sendNotifications";
 
 const CreatePost = ({
   onPostCreated,
@@ -25,6 +26,8 @@ const CreatePost = ({
   const imageRef = useRef(null);
   const articleRef = useRef(null);
   const textareaRef = useRef();
+
+  const { setNotifications } = useOutletContext();
 
   useEffect(() => {
     if (showModal) textareaRef.current?.focus();
@@ -55,7 +58,6 @@ const CreatePost = ({
       const newPost = await res.json();
 
       if (res.ok) {
-
         toast.success(isEdit ? "Post updated!" : "Post created!");
 
         if (isEdit) {
@@ -63,14 +65,28 @@ const CreatePost = ({
           onClose();
         } else {
           onPostCreated(newPost);
+
+          const testUserId = "69ce1f8016b56026d0a78611";
+
+          if (String(testUserId) !== String(user._id)) {
+            const newNotification = await sendNotification(
+              token,
+              testUserId,
+              "post",
+              newPost._id,
+            );
+            if (newNotification) {
+              setNotifications((prev) => [newNotification, ...prev]);
+            }
+          }
+
           setShowModal(false);
         }
         setContent("");
       } else {
         toast.error("Failed to create post.");
       }
-    } catch (error) {
-      console.error(error);
+    } catch {
       toast.error("Something went wrong.");
     }
   };
@@ -169,10 +185,12 @@ const CreatePost = ({
               />
             </div>
             <div className="absolute right-3 top-3">
-              <CutBtn2 onClick={() => {
-                setShowModal(false);
-                onClose && onClose()
-              }} />
+              <CutBtn2
+                onClick={() => {
+                  setShowModal(false);
+                  onClose && onClose();
+                }}
+              />
             </div>
           </div>
         </div>

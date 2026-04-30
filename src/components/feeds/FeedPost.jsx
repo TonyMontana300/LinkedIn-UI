@@ -4,6 +4,8 @@ import CutBtn from "../ui/CutBtn";
 import { Link } from "react-router-dom";
 import { API_URL } from "../../../server/utils/api";
 import BlueBtn from "../ui/BlueBtn";
+import { sendNotification } from "../../utils/sendNotifications";
+import { useOutletContext } from "react-router-dom";
 import {
   MoreHorizontal,
   ThumbsUp,
@@ -16,6 +18,7 @@ import toast from "react-hot-toast";
 
 const FeedPost = ({ post, onDelete, onEdit, onLike }) => {
   const { user, token } = useAuth();
+  const { setNotifications } = useOutletContext();
 
   const isLiked =
     user && post?.likes?.some((id) => id.toString() === user._id.toString());
@@ -49,10 +52,8 @@ const FeedPost = ({ post, onDelete, onEdit, onLike }) => {
         } else {
           console.error("Invalid comments data: ", data);
         }
-      } catch (error) {
-        console.group(`Fetch Comments Error: ${post._id}`);
-        console.error(error);
-        console.groupEnd();
+      } catch {
+        toast.error("Failed to load comments");
       } finally {
         setCommentLoading(false);
       }
@@ -77,14 +78,20 @@ const FeedPost = ({ post, onDelete, onEdit, onLike }) => {
       if (res.ok) {
         setComments((prev) => [newComment, ...prev]);
         setCommentText("");
+
+        const postOwnerId = post.user._id;
+        if (String(postOwnerId) !== String(user._id)) {
+          const newNotification = await sendNotification(token, postOwnerId, "comment", post._id);
+          if (newNotification) {
+            setNotifications((prev) => [newNotification, ...prev]);
+          }
+        }
+
         toast.success("Comment added!");
       } else {
         toast.error("Failed to add comment.");
       }
-    } catch (error) {
-      console.group("Add Comment Error");
-      console.error(error);
-      console.groupEnd();
+    } catch {
       toast.error("Something went wrong.");
     }
   };

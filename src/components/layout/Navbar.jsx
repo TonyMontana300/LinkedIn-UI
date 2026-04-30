@@ -348,7 +348,7 @@ const Navbar = () => {
             <div className="border-t border-t-gray-300 pt-3">
               <Link
                 onClick={() => setOpenMenu(false)}
-                to={`/profile/${user?.id || ""}`}
+                to={`/profile/${user?._id || ""}`}
                 className="flex items-center gap-4 text-sm w-full px-3 py-2 transition-colors duration-200 hover:bg-gray-200 active:scale-[0.98] rounded-md text-gray-600 font-medium hover:text-gray-900"
               >
                 <img
