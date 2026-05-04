@@ -12,7 +12,7 @@ const HoverProfile = () => {
     localStorage.removeItem("token");
     setToken(null);
     setUser(null);
-    navigate("/login");
+    navigate("/login", { replace: true });
   };
 
   return (
