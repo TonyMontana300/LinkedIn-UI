@@ -20,7 +20,7 @@ const Section_1 = () => {
     <section className="bg-[#F3F2F0]">
       <div className="max-w-6xl mx-auto">
         <div className=" flex flex-col md:flex-row md:justify-between gap-10 md:gap-20 items-center">
-          <div className="mt-10 md:mt-20 md:mb-50">
+          <div className="mt-10 md:mt-20 md:mb-50 px-2 md:px-0">
             <h2 className="text-3xl py-2 text-center md:text-left">Explore top LinkedIn content</h2>
             <p className="text-lg md:text-xl text-gray-900 w-sm md:w-md py-2 leading-normal text-center md:text-left">
               Discover relevant posts and expert insights — curated by topic and

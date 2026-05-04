@@ -6,8 +6,8 @@ import Policy from "../ui/Policy";
 
 const Hero = () => {
   return (
-    <main className="Hero min-h-[80vh] w-full animate-[fadeIn_0.8s_ease_forwards] opacity-0">
-      <div className="flex flex-col md:flex-row">
+    <main className="Hero min-h-[80vh] w-full animate-[fadeIn_0.8s_ease_forwards] opacity-0 px-2">
+      <div className="flex flex-col-reverse md:flex-row">
         <div className="Hero-right px-3 py-7 max-w-xl md:ml-45 mx-auto">
           <h1 className="md:text-5xl sm:text-4xl text-3xl md:leading-15 leading-tight md:text-left text-center">
             Welcome to your professional network
