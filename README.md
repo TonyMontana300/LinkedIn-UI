@@ -1,3 +1,5 @@
+![Preview](./screenshots/hero.png.png)
+
 LinkedIn UI Clone (Upgraded)
 
 This is a LinkedIn-inspired full stack web app that I built while learning and improving my MERN stack skills.
