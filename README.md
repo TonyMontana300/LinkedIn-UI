@@ -1,4 +1,4 @@
-![Preview](./screenshots/hero.png.png)
+![Preview](./screenshots/preview.png.jpeg)
 
 LinkedIn UI Clone (Upgraded)
 
